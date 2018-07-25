@@ -5,10 +5,10 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 
-add_action( 'enqueue_block_editor_assets', 'getbowtied_latest_posts_editor_assets' );
+add_action( 'enqueue_block_editor_assets', 'getbowtied_mc_latest_posts_editor_assets' );
 
-if ( ! function_exists( 'getbowtied_latest_posts_editor_assets' ) ) {
-	function getbowtied_latest_posts_editor_assets() {
+if ( ! function_exists( 'getbowtied_mc_latest_posts_editor_assets' ) ) {
+	function getbowtied_mc_latest_posts_editor_assets() {
 		
 		wp_enqueue_script(
 			'getbowtied-latest-posts',
@@ -25,10 +25,10 @@ if ( ! function_exists( 'getbowtied_latest_posts_editor_assets' ) ) {
 	}
 }
 
-add_action( 'enqueue_block_assets', 'getbowtied_latest_posts_assets' );
+add_action( 'enqueue_block_assets', 'getbowtied_mc_latest_posts_assets' );
 
-if ( ! function_exists( 'getbowtied_latest_posts_assets' ) ) {
-	function getbowtied_latest_posts_assets() {
+if ( ! function_exists( 'getbowtied_mc_latest_posts_assets' ) ) {
+	function getbowtied_mc_latest_posts_assets() {
 		
 		wp_enqueue_style(
 			'getbowtied-latest-posts-grid-css',
@@ -38,7 +38,7 @@ if ( ! function_exists( 'getbowtied_latest_posts_assets' ) ) {
 	}
 }
 
-register_block_type( 'getbowtied/latest-posts-grid', array(
+register_block_type( 'getbowtied/mc-latest-posts-grid', array(
 	'attributes'      					=> array(
 		'number'						=> array(
 			'type'						=> 'number',
@@ -58,10 +58,10 @@ register_block_type( 'getbowtied/latest-posts-grid', array(
 		),
 	),
 
-	'render_callback' => 'getbowtied_render_frontend_latest_posts_grid',
+	'render_callback' => 'getbowtied_mc_render_frontend_latest_posts_grid',
 ) );
 
-function getbowtied_render_frontend_latest_posts_grid( $attributes ) {
+function getbowtied_mc_render_frontend_latest_posts_grid( $attributes ) {
 
 	extract( shortcode_atts( array(
 		'number'	=> '12',
@@ -135,8 +135,8 @@ function getbowtied_render_frontend_latest_posts_grid( $attributes ) {
 
 }
 
-add_action('wp_ajax_getbowtied_render_backend_latest_posts_grid', 'getbowtied_render_backend_latest_posts_grid');
-function getbowtied_render_backend_latest_posts_grid() {
+add_action('wp_ajax_getbowtied_mc_render_backend_latest_posts_grid', 'getbowtied_mc_render_backend_latest_posts_grid');
+function getbowtied_mc_render_backend_latest_posts_grid() {
 
 	$attributes = $_POST['attributes'];
 	$output = '';
