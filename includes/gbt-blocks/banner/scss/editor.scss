@@ -101,6 +101,18 @@
 	z-index: 999;
 }
 
+.shortcode_banner_simple_height_button
+{
+	width: fit-content;
+    margin: 2rem auto 0;
+
+	.banner-button-text
+	{
+		padding: 1.11rem 2.22rem;
+		text-transform: uppercase;
+	}
+}
+
 .shortcode_banner_simple_height_inside h3 {
 	padding:0;
 	margin:0;

@@ -11,6 +11,7 @@
 	var MediaUpload			= editor.MediaUpload;
 
 	var TextControl 		= components.TextControl;
+	var SelectControl		= components.SelectControl;
 	var ToggleControl		= components.ToggleControl;
 	var RangeControl		= components.RangeControl;
 	var ColorPalette		= components.ColorPalette;
@@ -19,10 +20,10 @@
 	var Button				= components.Button;
 
 	/* Register Block */
-	registerBlockType( 'getbowtied/banner', {
+	registerBlockType( 'getbowtied/mc-banner', {
 		title: i18n.__( 'Banner' ),
 		icon: 'format-image',
-		category: 'shopkeeper',
+		category: 'merchandiser',
 		supports: {
 			align: [ 'center', 'wide', 'full' ],
 		},
@@ -35,6 +36,22 @@
 				type: 'string',
 				default: 'Banner Subtitle',
 			},
+			titleSize: {
+				type: 'number',
+				default: '64'
+			},
+			subtitleSize: {
+				type: 'number',
+				default: '21'
+			},
+			titleFont: {
+	        	type: 'string',
+	        	default: 'primary_font',
+	        },
+	        subtitleFont: {
+	        	type: 'string',
+	        	default: 'secondary_font',
+	        },
 		    imgURL: {
 	            type: 'string',
 	            attribute: 'src',
@@ -86,6 +103,22 @@
 				type: 'string',
 				default: '#fff'
 			},
+	        buttonToggle: {
+	        	type: 'boolean',
+	        	default: false
+	        },
+	        buttonText: {
+	        	type: 'string',
+	        	default: 'Button Text'
+	        },
+	        buttonTextColor: {
+	        	type: 'string',
+	        	default: '#fff'
+	        },
+	        buttonBgColor: {
+	        	type: 'string',
+	        	default: '#000'
+	        },
 		},
 
 		edit: function( props ) {
@@ -160,6 +193,72 @@
 						),
 					),
 					el( 
+						PanelBody, 
+						{ 
+							key: 'banner-text-settings-panel',
+							title: 'Font Settings',
+							initialOpen: false,
+							style:
+							{
+							    borderBottom: '1px solid #e2e4e7'
+							}
+						},
+						el(
+							RangeControl,
+							{
+								key: "banner-title-font-size",
+								value: attributes.titleSize,
+								allowReset: false,
+								initialPosition: 64,
+								min: 10,
+								max: 72,
+								label: i18n.__( 'Title Font Size' ),
+								onChange: function( newNumber ) {
+									props.setAttributes( { titleSize: newNumber } );
+								},
+							}
+						),
+						el(
+							SelectControl,
+							{
+								key: "banner-title-font-family",
+								options: [{value: 'primary_font', label: 'Primary Font'}, {value: 'secondary_font', label: 'Secondary Font'}],
+								label: i18n.__( 'Title Font Family (preview in frontend)' ),
+								value: attributes.titleFont,
+								onChange: function( newSelection ) {
+									props.setAttributes( { titleFont: newSelection } );
+								},
+							}
+						),
+						el(
+							RangeControl,
+							{
+								key: "banner-subtitle-font-size",
+								value: attributes.subtitleSize,
+								allowReset: false,
+								initialPosition: 21,
+								min: 10,
+								max: 72,
+								label: i18n.__( 'Subtitle Font Size' ),
+								onChange: function( newNumber ) {
+									props.setAttributes( { subtitleSize: newNumber } );
+								},
+							}
+						),
+						el(
+							SelectControl,
+							{
+								key: "banner-subtitle-font-family",
+								options: [{value: 'primary_font', label: 'Primary Font'}, {value: 'secondary_font', label: 'Secondary Font'}],
+								label: i18n.__( 'Subtitle Font Family (preview in frontend)' ),
+								value: attributes.subtitleFont,
+								onChange: function( newSelection ) {
+									props.setAttributes( { subtitleFont: newSelection } );
+								},
+							}
+						),
+					),
+					el( 
 						PanelBody,
 						{ 
 							key: 'banner-colors-panel',
@@ -219,6 +318,67 @@
 									value: attributes.bgColor,
 									onChange: function( newColor) {
 										props.setAttributes( { bgColor: newColor } );
+									},
+								} 
+							),
+						),
+					),
+					el( 
+						PanelBody, 
+						{ 
+							key: 'banner-button-settings-panel',
+							title: 'Button',
+							initialOpen: false,
+							style:
+							{
+							    borderBottom: '1px solid #e2e4e7'
+							}
+						},
+						el(
+							ToggleControl,
+							{
+								key: "banner-button-toggle",
+	              				label: i18n.__( 'Button' ),
+	              				checked: attributes.buttonToggle,
+	              				onChange: function() {
+									props.setAttributes( { buttonToggle: ! attributes.buttonToggle } );
+								},
+							}
+						),
+						!! attributes.buttonToggle && el(
+							PanelColor,
+							{
+								key: 'banner-button-text-color-panel',
+								title: i18n.__( 'Button Text Color' ),
+								colorValue: attributes.buttonTextColor,
+							},
+							el(
+								ColorPalette, 
+								{
+									key: 'banner-button-text-color-palette',
+									colors: colors,
+									value: attributes.buttonTextColor,
+									onChange: function( newColor) {
+										props.setAttributes( { buttonTextColor: newColor } );
+									},
+								} 
+							),
+						),
+						!! attributes.buttonToggle && el(
+							PanelColor,
+							{
+								key: 'banner-button-bg-color-panel',
+								title: i18n.__( 'Button Background Color' ),
+								colorValue: attributes.buttonBgColor,
+							},
+							el(
+								ColorPalette, 
+								{
+									key: 'banner-button-bg-color-palette',
+									colors: colors,
+									value: attributes.buttonBgColor,
+									onChange: function( newColor) {
+										props.setAttributes( { buttonBgColor: newColor } );
 									},
 								} 
 							),
@@ -410,7 +570,8 @@
 												key: 'banner-title',
 												style:
 												{ 
-													color: attributes.titleColor
+													color: attributes.titleColor,
+													fontSize: attributes.titleSize + 'px'
 												},
 												className: 'banner-title',
 												formattingControls: [],
@@ -447,7 +608,8 @@
 												key: 'banner-subtitle',
 												style:
 												{
-													color: attributes.subtitleColor
+													color: attributes.subtitleColor,
+													fontSize: attributes.subtitleSize + 'px'
 												},
 												className: 'banner-subtitle',
 												tagName: 'h4',
@@ -460,7 +622,33 @@
 												}
 											}
 										),
-
+									),
+									!! attributes.buttonToggle && el(
+										'div',
+										{
+											key: 'shortcode_banner_simple_height_button',
+											className: 'shortcode_banner_simple_height_button',
+										},
+										el(
+											RichText, 
+											{
+												key: 'banner-button-text',
+												style:
+												{
+													color: attributes.buttonTextColor,
+													backgroundColor: attributes.buttonBgColor,
+												},
+												className: 'banner-button-text',
+												format: 'string',
+												tagName: 'h5',
+												value: attributes.buttonText,
+												formattingControls: [],
+												placeholder: i18n.__( 'Button Text' ),
+												onChange: function( newText) {
+													props.setAttributes( { buttonText: newText } );
+												}
+											}
+										),
 									),
 								),
 							),

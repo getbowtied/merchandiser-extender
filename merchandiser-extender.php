@@ -53,7 +53,7 @@ if ( ! function_exists( 'is_plugin_active' ) ) {
 function gbt_mc_gutenberg_blocks() {
 
 	$theme = wp_get_theme();
-	if ( $theme->template != 'shopkeeper') {
+	if ( $theme->template != 'merchandiser') {
 		return;
 	}
 
