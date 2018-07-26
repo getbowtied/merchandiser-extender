@@ -23,11 +23,11 @@
 	var Tooltip				= wp.components.Tooltip;
 
 	/* Register Block */
-	registerBlockType( 'getbowtied/slide', {
+	registerBlockType( 'getbowtied/mc-slide', {
 		title: i18n.__( 'Slide' ),
 		icon: 'slides',
-		category: 'shopkeeper',
-		parent: [ 'getbowtied/slider' ],
+		category: 'merchandiser',
+		parent: [ 'getbowtied/mc-slider' ],
 		attributes: {
 		    imgURL: {
 	            type: 'string',
@@ -48,7 +48,7 @@
 	        },
 	        title_size: {
 	        	type: 'number',
-	        	default: 73,
+	        	default: 64,
 	        },
 	        title_font: {
 	        	type: 'string',
@@ -60,7 +60,7 @@
 	        },
 	        description_size: {
 	        	type: 'number',
-	        	default: 16,
+	        	default: 21,
 	        },
 	        description_font: {
 	        	type: 'string',

@@ -4,10 +4,10 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-add_action( 'enqueue_block_editor_assets', 'getbowtied_slider_editor_assets' );
+add_action( 'enqueue_block_editor_assets', 'getbowtied_mc_slider_editor_assets' );
 
-if ( ! function_exists( 'getbowtied_slider_editor_assets' ) ) {
-	function getbowtied_slider_editor_assets() {
+if ( ! function_exists( 'getbowtied_mc_slider_editor_assets' ) ) {
+	function getbowtied_mc_slider_editor_assets() {
 
 		wp_enqueue_script(
 			'getbowtied-slide',
@@ -35,10 +35,10 @@ if ( ! function_exists( 'getbowtied_slider_editor_assets' ) ) {
 	}
 }
 
-add_action( 'enqueue_block_assets', 'getbowtied_slider_assets' );
+add_action( 'enqueue_block_assets', 'getbowtied_mc_slider_assets' );
 
-if ( ! function_exists( 'getbowtied_slider_assets' ) ) {
-	function getbowtied_slider_assets() {
+if ( ! function_exists( 'getbowtied_mc_slider_assets' ) ) {
+	function getbowtied_mc_slider_assets() {
 		
 		wp_enqueue_style(
 			'getbowtied-slider-css',
@@ -48,7 +48,7 @@ if ( ! function_exists( 'getbowtied_slider_assets' ) ) {
 	}
 }
 
-register_block_type( 'getbowtied/slide', array(
+register_block_type( 'getbowtied/mc-slide', array(
 	'attributes'      => array(
 		'imgURL' 			=> array(
             'type' 			=> 'string',
@@ -69,15 +69,15 @@ register_block_type( 'getbowtied/slide', array(
 		),
 		'title_size' 		=> array(
 			'type'			=> 'integer',
-			'default'		=> '73',
+			'default'		=> '64',
 		),
 		'description_font' 	=> array(
 			'type'			=> 'string',
-			'default'		=> 'primary_font',
+			'default'		=> 'secondary_font',
 		),
 		'description_size' 	=> array(
 			'type'			=> 'integer',
-			'default'		=> '16',
+			'default'		=> '21',
 		),
 		'description'		=> array(
 			'type'			=> 'string',
@@ -117,10 +117,10 @@ register_block_type( 'getbowtied/slide', array(
 		)
 	),
 
-	'render_callback' => 'getbowtied_render_slide',
+	'render_callback' => 'getbowtied_mc_render_slide',
 ) );
 
-function getbowtied_render_slide( $attributes ) {
+function getbowtied_mc_render_slide( $attributes ) {
 	extract(shortcode_atts(array(
 		'imgURL'					=> '',
        	'imgID' 					=> null,
@@ -128,9 +128,9 @@ function getbowtied_render_slide( $attributes ) {
 		'title' 					=> 'Slide Title',
 		'description' 				=> 'Slide Description',
 		'title_font'				=> 'primary_font',
-		'title_size'				=> '32',
-		'description_font'			=> 'primary_font',
-		'description_size'			=> '14',
+		'title_size'				=> '64',
+		'description_font'			=> 'secondary_font',
+		'description_size'			=> '21',
 		'text_color'				=> '#000',
 		'button_text' 				=> 'Button Text',
 		'button_url'				=> '',
@@ -153,54 +153,42 @@ function getbowtied_render_slide( $attributes ) {
 			$class = 'center-align';
 	}
 
-	if (!empty($title))
-	{
-		$title = '<h1 class="slide-title '.$title_font.'" style="font-size:'.$title_size.'px;color:'.$text_color.';">'.$title.'</h1>';
+	if (!empty($title)) {
+		$title = '<h1 class="slide-title '.$title_font.'" style="color:'.$text_color.'; font-size:'.$title_size.'px; line-height:'.$title_size.'px;">'.$title.'</h1>';
 	} else {
 		$title = "";
 	}
 
-	if (!empty($description))
-	{
-		$description = '<p class="slide-description '.$description_font.'" style="font-size:'.$description_size.'px;color:'.$text_color.';">'.$description.'</p>';
+	if (!empty($description)) {
+		$description = '<p class="slide-description '.$description_font.'" style="color:'.$text_color.'; font-size:'.$description_size.'px; line-height:'.$description_size.'px;">'.$description.'</p>';
 	} else {
 		$description = "";
 	}
 
-	if ($button_toggle && !empty($button_text))
-	{
-		$button = '<a class="slide-button" style="background-color:'.$button_bg_color.'; color:'.$button_text_color.';" href="'.$button_url.'">'.$button_text.'</a>';
+	if ($button_toggle && !empty($button_text)) {
+		$button = '<a class="button" target="_blank" style="color:'.$button_text_color.'; background: '.$button_bg_color.'" href="'.$button_url.'">'.$button_text.'</a>';
 	} else {
 		$button = "";
 	}
 
-	if (!$button_toggle && !empty($button_url))
-	{
-		$slide_link = '<a href="'.$button_url.'" class="fullslidelink"></a>';
-	}
-	else 
-	{
+	if (!$button_toggle && !empty($button_url)) {
+		$slide_link = '<a href="'.$button_url.'" target="_blank" class="fullslidelink"></a>';
+	} else {
 		$slide_link = '';
 	}
-
-	$getbowtied_image_slide = '
-		
-		<div class="swiper-slide '.$class.'" 
-		style=	"background: '.$bg_color.' url('.$imgURL.') center center no-repeat ;
-				-webkit-background-size: cover;
-				-moz-background-size: cover;
-				-o-background-size: cover;
-				background-size: cover;
-				color: '.$text_color.'">
-			'.$slide_link.'
-			<div class="slider-content" data-swiper-parallax="-1000">
-				<div class="slider-content-wrapper">
-					'.$title.'
-					'.$description.'
-					'.$button.'
-				</div>
-			</div>
-		</div>';
 	
+	$getbowtied_image_slide = '
+			<div class="swiper-slide '.$class.'" 
+			style=	"background: '.$bg_color.' url('.$imgURL.') center center no-repeat; color: '.$text_color.'">
+				'.$slide_link.'
+				<div class="slider-content" data-swiper-parallax="-1000">
+					<div class="slider-content-wrapper">
+						'.$title.'
+						'.$description.'
+						'.$button.'
+					</div>
+				</div>
+			</div>';
+
 	return $getbowtied_image_slide;
 }
