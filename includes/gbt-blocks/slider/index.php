@@ -154,13 +154,13 @@ function getbowtied_mc_render_slide( $attributes ) {
 	}
 
 	if (!empty($title)) {
-		$title = '<h1 class="slide-title '.$title_font.'" style="color:'.$text_color.'; font-size:'.$title_size.'px; line-height:'.$title_size.'px;">'.$title.'</h1>';
+		$title = '<h1 class="slide-title '.$title_font.'" style="color:'.$text_color.'; font-size:'.$title_size.'px;">'.$title.'</h1>';
 	} else {
 		$title = "";
 	}
 
 	if (!empty($description)) {
-		$description = '<p class="slide-description '.$description_font.'" style="color:'.$text_color.'; font-size:'.$description_size.'px; line-height:'.$description_size.'px;">'.$description.'</p>';
+		$description = '<p class="slide-description '.$description_font.'" style="color:'.$text_color.'; font-size:'.$description_size.'px;">'.$description.'</p>';
 	} else {
 		$description = "";
 	}
