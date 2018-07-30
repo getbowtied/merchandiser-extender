@@ -172,9 +172,9 @@ function getbowtied_mc_render_frontend_socials($attributes) {
 
         foreach($socials as $social) {
 
-        	if ( get_theme_mod($social['link'], '') != '' ) {
+        	if ( getbowtied_theme_option($social['link'], '') != '' ) {
         		$output .= '<li>';
-        		$output .= '<a style="color:'.$fontColor.';" target="_blank" href="' . esc_url(get_theme_mod($social['link'], '')) . '">';
+        		$output .= '<a style="color:'.$fontColor.';" target="_blank" href="' . esc_url(getbowtied_theme_option($social['link'], '')) . '">';
                 $output .= '<i class="' . $social['icon'] . '"></i>';
         		$output .= '<span>' . $social['name'] . '</span>';
         		$output .= '</a></li>';
