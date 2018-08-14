@@ -243,18 +243,25 @@
 	}
 }
 
-.editor-block-list__block[data-type="getbowtied/mc-slider"]:not(.is-selected-parent):not(.is-typing)
+.editor-block-list__block[data-type="getbowtied/mc-slider"]
 {
 	.editor-inner-blocks .editor-block-list__layout .editor-block-list__block:first-child
 	{
 		.slide-add-media-button-wrapper,
 		.editor-slide-wrapper,
 		.slide-remove-image,
-		.editor-slide-button
+		.editor-slide-button,
+		.editor-block-toolbar
 		{
 			opacity: 1;
 		  	visibility: visible;
 		  	transition: all 0.3s ease-in-out;
+		}
+
+		.wp-block-slide-title-wrapper .dashicons-arrow-down,
+		.wp-block-slide-title-wrapper .dashicons-arrow-up
+		{
+			display: none;
 		}
 
 		.editor-slide-wrapper
@@ -317,6 +324,13 @@
 				max-height: 0;
 				transition: all 0.3s ease-in-out;
 			}
+
+			.editor-block-toolbar
+			{
+				opacity: 0;
+				visibility: hidden;
+				transition: all 0.3s ease-in-out;
+			}
 		}
 	}
 
@@ -343,7 +357,8 @@
 			.slide-add-media-button-wrapper,
 			.editor-slide-wrapper,
 			.slide-remove-image,
-			.editor-slide-button
+			.editor-slide-button,
+			.editor-block-toolbar
 			{
 				opacity: 1;
 			  	visibility: visible;
