@@ -43,7 +43,7 @@
 	/* Register Block */
 	registerBlockType( 'getbowtied/mc-latest-posts-slider', {
 		title: i18n.__( 'Latest Posts Slider' ),
-		icon: 'grid-view',
+		icon: 'slides',
 		category: 'merchandiser',
 		supports: {
 			align: [ 'center', 'wide', 'full' ],
