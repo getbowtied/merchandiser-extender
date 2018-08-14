@@ -60,6 +60,14 @@ register_block_type( 'getbowtied/mc-latest-posts-slider', array(
 			'type'						=> 'boolean',
 			'default'					=> true
 		),
+		'fontColor'						=> array(
+			'type'						=> 'string',
+			'default'					=> '#000'
+		),
+		'bgColor'						=> array(
+			'type'						=> 'string',
+			'default'					=> '#fff'
+		),
 	),
 
 	'render_callback' => 'getbowtied_mc_render_frontend_latest_posts_slider',
@@ -72,7 +80,9 @@ function getbowtied_mc_render_frontend_latest_posts_slider( $attributes ) {
 		'category'		=> 'All Categories',
 		'align'			=> 'center',
 		'arrowsToggle'	=> true,
-		'bulletsToggle' => true
+		'bulletsToggle' => true,
+		'fontColor'		=> '#000',
+		'bgColor'		=> '#fff'
 	), $attributes ) );
 
 	ob_start();
@@ -111,9 +121,9 @@ function getbowtied_mc_render_frontend_latest_posts_slider( $attributes ) {
 
 							<div class="text-wrapper">
 		                    	<a class="shortcode_blog_posts_link" href="<?php echo get_post_permalink($post->ID); ?>">
-									<span class="shortcode_blog_posts_link_wrapper">
-										<h4 class="shortcode_blog_posts_title"><?php echo $post->post_title; ?></h4>
-										<span class="shortcode_blog_posts_date"><?php echo date('F d, Y', strtotime($post->post_date)); ?></span>
+									<span class="shortcode_blog_posts_link_wrapper" style="background-color:<?php echo $bgColor; ?>;">
+										<h4 class="shortcode_blog_posts_title" style="color:<?php echo $fontColor; ?>;"><?php echo $post->post_title; ?></h4>
+										<span class="shortcode_blog_posts_date" style="color:<?php echo $fontColor; ?>;"><?php echo date('F d, Y', strtotime($post->post_date)); ?></span>
 									</span>
 								</a>
 							</div>
@@ -143,74 +153,91 @@ function getbowtied_mc_render_frontend_latest_posts_slider( $attributes ) {
 
 }
 
-// add_action('wp_ajax_getbowtied_mc_render_backend_latest_posts_slider', 'getbowtied_mc_render_backend_latest_posts_slider');
-// function getbowtied_mc_render_backend_latest_posts_slider() {
+add_action('wp_ajax_getbowtied_mc_render_backend_latest_posts_slider', 'getbowtied_mc_render_backend_latest_posts_slider');
+function getbowtied_mc_render_backend_latest_posts_slider() {
 
-// 	$attributes = $_POST['attributes'];
-// 	$output = '';
-// 	$counter = 0;
+	$attributes = $_POST['attributes'];
+	$output = '';
+	$counter = 0;
+	$sliderrandomid = rand();
 
-// 	extract( shortcode_atts( array(
-// 		'number'	=> '12',
-// 		'category'	=> 'All Categories',
-// 		'columns'	=> '3'
-// 	), $attributes ) );
+	extract( shortcode_atts( array(
+		'category'	=> 'All Categories',
+		'fontColor' => '#000',
+		'bgColor'	=> '#fff'
+	), $attributes ) ); ?>
 
-// 	$output = 'el( "div", { key: "wp-block-gbt-posts-grid", className: "wp-block-gbt-posts-grid"},';
+	<?php
 
-// 		$output .= 'el( "div", { key: "latest_posts_grid_wrapper", className: "latest_posts_grid_wrapper columns-' . $columns . '"},';
+	$output = 'el( "div", { key: "wp-block-gbt-posts-slider", className: "wp-block-gbt-posts-slider"},';
 
-// 			$args = array(
-// 	            'post_status' 		=> 'publish',
-// 	            'post_type' 		=> 'post',
-// 	            'category' 			=> $category,
-// 	            'posts_per_page' 	=> $number
-// 	        );
+		$output .= 'el( "div", { key: "blog_posts_slider", className: "blog_posts_slider"},';
+
+			$args = array(
+	            'post_status' 		=> 'publish',
+	            'post_type' 		=> 'post',
+	            'category' 			=> $category,
+	            'posts_per_page' 	=> '2'
+	        );
 	        
-// 	        $recentPosts = get_posts( $args );
+	        $recentPosts = get_posts( $args );
 
-// 	        if ( !empty($recentPosts) ) :
+	        if ( !empty($recentPosts) ) :
 	                    
-// 	            foreach($recentPosts as $post) :
-	        
-// 	                $output .= 'el( "div", { key: "latest_posts_grid_item_' . $counter . '", className: "latest_posts_grid_item" },';
+	            foreach($recentPosts as $post) :
 
-// 	                	$output .= 'el( "a", { key: "latest_posts_grid_link_' . $counter . '", className: "latest_posts_grid_link" },';
+	            	$output .= 'el( "div", { key: "swiper-slide_' . $counter . '", className: "shortcode_blog_posts_item swiper-slide" },';
 
-// 	                		$output .= 'el( "span", { key: "latest_posts_grid_img_container_' . $counter . '", className: "latest_posts_grid_img_container"},';
-	                		
-// 	                			$output .= 'el( "span", { key: "latest_posts_grid_overlay_' . $counter . '", className: "latest_posts_grid_overlay" }, ),';
+	            		if ( has_post_thumbnail($post->ID)) :
+							$image_url = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),'large', true);
 
-// 	                			if ( has_post_thumbnail($post->ID)) :
-// 	                				$image_id = get_post_thumbnail_id($post->ID);
-// 									$image_url = wp_get_attachment_image_src($image_id,'large', true);
+							$output .= 'el( "div", { key: "slide-wrapper_' . $counter . '", className: "slide-wrapper", style: { backgroundImage: "url('.$image_url[0].')" } }),';
+						
+						else : 
 
-// 									$output .= 'el( "span", { key: "latest_posts_grid_img_' . $counter . '", className: "latest_posts_grid_img", style: { backgroundImage: "url(' . esc_url($image_url[0]) . ')" } } )';
+							$output .= 'el( "div", { key: "slide-wrapper_noimg_' . $counter . '", className: "slide-wrapper_noimg" } ),';
 
-// 								else :
+						endif;
 
-// 									$output .= 'el( "span", { key: "latest_posts_grid_noimg_' . $counter . '", className: "latest_posts_grid_noimg"} )';
+						$output .= 'el( "div", { key: "text-wrapper_' . $counter . '", className: "text-wrapper" },';
 
-// 								endif;
+							$output .= 'el( "a", { key: "shortcode_blog_posts_link_' . $counter . '", className: "shortcode_blog_posts_link" },';
 
-// 	                		$output .= '),';
+								$output .= 'el( "span", { key: "shortcode_blog_posts_link_wrapper_' . $counter . '", className: "shortcode_blog_posts_link_wrapper", style: { backgroundColor:"'.$bgColor.'" } },';
 
-// 							$output .= 'el( "span", { key: "latest_posts_grid_title_' . $counter . '", className: "latest_posts_grid_title"}, "' . $post->post_title . '" )';
+									$output .= 'el( "h4", { key: "shortcode_blog_posts_title_' . $counter . '", className: "shortcode_blog_posts_title", style: { color:"'.$fontColor.'" } }, "'.$post->post_title.'" ),';
+									$output .= 'el( "span", { key: "shortcode_blog_posts_date_' . $counter . '", className: "shortcode_blog_posts_date", style: { color:"'.$fontColor.'" } }, "'.date('F d, Y', strtotime($post->post_date)).'" ),';
 
-// 	                	$output .= '),';
 
-// 	            	$output .= '),';
+								$output .= '),'; 
 
-// 					$counter++;
+							$output .= '),'; 
 
-// 				endforeach; 
+						$output .= '),'; 
 
-// 	        endif;
+	             	$output .= '),'; 
 
-// 		$output .= ')';
+					$counter++;
 
-// 	$output .= ')';
+				endforeach; 
 
-// 	echo json_encode($output);
-// 	exit;
-// }
+	        endif;
+
+	        $output .= 'el( "div", { key: "swiper-button-prev", className: "swiper-button-prev dashicon dashicons-arrow-left-alt2" } ),'; 
+	        $output .= 'el( "div", { key: "swiper-button-next", className: "swiper-button-next dashicon dashicons-arrow-right-alt2" } ),'; 
+
+	        $output .= 'el( "div", { key: "swiper-pagination-bullets", className: "quickview-pagination swiper-pagination-clickable swiper-pagination-bullets" },';
+
+	        	$output .= 'el( "div", { key: "swiper-pagination-bullet_1", className: "swiper-pagination-bullet swiper-pagination-bullet-active" } ),'; 
+	        	$output .= 'el( "div", { key: "swiper-pagination-bullet_2", className: "swiper-pagination-bullet" } ),';
+	        	$output .= 'el( "div", { key: "swiper-pagination-bullet_3", className: "swiper-pagination-bullet" } ),';
+
+        	$output .= '),';
+
+	    $output .= ')';
+
+	$output .= ')';
+
+	echo json_encode($output);
+	exit;
+}

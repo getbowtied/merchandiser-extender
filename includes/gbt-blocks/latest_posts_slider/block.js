@@ -12,6 +12,9 @@
 	var SelectControl		= wp.components.SelectControl;
 	var ToggleControl		= wp.components.ToggleControl;
 	var RangeControl		= wp.components.RangeControl;
+	var ColorPalette		= wp.components.ColorPalette;
+	var PanelBody			= wp.components.PanelBody;
+	var PanelColor			= wp.components.PanelColor;
 
 	var categories_list = [];
 
@@ -66,35 +69,55 @@
 				type: 'boolean',
 				default: true
 			},
-			// grid: {
-			// 	type: 'string',
-			// 	default: ''
-			// }
+			fontColor: {
+	        	type: 'string',
+	        	default: '#000'
+	        },
+	        bgColor: {
+	        	type: 'string',
+	        	default: '#fff'
+	        },
+			grid: {
+				type: 'string',
+				default: ''
+			}
 		},
 
 		edit: function( props ) {
 
 			var attributes = props.attributes;
 
-			function getLatestPosts( category, number, columns ) {
+			var colors = [
+				{ name: 'red', 				color: '#d02e2e' },
+				{ name: 'orange', 			color: '#f76803' },
+				{ name: 'yellow', 			color: '#fbba00' },
+				{ name: 'green', 			color: '#43d182' },
+				{ name: 'blue', 			color: '#2594e3' },
+				{ name: 'white', 			color: '#ffffff' },
+				{ name: 'dark-gray', 		color: '#abb7c3' },
+				{ name: 'black', 			color: '#000' 	 },
+			];
 
-				// category = category || attributes.category;
-				// number   = number   || attributes.number;
-				// columns  = columns  || attributes.columns;
+			function getLatestPosts( category, fontColor, bgColor ) {
 
-				// var data = {
-				// 	action 		: 'getbowtied_mc_render_backend_latest_posts_slider',
-				// 	attributes  : {
-				// 		'category' : category,
-				// 		'number'   : number,
-				// 		'columns'  : columns,
-				// 	}
-				// };
+				fontColor = fontColor || attributes.fontColor;
+				bgColor   = bgColor   || attributes.bgColor;
 
-				// jQuery.post( 'admin-ajax.php', data, function(response) { 
-				// 	response = jQuery.parseJSON(response);
-				// 	props.setAttributes( { grid: response } );
-				// });	
+				category = category || attributes.category;
+
+				var data = {
+					action 		: 'getbowtied_mc_render_backend_latest_posts_slider',
+					attributes  : {
+						'category' 	: category,
+						'fontColor' : fontColor,
+						'bgColor' 	: bgColor
+					}
+				};
+
+				jQuery.post( 'admin-ajax.php', data, function(response) { 
+					response = jQuery.parseJSON(response);
+					props.setAttributes( { grid: response } );
+				});	
 			}
 
 			return [
@@ -103,65 +126,134 @@
 					{
 						key: 'latest-posts-inspector'
 					},
-					el('hr', {} ),
-					el(
-						RangeControl,
-						{
-							key: "latest-posts-number",
-							value: attributes.number,
-							allowReset: false,
-							label: i18n.__( 'Number of Posts' ),
-							onChange: function( newNumber ) {
-								props.setAttributes( { number: newNumber } );
-								//getLatestPosts( null, newNumber, null);
-							},
-						}
+					el( 
+						PanelBody, 
+						{ 
+							key: 'posts-slider-post-settings-panel',
+							title: 'Posts',
+							initialOpen: false,
+							style:
+							{
+							    borderBottom: '1px solid #e2e4e7'
+							}
+						},
+						el(
+							RangeControl,
+							{
+								key: "latest-posts-number",
+								value: attributes.number,
+								allowReset: false,
+								label: i18n.__( 'Number of Posts' ),
+								onChange: function( newNumber ) {
+									props.setAttributes( { number: newNumber } );
+								},
+							}
+						),
+						el( 'hr', { key: 'separator1' } ),
+						el(
+							SelectControl,
+							{
+								key: "latest-posts-category",
+								options: attributes.categories,
+	              				label: i18n.__( 'Category' ),
+	              				value: attributes.category,
+	              				onChange: function( newCat ) {
+	              					props.setAttributes( { category: newCat } );
+	              					getLatestPosts( newCat, null, null );
+								},
+							}
+						),
 					),
-					el(
-						SelectControl,
-						{
-							key: "latest-posts-category",
-							options: attributes.categories,
-              				label: i18n.__( 'Category' ),
-              				value: attributes.category,
-              				onChange: function( newCat ) {
-              					props.setAttributes( { category: newCat } );
-              					//getLatestPosts( newCat, null, null);
-							},
-						}
+					el( 
+						PanelBody, 
+						{ 
+							key: 'posts-slider-bullets-settings-panel',
+							title: 'Bullets & Arrows',
+							initialOpen: false,
+							style:
+							{
+							    borderBottom: '1px solid #e2e4e7'
+							}
+						},
+						el(
+							ToggleControl,
+							{
+								key: "posts-slider-arrows-toggle",
+		          				label: i18n.__( 'Navigation Arrows' ),
+		          				checked: attributes.arrowsToggle,
+		          				onChange: function() {
+									props.setAttributes( { arrowsToggle: ! attributes.arrowsToggle } );
+								},
+							}
+						),
+						el( 'hr', { key: 'separator3' } ),
+						el(
+							ToggleControl,
+							{
+								key: "posts-slider-bullets-toggle",
+		          				label: i18n.__( 'Navigation Bullets' ),
+		          				checked: attributes.bulletsToggle,
+		          				onChange: function() {
+									props.setAttributes( { bulletsToggle: ! attributes.bulletsToggle } );
+								},
+							}
+						),
 					),
-					el(
-						ToggleControl,
-						{
-							key: "posts-slider-arrows-toggle",
-	          				label: i18n.__( 'Navigation Arrows' ),
-	          				checked: attributes.arrowsToggle,
-	          				onChange: function() {
-								props.setAttributes( { arrowsToggle: ! attributes.arrowsToggle } );
+					el( 
+						PanelBody, 
+						{ 
+							key: 'posts-slider-colors-settings-panel',
+							title: 'Colors',
+							initialOpen: false,
+							style:
+							{
+							    borderBottom: '1px solid #e2e4e7'
+							}
+						},
+						el(
+							PanelColor,
+							{
+								key: 'posts-slider-font-color-panel',
+								title: i18n.__( 'Font Color' ),
+								colorValue: attributes.fontColor,
 							},
-						}
-					),
-					el(
-						ToggleControl,
-						{
-							key: "posts-slider-bullets-toggle",
-	          				label: i18n.__( 'Navigation Bullets' ),
-	          				checked: attributes.bulletsToggle,
-	          				onChange: function() {
-								props.setAttributes( { bulletsToggle: ! attributes.bulletsToggle } );
+							el(
+								ColorPalette, 
+								{
+									key: 'posts-slider-font-color-pallete',
+									colors: colors,
+									value: attributes.fontColor,
+									onChange: function( newColor) {
+										props.setAttributes( { fontColor: newColor } );
+										getLatestPosts( null, newColor, null );;
+									},
+								} 
+							),
+						),
+						el(
+							PanelColor,
+							{
+								key: 'posts-slider-text-bg-color-panel',
+								title: i18n.__( 'Text Background Color' ),
+								colorValue: attributes.bgColor,
 							},
-						}
+							el(
+								ColorPalette, 
+								{
+									key: 'posts-slider-text-bg-color-palette',
+									colors: colors,
+									value: attributes.bgColor,
+									onChange: function( newColor) {
+										props.setAttributes( { bgColor: newColor } );
+										getLatestPosts( null, null, newColor );
+									},
+								} 
+							),
+						),
 					),
 				),
-				el(
-					'h2',
-					{
-						key: 'blog-slider-title'
-					},
-					i18n.__("Latest Posts Slider")
-				),
-				//eval( attributes.grid ),
-				//attributes.grid == '' && getLatestPosts( 'All Categories', '12', '3')
+				eval( attributes.grid ),
+				attributes.grid == '' && getLatestPosts( 'All Categories' ),
 			];
 		},
 
