@@ -98,19 +98,20 @@
 				{ name: 'black', 			color: '#000' 	 },
 			];
 
-			function getLatestPosts( category, fontColor, bgColor ) {
+			function getLatestPosts( category, fontColor, bgColor, arrows, bullets ) {
 
 				fontColor = fontColor || attributes.fontColor;
 				bgColor   = bgColor   || attributes.bgColor;
-
-				category = category || attributes.category;
+				category  = category  || attributes.category;
 
 				var data = {
 					action 		: 'getbowtied_mc_render_backend_latest_posts_slider',
 					attributes  : {
 						'category' 	: category,
 						'fontColor' : fontColor,
-						'bgColor' 	: bgColor
+						'bgColor' 	: bgColor,
+						'arrows'    : Number(arrows),
+						'bullets'   : Number(bullets)
 					}
 				};
 
@@ -159,7 +160,7 @@
 	              				value: attributes.category,
 	              				onChange: function( newCat ) {
 	              					props.setAttributes( { category: newCat } );
-	              					getLatestPosts( newCat, null, null );
+	              					getLatestPosts( newCat, null, null, attributes.arrowsToggle, attributes.bulletsToggle );
 								},
 							}
 						),
@@ -183,6 +184,7 @@
 		          				checked: attributes.arrowsToggle,
 		          				onChange: function() {
 									props.setAttributes( { arrowsToggle: ! attributes.arrowsToggle } );
+									getLatestPosts( null, null, null, !attributes.arrowsToggle, attributes.bulletsToggle );
 								},
 							}
 						),
@@ -195,6 +197,7 @@
 		          				checked: attributes.bulletsToggle,
 		          				onChange: function() {
 									props.setAttributes( { bulletsToggle: ! attributes.bulletsToggle } );
+									getLatestPosts( null, null, null, attributes.arrowsToggle, !attributes.bulletsToggle );
 								},
 							}
 						),
@@ -225,7 +228,7 @@
 									value: attributes.fontColor,
 									onChange: function( newColor) {
 										props.setAttributes( { fontColor: newColor } );
-										getLatestPosts( null, newColor, null );;
+										getLatestPosts( null, newColor, null, attributes.arrowsToggle, attributes.bulletsToggle );
 									},
 								} 
 							),
@@ -245,7 +248,7 @@
 									value: attributes.bgColor,
 									onChange: function( newColor) {
 										props.setAttributes( { bgColor: newColor } );
-										getLatestPosts( null, null, newColor );
+										getLatestPosts( null, null, newColor, attributes.arrowsToggle, attributes.bulletsToggle );
 									},
 								} 
 							),

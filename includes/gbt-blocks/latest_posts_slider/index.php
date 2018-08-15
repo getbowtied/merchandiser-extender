@@ -164,7 +164,9 @@ function getbowtied_mc_render_backend_latest_posts_slider() {
 	extract( shortcode_atts( array(
 		'category'	=> 'All Categories',
 		'fontColor' => '#000',
-		'bgColor'	=> '#fff'
+		'bgColor'	=> '#fff',
+		'arrows'	=> true,
+		'bullets'   => true
 	), $attributes ) ); ?>
 
 	<?php
@@ -223,16 +225,20 @@ function getbowtied_mc_render_backend_latest_posts_slider() {
 
 	        endif;
 
-	        $output .= 'el( "div", { key: "swiper-button-prev", className: "swiper-button-prev dashicon dashicons-arrow-left-alt2" } ),'; 
-	        $output .= 'el( "div", { key: "swiper-button-next", className: "swiper-button-next dashicon dashicons-arrow-right-alt2" } ),'; 
+	        if( $arrows ) {
+		        $output .= 'el( "div", { key: "swiper-button-prev", className: "swiper-button-prev dashicon dashicons-arrow-left-alt2" } ),'; 
+		        $output .= 'el( "div", { key: "swiper-button-next", className: "swiper-button-next dashicon dashicons-arrow-right-alt2" } ),'; 
+		    }
 
-	        $output .= 'el( "div", { key: "swiper-pagination-bullets", className: "quickview-pagination swiper-pagination-clickable swiper-pagination-bullets" },';
+		    if( $bullets ) {
+		        $output .= 'el( "div", { key: "swiper-pagination-bullets", className: "quickview-pagination swiper-pagination-clickable swiper-pagination-bullets" },';
 
-	        	$output .= 'el( "div", { key: "swiper-pagination-bullet_1", className: "swiper-pagination-bullet swiper-pagination-bullet-active" } ),'; 
-	        	$output .= 'el( "div", { key: "swiper-pagination-bullet_2", className: "swiper-pagination-bullet" } ),';
-	        	$output .= 'el( "div", { key: "swiper-pagination-bullet_3", className: "swiper-pagination-bullet" } ),';
+		        	$output .= 'el( "div", { key: "swiper-pagination-bullet_1", className: "swiper-pagination-bullet swiper-pagination-bullet-active" } ),'; 
+		        	$output .= 'el( "div", { key: "swiper-pagination-bullet_2", className: "swiper-pagination-bullet" } ),';
+		        	$output .= 'el( "div", { key: "swiper-pagination-bullet_3", className: "swiper-pagination-bullet" } ),';
 
-        	$output .= '),';
+	        	$output .= '),';
+			}
 
 	    $output .= ')';
 
