@@ -4,7 +4,7 @@
  * Plugin Name:       		Merchandiser Extender
  * Plugin URI:        		https://github.com/getbowtied/merchandiser-extender
  * Description:       		Extends the functionality of Merchandiser with Gutenberg elements.
- * Version:           		1.0
+ * Version:           		1.1
  * Author:            		GetBowtied
  * Author URI:        		https://getbowtied.com
  * Requires at least: 		4.9
@@ -68,7 +68,7 @@ add_action( 'init', 'gbt_mc_gutenberg_blocks' );
 function mc_theme_warning() {
 
 	echo '<div class="message error woocommerce-admin-notice woocommerce-st-inactive woocommerce-not-configured">';
-	echo '<p>Merchandiser Extender is enabled but not effective. Please activate Gutenberg plugin in order to work.</p>';
+	echo '<p>Merchandiser ... Extender is enabled but not effective. Please activate Gutenberg plugin in order to work.</p>';
 	echo '</div>';
 }
 
