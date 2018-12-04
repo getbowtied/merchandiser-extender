@@ -28,5 +28,5 @@ if ( ! function_exists( 'getbowtied_sk_product_blocks_scripts' ) ) {
 // require_once 'latest_posts_grid/index.php';
 // require_once 'latest_posts_slider/index.php';
 // require_once 'banner/index.php';
-// require_once 'social-media-profiles/index.php';
+require_once 'social_media_profiles/block.php';
 // require_once 'slider/index.php';
