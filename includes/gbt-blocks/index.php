@@ -29,4 +29,4 @@ require_once 'posts_grid/block.php';
 require_once 'posts_slider/block.php';
 require_once 'banner/block.php';
 require_once 'social_media_profiles/block.php';
-// require_once 'slider/index.php';
+require_once 'slider/block.php';
