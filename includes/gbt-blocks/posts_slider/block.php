@@ -62,7 +62,7 @@ function gbt_18_mc_render_frontend_posts_slider( $attributes ) {
 	        
     if ( !empty($recentPosts) ) : ?>
 
-    <div class="wp-block-gbt-posts-slider <?php echo $align; ?>">
+    <div class="gbt_18_mc_posts_slider <?php echo $align; ?>">
     
 		<div class="shortcode_getbowtied_blog_posts swiper-container">
 			<div class="swiper-wrapper">
