@@ -4,7 +4,6 @@
 	.gbt_18_mc_posts_grid_wrapper {
 		position: relative;
 	  	overflow: hidden;
-  	    margin: 0 -15px;
 
 		&.full {
 			margin-left: calc( -100vw / 2 + 100% / 2 );
@@ -26,6 +25,10 @@
 			    margin-right: calc( -75vw / 2 + 100% / 2 );
 			    max-width: 75vw;
 			}
+
+			.gbt_18_mc_posts_grid_items {
+		    	margin: 0 -15px;
+		    }
 		}
 
 		&.columns-1 

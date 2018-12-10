@@ -11,9 +11,11 @@
 
 	&.wide
 	{
-		margin-left: calc( -75vw / 2 + 100% / 2 );
-	    margin-right: calc( -75vw / 2 + 100% / 2 );
-	    max-width: 75vw;
+		@media all and (min-width: 1330px) {
+			margin-left: calc( -75vw / 2 + 100% / 2 );
+		    margin-right: calc( -75vw / 2 + 100% / 2 );
+		    max-width: 75vw;
+		}
 	}
 
 	&:hover {
