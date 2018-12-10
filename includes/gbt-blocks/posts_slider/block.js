@@ -22,7 +22,7 @@
 	registerBlockType( 'getbowtied/mc-posts-slider', {
 		title: i18n.__( 'Posts Slider' ),
 		icon: el( SVG, { xmlns:'http://www.w3.org/2000/svg', viewBox:'0 0 24 24' },
-				el( Path, { d:'M4 5v13h17V5H4zm10 2v3.5h-3V7h3zM6 7h3v3.5H6V7zm0 9v-3.5h3V16H6zm5 0v-3.5h3V16h-3zm8 0h-3v-3.5h3V16zm-3-5.5V7h3v3.5h-3z' } ) 
+				el( Path, { d:'M15 7v9h-5V7h5m6-2h-3v13h3V5zm-4 0H8v13h9V5zM7 5H4v13h3V5z' } ) 
 			),
 		category: 'merchandiser',
 		supports: {
