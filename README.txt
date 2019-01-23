@@ -16,13 +16,18 @@ Extends the functionality of the Merchandiser theme by adding theme specific fea
 Companion plugin for the **Merchandiser** theme. Extends the functionality by adding theme specific features.
 
 **Gutenberg Blocks:**
-- Image Slider
 - Banner
-- Posts Grid
-- Posts Slider
+- Image Slider
+- Blog Posts Grid
+- Blog Posts Slider
 - Social Media Profiles
 
 == Changelog ==
+
+= 1.2 =
+- WordPress 5+ compatibility improvements
+- Improved styles for theme neutrality
+- Localization issues with the Posts Grid Blocks
 
 = 1.1 =
 - WordPress 5+ compatibility improvements
