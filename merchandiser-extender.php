@@ -22,6 +22,9 @@ if ( ! function_exists( 'is_plugin_active' ) ) {
     require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 }
 
+global $theme;
+$theme = wp_get_theme();
+
 // Plugin Updater
 require 'core/updater/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
@@ -33,11 +36,6 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 add_action( 'init', 'gbt_mc_gutenberg_blocks' );
 if(!function_exists('gbt_mc_gutenberg_blocks')) {
 	function gbt_mc_gutenberg_blocks() {
-
-		$theme = wp_get_theme();
-		if ( $theme->template != 'merchandiser') {
-			return;
-		}
 
 		if( is_plugin_active( 'gutenberg/gutenberg.php' ) || mc_is_wp_version('>=', '5.0') ) {
 			include_once 'includes/gbt-blocks/index.php';
@@ -52,8 +50,9 @@ if(!function_exists('mc_theme_warning')) {
 
 		?>
 
-		<div class="message error woocommerce-admin-notice woocommerce-st-inactive woocommerce-not-configured">
-			<p>Merchandiser Extender plugin couldn't find the Block Editor (Gutenberg) on this site. It requires WordPress 5+ or Gutenberg installed as a plugin.</p>
+		<div class="error">
+			<p>Merchandiser Extender plugin couldn't find the Block Editor (Gutenberg) on this site. 
+				It requires WordPress 5+ or Gutenberg installed as a plugin.</p>
 		</div>
 
 		<?php

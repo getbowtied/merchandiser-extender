@@ -52,8 +52,16 @@ if( !function_exists('gbt_18_mc_get_rest_post_featured_image') ) {
     }
 }
 
+//==============================================================================
+//  Load Blocks
+//==============================================================================
+
+// The Hanger Dependent Blocks
+if ( $theme->template == 'merchandiser') {
+    include_once 'social_media_profiles/block.php';
+}
+
 include_once 'posts_grid/block.php';
 include_once 'posts_slider/block.php';
 include_once 'banner/block.php';
-include_once 'social_media_profiles/block.php';
 include_once 'slider/block.php';
