@@ -43,9 +43,10 @@ jQuery(function($) {
 			    prevEl: $(this).find('.swiper-button-prev'),
 		  	},
 		});
-	});
 
-	$(window).on("load resize",function() {
-		update_blog_posts_slides_per_view();
+		$(window).on("load resize",function() {
+			update_blog_posts_slides_per_view();
+			mySwiper.params.slidesPerView = sliderPerView;
+		});
 	});
 });
