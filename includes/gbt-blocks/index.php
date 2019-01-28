@@ -1,5 +1,7 @@
 <?php
 
+global $theme;
+
 //==============================================================================
 //	Main Editor Styles
 //==============================================================================
@@ -74,7 +76,7 @@ if ( $theme->template != 'merchandiser') {
 //  Load Blocks
 //==============================================================================
 
-// The Hanger Dependent Blocks
+// Merchandiser Dependent Blocks
 if ( $theme->template == 'merchandiser') {
     include_once 'social_media_profiles/block.php';
 }
