@@ -27,7 +27,7 @@
 
 	/* Register Block */
 	registerBlockType( 'getbowtied/mc-slide', {
-		title: i18n.__( 'Slide' ),
+		title: i18n.__( 'Slide', 'merchandiser-extender' ),
 		icon:
 			el( SVG, { xmlns:'http://www.w3.org/2000/svg', viewBox:'0 0 100 100' },
 				el( Path, { d:'M85,15H15v60h70V15z M20,70v-9l15-15l9,9L29,70H20z M36,70l19-19l21,19H36z M80,66.8L54.9,44l-7.4,7.4L35,39 L20,54V20h60V66.8z' } ),
@@ -111,14 +111,14 @@
 
 				let colors = [
 					{ 
-						label: i18n.__( 'Title & Description' ),
+						label: i18n.__( 'Title & Description', 'merchandiser-extender' ),
 						value: attributes.textColor,
 						onChange: function( newColor) {
 							props.setAttributes( { textColor: newColor } );
 						},
 					},
 					{ 
-						label: i18n.__( 'Slide Background' ),
+						label: i18n.__( 'Slide Background', 'merchandiser-extender' ),
 						value: attributes.backgroundColor,
 						onChange: function( newColor) {
 							props.setAttributes( { backgroundColor: newColor } );
@@ -129,14 +129,14 @@
 				if( attributes.slideButton ) {
 					colors.push(
 						{ 
-							label: i18n.__( 'Button Text' ),
+							label: i18n.__( 'Button Text', 'merchandiser-extender' ),
 							value: attributes.buttonTextColor,
 							onChange: function( newColor) {
 								props.setAttributes( { buttonTextColor: newColor } );
 							},
 						},
 						{ 
-							label: i18n.__( 'Button Background' ),
+							label: i18n.__( 'Button Background', 'merchandiser-extender' ),
 							value: attributes.buttonBgColor,
 							onChange: function( newColor) {
 								props.setAttributes( { buttonBgColor: newColor } );
@@ -163,7 +163,7 @@
 							TextControl,
 							{
 								key: "gbt_18_mc_editor_slide_link",
-	              				label: i18n.__( 'Slide Link' ),
+	              				label: i18n.__( 'Slide Link', 'merchandiser-extender' ),
 	              				type: 'text',
 	              				value: attributes.slideURL,
 	              				onChange: function( newText ) {
@@ -176,7 +176,7 @@
 							ToggleControl,
 							{
 								key: "gbt_18_mc_editor_slide_button",
-	              				label: i18n.__( 'Slide Button' ),
+	              				label: i18n.__( 'Slide Button', 'merchandiser-extender' ),
 	              				checked: attributes.slideButton,
 	              				onChange: function() {
 									props.setAttributes( { slideButton: ! attributes.slideButton } );
@@ -199,7 +199,7 @@
 									initialPosition: 64,
 									min: 10,
 									max: 72,
-									label: i18n.__( 'Title Font Size' ),
+									label: i18n.__( 'Title Font Size', 'merchandiser-extender' ),
 									onChange: function( newNumber ) {
 										props.setAttributes( { titleSize: newNumber } );
 									},
@@ -214,7 +214,7 @@
 									initialPosition: 16,
 									min: 10,
 									max: 72,
-									label: i18n.__( 'Description Font Size' ),
+									label: i18n.__( 'Description Font Size', 'merchandiser-extender' ),
 									onChange: function( newNumber ) {
 										props.setAttributes( { descriptionSize: newNumber } );
 									},
@@ -226,7 +226,7 @@
 							{
 								key: 'gbt_18_mc_editor_slide_colors',
 								initialOpen: false,
-								title: i18n.__( 'Colors' ),
+								title: i18n.__( 'Colors', 'merchandiser-extender' ),
 								colorSettings: getColors()
 							},
 						),
@@ -260,7 +260,7 @@
 		              						className: 'gbt_18_mc_slide_add_image_button button add_image',
 		              						onClick: img.open
 		              					},
-		              					i18n.__( 'Add Image' )
+		              					i18n.__( 'Add Image', 'merchandiser-extender' )
 	              					), 
 	              					!! attributes.imgID && el(
 	              						Button, 
@@ -276,7 +276,7 @@
 									            });
 											}
 										},
-										i18n.__( 'Remove Image' )
+										i18n.__( 'Remove Image', 'merchandiser-extender' )
 									), 
 	              				];
 	              			},
@@ -345,7 +345,7 @@
 											formattingControls: [],
 											tagName: 'h2',
 											value: attributes.title,
-											placeholder: i18n.__( 'Add Title' ),
+											placeholder: i18n.__( 'Add Title', 'merchandiser-extender' ),
 											onChange: function( newTitle) {
 												props.setAttributes( { title: newTitle } );
 											}
@@ -372,7 +372,7 @@
 											tagName: 'p',
 											value: attributes.description,
 											formattingControls: [],
-											placeholder: i18n.__( 'Add Subtitle' ),
+											placeholder: i18n.__( 'Add Subtitle', 'merchandiser-extender' ),
 											onChange: function( newSubtitle) {
 												props.setAttributes( { description: newSubtitle } );
 											}
@@ -399,7 +399,7 @@
 											tagName: 'h5',
 											value: attributes.buttonText,
 											formattingControls: [],
-											placeholder: i18n.__( 'Button Text' ),
+											placeholder: i18n.__( 'Button Text', 'merchandiser-extender' ),
 											onChange: function( newText) {
 												props.setAttributes( { buttonText: newText } );
 											}
@@ -450,7 +450,7 @@
 							key: 		'gbt_18_mc_slide_content_wrapper',
 							className: 	'gbt_18_mc_slide_content_wrapper slider-content-wrapper'
 						},
-						attributes.title != '' && el( 'h2',
+						attributes.title != '' && el( 'h3',
 							{
 								key: 		'gbt_18_mc_slide_title',
 								className: 	'gbt_18_mc_slide_title slide-title',
@@ -459,7 +459,7 @@
 									fontSize: attributes.titleSize,
 									color: attributes.textColor
 								},
-								dangerouslySetInnerHTML: { __html: attributes.title },
+								dangerouslySetInnerHTML: { __html: i18n.__( attributes.title, 'merchandiser-extender' ) },
 							},
 						),
 						attributes.description != '' && el( 'p',
@@ -471,7 +471,7 @@
 									fontSize: attributes.descriptionSize,
 									color: attributes.textColor
 								},
-								dangerouslySetInnerHTML: { __html: attributes.description },
+								dangerouslySetInnerHTML: { __html: i18n.__( attributes.description, 'merchandiser-extender' ) },
 							},
 						),
 						!! attributes.slideButton && attributes.buttonText != '' && el( 'a',
@@ -484,7 +484,7 @@
 									backgroundColor: attributes.buttonBgColor,
 									color: attributes.buttonTextColor
 								},
-								dangerouslySetInnerHTML: { __html: attributes.buttonText },
+								dangerouslySetInnerHTML: { __html: i18n.__( attributes.buttonText, 'merchandiser-extender' ) },
 							},
 						)
 					)

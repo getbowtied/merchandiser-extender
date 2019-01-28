@@ -41,23 +41,8 @@ if ( ! function_exists( 'gbt_18_mc_posts_slider_assets' ) ) {
 			array()
 		);
 
-		if ( $theme->template != 'merchandiser') {
-			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-			wp_enqueue_style(
-				'getbowtied_swiper_styles',
-				plugins_url( 'vendor/swiper/css/swiper'.$suffix.'.css', dirname(__FILE__) ),
-				array(),
-				filemtime(plugin_dir_path(dirname(__FILE__)) . 'vendor/swiper/css/swiper'.$suffix.'.css')
-			);
-			wp_enqueue_script(
-				'getbowtied_swiper_scripts',
-				plugins_url( 'vendor/swiper/js/swiper'.$suffix.'.js', dirname(__FILE__) ),
-				array()
-			);
-		}
-
 		wp_enqueue_script(
-			'gbt_18_mc_slider_script',
+			'gbt_18_mc_posts_slider_script',
 			plugins_url( 'assets/js/posts_slider.js', dirname(__FILE__) ),
 			array( 'jquery' )
 		);

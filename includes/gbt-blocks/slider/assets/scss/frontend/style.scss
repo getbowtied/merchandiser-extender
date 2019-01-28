@@ -1,63 +1,185 @@
 .gbt_18_mc_slider_wrapper {
-	margin-bottom: 2.5rem;
 
-	&.alignwiden {
-		@media all and (min-width: 1330px) {
-			margin-left: calc( -75vw / 2 + 100% / 2 );
-		    margin-right: calc( -75vw / 2 + 100% / 2 );
-		    max-width: 75vw;
-		}
-	}
-
-	&.alignfull {
-		margin-left: calc( -100vw / 2 + 100% / 2 );
-	    margin-right: calc( -100vw / 2 + 100% / 2 );
-	    max-width: 100vw;
-	}
-	
 	.swiper-container {
+
+		&.full_height {
+			height: 100vh;
+		}
+
 		@media all and (max-width: 639px) {
 			max-height: 600px;
 		}
 	}
 
+	.gbt_18_mc_slider_button_prev,
+	.gbt_18_mc_slider_button_next,
+	.gbt_18_mc_slider_pagination {
+		display: none;
+	}
+
 	.swiper-slide {
+		
 		background-size: cover;
+		text-align: center;
+		position: relative;
+		display: table;
 
 		&.left {
 			.slider-content-wrapper {
 				text-align: left;
+				margin-left: 7%;
 			}
 		}
 
 		&.right {
 			.slider-content-wrapper {
 				text-align: right;
+				margin-right: 7%;
 			}
 		}
-	}
 
-	.shortcode_getbowtied_slider .swiper-slide p,
-	.gbt_18_mc_slide_description {
-	    margin: 0 10% 30px 10%;
-	}
+		.gbt_18_mc_slide_description {
+		    margin: 0 10% 30px 10%;
+		}
 
-	.gbt_18_mc_slide_title {
-		margin: 0 10% 25px 10%;
-	}
+		.gbt_18_mc_slide_title {
+			margin: 0 10% 25px 10%;
+		}
 
-	.shortcode_getbowtied_slider .swiper-slide .button,
-	.gbt_18_mc_slide_button {
-		margin: 0 10% 0 10%;
+		.gbt_18_mc_slide_button {
+			text-transform: uppercase;
+			transition: all 0.3s ease-out;
+			border-color: transparent;
+			text-decoration: none;
+			margin: 0 10% 0 10%;
+
+			&:hover {
+				opacity: .7;
+			}
+		}
+
+		@media only screen and (min-width: 64em) {
+			.slider-content-wrapper {
+				width: 90%;
+			}
+		}
+
+		.slider-content {
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+		}
+
+		.fullslidelink 
+		{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 2;
+		}
+
 	}
 
 	@media only screen and (min-width: 64em) {
-		.shortcode_getbowtied_slider .swiper-slide .slider-content-wrapper {
-			width: 90%;
-		}
-	}
 
-	.swiper-container.full_height {
-	    height: 100vh !important;
+		.gbt_18_mc_slider_button_prev,
+		.gbt_18_mc_slider_button_next {
+		    position: absolute;
+		    background-size: 15px;
+		    top: 50%;
+		    width: 27px;
+		    height: 44px;
+		    margin-top: -22px;
+		    z-index: 10;
+		    opacity: 0;
+		    outline: 0;
+            height: 75px;
+            width: 75px;
+		    cursor: pointer;
+		    display: block;
+            transition: all .3s;
+		    background-position: center;
+		    background-repeat: no-repeat;
+		}
+
+		.gbt_18_mc_slider_button_prev {
+			background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23000000'%2F%3E%3C%2Fsvg%3E");
+            left: 0;
+		}
+
+		.gbt_18_mc_slider_button_next {
+			background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23000000'%2F%3E%3C%2Fsvg%3E");
+            right: 0;
+		}
+
+	    .swiper-slide {
+			
+			.slider-content-wrapper {
+				width: 50%;
+				position: relative;
+				margin: 0 auto;
+				text-align: center;
+				padding: 0 75px;
+				box-sizing: border-box;
+			}
+		}
+
+		&:hover {
+			
+			.gbt_18_mc_slider_button_prev,
+			.gbt_18_mc_slider_button_next
+			{
+                opacity: 0.5;
+
+				&:hover {
+					opacity: 1;
+				}
+
+			}
+
+		}
+
+		.gbt_18_mc_slider_pagination {
+
+			display: block;
+			position: absolute;
+			left: 0;
+			bottom: 12%;
+			z-index: 9999;
+			width: 100%;
+			text-align: center;
+
+			.swiper-pagination-bullet {
+
+				margin: 0 5px;
+				background: none;
+				opacity: 0.5;
+				transition: all .3s ease;
+				outline: 0;
+				height: 0;
+				vertical-align: top;
+
+				&:before {
+					content: '●';
+				}
+
+				&.swiper-pagination-bullet-active {
+					opacity: 1;
+					transform: scale(1.3);
+					transition: all .3s ease;
+
+					&:before {
+					    display: block;
+    					margin-top: -3px;
+    					transition: all .3s ease;
+					}
+				}
+
+			}
+
+		}
+
 	}
 }
