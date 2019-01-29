@@ -2,18 +2,6 @@ jQuery(function($) {
 	
 	"use strict";
 
-	var sliderPerView = 2;
-
-	var update_blog_posts_slides_per_view = function() {
-	    if ( $(window).width() <= 640 ) {
-			sliderPerView = 1;
-		} else {
-		    sliderPerView = 2;
-		}
-	};
-
-	update_blog_posts_slides_per_view();
-
 	$('.gbt_18_mc_posts_slider_container').each(function() {
 
 		var mySwiper = new Swiper ($(this), {
@@ -24,29 +12,28 @@ jQuery(function($) {
 			preventClicks: true,
 			preventClicksPropagation: true,
 		    autoplay: {
-			    delay: 5000,
-			    disableOnInteraction: true,
+			    delay: 5000
 		  	},
 			loop: true,
-			slidesPerView: sliderPerView,
+			slidesPerView: 2,
+			breakpoints: {
+				640: {
+			      slidesPerView: 1,
+			    }
+			},
 			parallax: true,
 		    speed: 600,
 			effect: 'slide',
 		    // If we need pagination
 		    pagination: { 
-		    	el: $(this).find('.quickview-pagination'),
+		    	el: '.quickview-pagination',
 		    	clickable: true 
 		    },
 		    // Navigation
 		    navigation: {
-			    nextEl: $(this).find('.swiper-button-next'),
-			    prevEl: $(this).find('.swiper-button-prev'),
+			    nextEl: '.swiper-button-next',
+			    prevEl: '.swiper-button-prev',
 		  	},
-		});
-
-		$(window).on("load resize",function() {
-			update_blog_posts_slides_per_view();
-			mySwiper.params.slidesPerView = sliderPerView;
 		});
 	});
 });
