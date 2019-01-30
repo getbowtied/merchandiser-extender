@@ -27,7 +27,7 @@ Companion plugin for the **Merchandiser** theme. Extends the functionality by ad
 = 1.2 =
 - WordPress 5+ compatibility improvements
 - Improved styles for theme neutrality
-- Localization issues with the Posts Grid Blocks
+- Localization issues with the Posts Grid and Posts Slider Blocks
 
 = 1.1 =
 - WordPress 5+ compatibility improvements
