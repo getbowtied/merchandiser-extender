@@ -63,14 +63,14 @@ if( !function_exists('gbt_18_mc_render_frontend_posts_slider') ) {
 		        
 	    if ( !empty($recentPosts) ) : ?>
 
-	    <div class="gbt_18_mc_posts_slider <?php echo $align; ?>">
+	    <div class="gbt_18_mc_posts_slider align<?php echo $align; ?>">
 	    
-			<div class="shortcode_getbowtied_blog_posts swiper-container">
+			<div class="gbt_18_mc_posts_slider_container swiper-container">
 				<div class="swiper-wrapper">
 			                    
 			        <?php foreach($recentPosts as $post) : ?>
 			        
-			            <div class="shortcode_blog_posts_item swiper-slide">
+			            <div class="gbt_18_mc_posts_slider_item swiper-slide">
 
 			            	<?php if ( has_post_thumbnail($post->ID)) :
 								$image_id = get_post_thumbnail_id($post->ID);
@@ -82,26 +82,26 @@ if( !function_exists('gbt_18_mc_render_frontend_posts_slider') ) {
 							<?php endif;  ?>
 
 							<div class="text-wrapper">
-			                	<a class="shortcode_blog_posts_link" href="<?php echo get_post_permalink($post->ID); ?>">
-									<span class="shortcode_blog_posts_link_wrapper" style="background-color:<?php echo $backgroundColor; ?>;">
-										<h4 class="shortcode_blog_posts_title" style="color:<?php echo $fontColor; ?>;"><?php echo $post->post_title; ?></h4>
-										<span class="shortcode_blog_posts_date" style="color:<?php echo $fontColor; ?>;"><?php echo date('F d, Y', strtotime($post->post_date)); ?></span>
-									</span>
-								</a>
+			                	<span class="gbt_18_mc_posts_slider_item_link" href="<?php echo get_post_permalink($post->ID); ?>">
+									<a class="gbt_18_mc_posts_slider_item_link_wrapper" style="background-color:<?php echo $backgroundColor; ?>;">
+										<h4 class="gbt_18_mc_posts_slider_item_title" style="color:<?php echo $fontColor; ?>;"><?php echo $post->post_title; ?></h4>
+										<span class="gbt_18_mc_posts_slider_item_date" style="color:<?php echo $fontColor; ?>;"><?php echo date('F d, Y', strtotime($post->post_date)); ?></span>
+									</a>
+								</span>
 							</div>
 			                
 			            </div>
 
 			        <?php endforeach; // end of the loop. ?>
 			    </div>
-			    <?php if ($arrows): ?>
-					<div class="swiper-button-prev"></div>
-					<div class="swiper-button-next"></div>	
-				<?php endif; ?>
-				<?php if ($bullets): ?>
+			    <?php if ($bullets): ?>
 					<div class="quickview-pagination"></div>
 				<?php endif; ?>	 
 			</div>
+			<?php if ($arrows): ?>
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>	
+			<?php endif; ?>
 		</div>
 	        
 	    <?php endif;

@@ -20,7 +20,7 @@
 
 	/* Register Block */
 	registerBlockType( 'getbowtied/mc-posts-slider', {
-		title: i18n.__( 'Posts Slider' ),
+		title: i18n.__( 'Posts Slider', 'merchandiser-extender' ),
 		icon: el( SVG, { xmlns:'http://www.w3.org/2000/svg', viewBox:'0 0 24 24' },
 				el( Path, { d:'M15 7v9h-5V7h5m6-2h-3v13h3V5zm-4 0H8v13h9V5zM7 5H4v13h3V5z' } ) 
 			),
@@ -178,6 +178,8 @@
 						break;
 				}
 
+				query += '&lang=' + posts_grid_vars.language;
+
 				return query;
 			}
 
@@ -199,9 +201,9 @@
 
 			function _isLoadingText(){
 				if ( attributes.isLoading  === false ) {
-					return i18n.__('Update');
+					return i18n.__( 'Update', 'merchandiser-extender' );
 				} else {
-					return i18n.__('Updating');
+					return i18n.__( 'Updating', 'merchandiser-extender' );
 				}
 			}
 
@@ -237,10 +239,10 @@
 
 			function renderResults() {
 				if ( attributes.firstLoad === true ) {
-					apiFetch({ path: '/wp/v2/posts?per_page=12&orderby=date&order=desc' }).then(function (posts) {
+					apiFetch({ path: '/wp/v2/posts?per_page=12&orderby=date&order=desc&lang=' + posts_grid_vars.language }).then(function (posts) {
 						props.setAttributes({ result: posts });
 						props.setAttributes({ firstLoad: false });
-						let query = '/wp/v2/posts?per_page=12&orderby=date&order=desc';
+						let query = '/wp/v2/posts?per_page=12&orderby=date&order=desc&lang=' + posts_grid_vars.language;
 						props.setAttributes({queryPosts: query});
 						props.setAttributes({ queryPostsLast: query});
 					});
@@ -265,7 +267,20 @@
 
 					for ( let i = 0; i < posts.length; i++ ) {
 
-						var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+						var months = [
+							i18n.__( 'January', 	'merchandiser-extender' ),
+							i18n.__( 'February', 	'merchandiser-extender' ),
+							i18n.__( 'March', 		'merchandiser-extender' ),
+							i18n.__( 'April', 		'merchandiser-extender' ),
+							i18n.__( 'May', 		'merchandiser-extender' ),
+							i18n.__( 'June', 		'merchandiser-extender' ),
+							i18n.__( 'July', 		'merchandiser-extender' ),
+							i18n.__( 'August', 		'merchandiser-extender' ),
+							i18n.__( 'September', 	'merchandiser-extender' ),
+							i18n.__( 'October', 	'merchandiser-extender' ),
+							i18n.__( 'November', 	'merchandiser-extender' ),
+							i18n.__( 'December', 	'merchandiser-extender' )
+							];
 
 						let date = new Date(posts[i]['date']);
 						date = months[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
@@ -431,7 +446,7 @@
 				let optionsIDs = [];
 				let sorted = [];
 			
-				apiFetch({ path: '/wp/v2/categories?per_page=-1' }).then(function (categories) {
+				apiFetch({ path: '/wp/v2/categories?per_page=-1&lang=' + posts_grid_vars.language }).then(function (categories) {
 
 				 	for( let i = 0; i < categories.length; i++) {
 	        			options[i] = {'label': categories[i].name.replace(/&amp;/g, '&'), 'value': categories[i].id, 'parent': categories[i].parent, 'count': categories[i].count };
@@ -520,7 +535,7 @@
 						{
 							className: 'main-inspector-wrapper',
 						},
-						el( 'label', { className: 'components-base-control__label' }, i18n.__('Categories:') ),
+						el( 'label', { className: 'components-base-control__label' }, i18n.__('Categories:', 'merchandiser-extender') ),
 						el(
 							'div',
 							{
@@ -535,12 +550,12 @@
 								key: 'mc-posts-slider-order-by',
 								options:
 									[
-										{ value: 'title_asc',   label: 'Alphabetical Ascending' },
-										{ value: 'title_desc',  label: 'Alphabetical Descending' },
-										{ value: 'date_asc',   	label: 'Date Ascending' },
-										{ value: 'date_desc',  	label: 'Date Descending' },
+										{ value: 'title_asc',   label: i18n.__( 'Alphabetical Ascending', 'merchandiser-extender' ) },
+										{ value: 'title_desc',  label: i18n.__( 'Alphabetical Descending', 'merchandiser-extender' ) },
+										{ value: 'date_asc',   	label: i18n.__( 'Date Ascending', 'merchandiser-extender' ) },
+										{ value: 'date_desc',  	label: i18n.__( 'Date Descending', 'merchandiser-extender' ) },
 									],
-	              				label: i18n.__( 'Order By' ),
+	              				label: i18n.__( 'Order By', 'merchandiser-extender' ),
 	              				value: attributes.orderby,
 	              				onChange: function( value ) {
 	              					props.setAttributes( { orderby: value } );
@@ -559,7 +574,7 @@
 								initialPosition: 12,
 								min: 1,
 								max: 20,
-								label: i18n.__( 'Number of Posts' ),
+								label: i18n.__( 'Number of Posts', 'merchandiser-extender' ),
 								onChange: function onChange(newNumber){
 									props.setAttributes( { number: newNumber } );
 									let newCategoriesSelected = attributes.categoriesIDs;
@@ -586,7 +601,7 @@
 							{
 								key: "mc-posts-slider-arrows",
 								checked: attributes.arrows,
-								label: i18n.__( 'Navigation Arrows' ),
+								label: i18n.__( 'Navigation Arrows', 'merchandiser-extender' ),
 								onChange: function( newArrows ) {
 									props.setAttributes( { arrows: newArrows } );
 								},
@@ -597,7 +612,7 @@
 							{
 								key: "mc-posts-slider-bullets",
 								checked: attributes.bullets,
-								label: i18n.__( 'Navigation Bullets' ),
+								label: i18n.__( 'Navigation Bullets', 'merchandiser-extender' ),
 								onChange: function( newBullets ) {
 									props.setAttributes( { bullets: newBullets } );
 								},
@@ -608,17 +623,17 @@
 							{
 								key: 'gbt_18_mc_editor_posts_slider_colors',
 								initialOpen: false,
-								title: i18n.__( 'Colors' ),
+								title: i18n.__( 'Colors', 'merchandiser-extender' ),
 								colorSettings: [
 									{ 
-										label: i18n.__( 'Text Color' ),
+										label: i18n.__( 'Text Color', 'merchandiser-extender' ),
 										value: attributes.fontColor,
 										onChange: function( newColor) {
 											props.setAttributes( { fontColor: newColor } );
 										},
 									},
 									{ 
-										label: i18n.__( 'Background Color' ),
+										label: i18n.__( 'Background Color', 'merchandiser-extender' ),
 										value: attributes.backgroundColor,
 										onChange: function( newColor) {
 											props.setAttributes( { backgroundColor: newColor } );

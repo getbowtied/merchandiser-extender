@@ -41,5 +41,11 @@ if ( ! function_exists( 'gbt_18_mc_slider_assets' ) ) {
 			plugins_url( 'assets/css/frontend/style.css', __FILE__ ),
 			array()
 		);
+
+		wp_enqueue_script(
+			'gbt_18_mc_slider_script',
+			plugins_url( 'assets/js/slider.js', __FILE__ ),
+			array( 'jquery' )
+		);
 	}
 }

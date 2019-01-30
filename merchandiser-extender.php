@@ -2,13 +2,13 @@
 
 /**
  * Plugin Name:       		Merchandiser Extender
- * Plugin URI:        		https://github.com/getbowtied/merchandiser-extender
+ * Plugin URI:        		https://merchandiser.wp-theme.design/
  * Description:       		Extends the functionality of Merchandiser with Gutenberg elements.
- * Version:           		1.1
+ * Version:           		1.2
  * Author:            		GetBowtied
  * Author URI:        		https://getbowtied.com
  * Requires at least: 		5.0
- * Tested up to: 			5.0
+ * Tested up to: 			5.0.3
  *
  * @package  Merchandiser Extender
  * @author   GetBowtied
@@ -22,43 +22,20 @@ if ( ! function_exists( 'is_plugin_active' ) ) {
     require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 }
 
-add_action( 'init', 'github_mc_plugin_updater' );
-if(!function_exists('github_mc_plugin_updater')) {
-	function github_mc_plugin_updater() {
+global $theme;
+$theme = wp_get_theme();
 
-		include_once 'updater.php';
-
-		define( 'WP_GITHUB_FORCE_UPDATE', true );
-
-		if ( is_admin() ) {
-
-			$config = array(
-				'slug' 				 => plugin_basename(__FILE__),
-				'proper_folder_name' => 'merchandiser-extender',
-				'api_url' 			 => 'https://api.github.com/repos/getbowtied/merchandiser-extender',
-				'raw_url' 			 => 'https://raw.github.com/getbowtied/merchandiser-extender/master',
-				'github_url' 		 => 'https://github.com/getbowtied/merchandiser-extender',
-				'zip_url' 			 => 'https://github.com/getbowtied/merchandiser-extender/zipball/master',
-				'sslverify'			 => true,
-				'requires'			 => '5.0',
-				'tested'			 => '5.0',
-				'readme'			 => 'README.txt',
-				'access_token'		 => '',
-			);
-
-			new WP_GitHub_Updater( $config );
-		}
-	}
-}
+// Plugin Updater
+require 'core/updater/plugin-update-checker.php';
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'https://raw.githubusercontent.com/getbowtied/merchandiser-extender/master/core/updater/assets/plugin.json',
+	__FILE__,
+	'merchandiser-extender'
+);
 
 add_action( 'init', 'gbt_mc_gutenberg_blocks' );
 if(!function_exists('gbt_mc_gutenberg_blocks')) {
 	function gbt_mc_gutenberg_blocks() {
-
-		$theme = wp_get_theme();
-		if ( $theme->template != 'merchandiser') {
-			return;
-		}
 
 		if( is_plugin_active( 'gutenberg/gutenberg.php' ) || mc_is_wp_version('>=', '5.0') ) {
 			include_once 'includes/gbt-blocks/index.php';
@@ -73,8 +50,9 @@ if(!function_exists('mc_theme_warning')) {
 
 		?>
 
-		<div class="message error woocommerce-admin-notice woocommerce-st-inactive woocommerce-not-configured">
-			<p>Merchandiser Extender plugin couldn't find the Block Editor (Gutenberg) on this site. It requires WordPress 5+ or Gutenberg installed as a plugin.</p>
+		<div class="error">
+			<p>Merchandiser Extender plugin couldn't find the Block Editor (Gutenberg) on this site. 
+				It requires WordPress 5+ or Gutenberg installed as a plugin.</p>
 		</div>
 
 		<?php
