@@ -301,29 +301,7 @@
 							key: 'swiper-wrapper',
 							className: 'swiper-wrapper'
 						},
-						el( InnerBlock.Content, { key: 'slide-content' } )
-					),
-					!! attributes.arrows && el(
-						'div',
-						{
-							key: 'swiper-button-prev',
-							className: 'gbt_18_mc_slider_button_prev',
-							style:
-							{
-								backgroundColor: attributes.arrowsColor
-							}
-						},
-					),
-					!! attributes.arrows && el(
-						'div',
-						{
-							key: 'swiper-button-next',
-							className: 'gbt_18_mc_slider_button_next',
-							style:
-							{
-								backgroundColor: attributes.arrowsColor
-							}
-						},
+						el( InnerBlock.Content, { key: 'slide-content' } ),
 					),
 					!! attributes.pagination && el(
 						'div',
@@ -336,7 +314,29 @@
 							}
 						}
 					)
-				)
+				),
+				!! attributes.arrows && el(
+					'div',
+					{
+						key: 'swiper-button-prev',
+						className: 'gbt_18_mc_slider_button_prev',
+						style:
+						{
+							backgroundColor: attributes.arrowsColor
+						}
+					},
+				),
+				!! attributes.arrows && el(
+					'div',
+					{
+						key: 'swiper-button-next',
+						className: 'gbt_18_mc_slider_button_next',
+						style:
+						{
+							backgroundColor: attributes.arrowsColor
+						}
+					},
+				),
 			);
 		},
 	} );

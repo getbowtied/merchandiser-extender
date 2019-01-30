@@ -82,26 +82,26 @@ if( !function_exists('gbt_18_mc_render_frontend_posts_slider') ) {
 							<?php endif;  ?>
 
 							<div class="text-wrapper">
-			                	<a class="gbt_18_mc_posts_slider_item_link" href="<?php echo get_post_permalink($post->ID); ?>">
-									<span class="gbt_18_mc_posts_slider_item_link_wrapper" style="background-color:<?php echo $backgroundColor; ?>;">
+			                	<span class="gbt_18_mc_posts_slider_item_link" href="<?php echo get_post_permalink($post->ID); ?>">
+									<a class="gbt_18_mc_posts_slider_item_link_wrapper" style="background-color:<?php echo $backgroundColor; ?>;">
 										<h4 class="gbt_18_mc_posts_slider_item_title" style="color:<?php echo $fontColor; ?>;"><?php echo $post->post_title; ?></h4>
 										<span class="gbt_18_mc_posts_slider_item_date" style="color:<?php echo $fontColor; ?>;"><?php echo date('F d, Y', strtotime($post->post_date)); ?></span>
-									</span>
-								</a>
+									</a>
+								</span>
 							</div>
 			                
 			            </div>
 
 			        <?php endforeach; // end of the loop. ?>
 			    </div>
-			    <?php if ($arrows): ?>
-					<div class="swiper-button-prev"></div>
-					<div class="swiper-button-next"></div>	
-				<?php endif; ?>
-				<?php if ($bullets): ?>
+			    <?php if ($bullets): ?>
 					<div class="quickview-pagination"></div>
 				<?php endif; ?>	 
 			</div>
+			<?php if ($arrows): ?>
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>	
+			<?php endif; ?>
 		</div>
 	        
 	    <?php endif;

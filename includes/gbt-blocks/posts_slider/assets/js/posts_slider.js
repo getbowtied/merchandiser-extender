@@ -2,15 +2,10 @@ jQuery(function($) {
 	
 	"use strict";
 
-	$('.gbt_18_mc_posts_slider_container').each(function() {
+	$('.gbt_18_mc_posts_slider_container').each(function(i) {
 
 		var mySwiper = new Swiper ($(this), {
-			
-			// Optional parameters
 		    direction: 'horizontal',
-		    grabCursor: true,
-			preventClicks: true,
-			preventClicksPropagation: true,
 		    autoplay: {
 			    delay: 5000
 		  	},
@@ -21,18 +16,14 @@ jQuery(function($) {
 			      slidesPerView: 1,
 			    }
 			},
-			parallax: true,
-		    speed: 600,
-			effect: 'slide',
-		    // If we need pagination
 		    pagination: { 
 		    	el: '.quickview-pagination',
+		    	dynamicBullets: true,
 		    	clickable: true 
 		    },
-		    // Navigation
 		    navigation: {
-			    nextEl: '.swiper-button-next',
-			    prevEl: '.swiper-button-prev',
+			    nextEl: $('.swiper-button-next')[i],
+			    prevEl: $('.swiper-button-prev')[i],
 		  	},
 		});
 	});
