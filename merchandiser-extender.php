@@ -4,11 +4,11 @@
  * Plugin Name:       		Merchandiser Extender
  * Plugin URI:        		https://merchandiser.wp-theme.design/
  * Description:       		Extends the functionality of Merchandiser with Gutenberg elements.
- * Version:           		1.2.1
+ * Version:           		1.2.2
  * Author:            		GetBowtied
  * Author URI:        		https://getbowtied.com
  * Requires at least: 		5.0
- * Tested up to: 			5.0.3
+ * Tested up to: 			5.1
  *
  * @package  Merchandiser Extender
  * @author   GetBowtied
@@ -21,9 +21,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! function_exists( 'is_plugin_active' ) ) {
     require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 }
-
-global $theme;
-$theme = wp_get_theme();
 
 // Plugin Updater
 require 'core/updater/plugin-update-checker.php';
