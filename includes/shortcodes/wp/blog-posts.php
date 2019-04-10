@@ -4,6 +4,7 @@
 function getbowtied_shortcode_blog_posts($atts, $content = null) {
 
 	wp_enqueue_style(  'merchandiser-blog-posts-shortcode-styles' );
+	wp_enqueue_script( 'merchandiser-blog-posts-shortcode-script' );
 
 	$sliderrandomid = rand();
 	extract(shortcode_atts(array(

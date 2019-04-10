@@ -5,6 +5,7 @@
 function getbowtied_slider($params = array(), $content = null) {
 
 	wp_enqueue_style(  'merchandiser-slider-shortcode-styles' );
+	wp_enqueue_script( 'merchandiser-slider-shortcode-script' );
 
 	extract(shortcode_atts(array(
 		'full_height' 	=> 'yes',

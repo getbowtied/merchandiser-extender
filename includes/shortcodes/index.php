@@ -66,8 +66,8 @@ if ( defined( 'WPB_VC_VERSION' ) ) {
 	}
 }
 
-add_action( 'wp_enqueue_scripts', 'getbowtied_sk_shortcodes_styles', 99 );
-function getbowtied_sk_shortcodes_styles() {
+add_action( 'wp_enqueue_scripts', 'getbowtied_mc_shortcodes_styles', 99 );
+function getbowtied_mc_shortcodes_styles() {
 	wp_register_style('merchandiser-banner-shortcode-styles',
 		plugins_url( 'assets/css/wp/banner.css', __FILE__ ),
 		NULL
@@ -110,5 +110,25 @@ function getbowtied_sk_shortcodes_styles() {
 			NULL
 		);
 	}
+}
 
+add_action( 'wp_enqueue_scripts', 'getbowtied_mc_shortcodes_scripts', 99 );
+function getbowtied_mc_shortcodes_scripts() {
+
+	wp_register_script('merchandiser-blog-posts-shortcode-script', 
+		plugins_url( 'assets/js/blog-posts.js', __FILE__ ),
+		array('jquery')
+	);
+
+	wp_register_script('merchandiser-slider-shortcode-script', 
+		plugins_url( 'assets/js/slider.js', __FILE__ ),
+		array('jquery')
+	);
+
+	if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
+		wp_enqueue_script('merchandiser-product-gutter-script', 
+			plugins_url( 'assets/js/product-list-gutter.js', __FILE__ ),
+			array('jquery')
+		);
+	}
 }
