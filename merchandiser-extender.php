@@ -30,37 +30,69 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	'merchandiser-extender'
 );
 
-add_action( 'init', 'gbt_mc_gutenberg_blocks' );
-if(!function_exists('gbt_mc_gutenberg_blocks')) {
-	function gbt_mc_gutenberg_blocks() {
 
-		if( is_plugin_active( 'gutenberg/gutenberg.php' ) || mc_is_wp_version('>=', '5.0') ) {
-			include_once 'includes/gbt-blocks/index.php';
-		} else {
-			add_action( 'admin_notices', 'mc_theme_warning' );
+if ( ! class_exists( 'MerchandiserExtender' ) ) :
+
+	/**
+	 * MerchandiserExtender class.
+	*/
+	class MerchandiserExtender {
+
+		/**
+		 * The single instance of the class.
+		 *
+		 * @var MerchandiserExtender
+		*/
+		protected static $_instance = null;
+
+		/**
+		 * MerchandiserExtender constructor.
+		 *
+		*/
+		public function __construct() {
+
+			$theme = wp_get_theme();
+			$parent_theme = $theme->parent();
+
+			// Helpers
+			include_once( 'includes/helpers/helpers.php' );
+
+			if( ( $theme->template == 'merchandiser' && ( $theme->version >= '1.8.8' || ( !empty($parent_theme) && $parent_theme->version >= '1.8.8' ) ) ) || $theme->template != 'merchandiser' ) {
+
+				// Shortcodes
+				include_once( 'includes/shortcodes/index.php' );
+			}
+
+			// Gutenberg Blocks
+			add_action( 'init', array( $this, 'gbt_mc_gutenberg_blocks' ) );
+		}
+
+		/**
+		 * Loads Gutenberg blocks
+		 *
+		 * @return void
+		*/
+		public function gbt_mc_gutenberg_blocks() {
+
+			if( is_plugin_active( 'gutenberg/gutenberg.php' ) || mc_is_wp_version('>=', '5.0') ) {
+				include_once 'includes/gbt-blocks/index.php';
+			} else {
+				add_action( 'admin_notices', 'mc_theme_warning' );
+			}
+		}
+
+		/**
+		 * Ensures only one instance of MerchandiserExtender is loaded or can be loaded.
+		 *
+		 * @return MerchandiserExtender
+		*/
+		public static function instance() {
+			if ( is_null( self::$_instance ) ) {
+				self::$_instance = new self();
+			}
+			return self::$_instance;
 		}
 	}
-}
+endif;
 
-if(!function_exists('mc_theme_warning')) {
-	function mc_theme_warning() {
-
-		?>
-
-		<div class="error">
-			<p>Merchandiser Extender plugin couldn't find the Block Editor (Gutenberg) on this site. 
-				It requires WordPress 5+ or Gutenberg installed as a plugin.</p>
-		</div>
-
-		<?php
-	}
-}
-
-if(!function_exists('mc_is_wp_version')) {
-	function mc_is_wp_version( $operator = '>', $version = '4.0' ) {
-
-		global $wp_version;
-
-		return version_compare( $wp_version, $version, $operator );
-	}
-}
+$merchandiser_extender = new MerchandiserExtender;
