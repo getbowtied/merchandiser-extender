@@ -11,7 +11,7 @@
 		margin: 0;
 		padding: 0;
 	    line-height: 1em;
-		font-size: 24px;
+		font-size: 16px;
 
 		&.left
 		{
@@ -57,5 +57,51 @@
 		content: " ";
 		display: table;
 		clear: both;
+	}
+}
+
+
+.footer-socials
+{
+	display: block;
+	vertical-align: middle;
+
+	@media only screen and (min-width: 64em) {
+		float: left;
+	}
+
+	.shortcode_socials {
+
+		margin: 0;
+
+		@media only screen and (min-width: 64em) {
+		    margin: 0 -7px;
+		}
+
+		ul.mc_social_icons_list {
+
+			width: 100%;
+			line-height: inherit;
+			text-align: center;
+			margin-bottom: 1.66667rem;
+
+			@media only screen and (min-width: 64em) {
+				margin-bottom: 0;
+			    text-align: left;
+			}
+			
+			li.mc_social_icon {
+
+				padding: 0;
+				
+				a.mc_social_icon_link {
+					padding: 5px 7px;
+					display: inline-block;
+				}
+
+			}
+
+		}
+
 	}
 }

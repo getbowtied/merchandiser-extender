@@ -5,15 +5,20 @@
 	/* Blocks */
 	const registerBlockType   	= blocks.registerBlockType;
 
-	const AlignmentToolbar		= editor.AlignmentToolbar;
-	const BlockControls       	= editor.BlockControls;
-	const InspectorControls   	= editor.InspectorControls;
-	const ColorSettings			= editor.PanelColorSettings;
+	const {
+		TextControl,
+		RangeControl,
+		SVG,
+		Path,
+	} = wp.components;
 
-	const TextControl 			= components.TextControl;
-	const RangeControl			= components.RangeControl;
-	const SVG 					= components.SVG;
-	const Path 					= components.Path;
+	const {
+		ServerSideRender,
+		PanelColorSettings,
+		InspectorControls,
+		BlockControls,
+		AlignmentToolbar,
+	} = wp.editor;
 
 	/* Register Block */
 	registerBlockType( 'getbowtied/mc-social-media-profiles', {
@@ -69,7 +74,7 @@
 							}
 						),
 						el(
-							ColorSettings,
+							PanelColorSettings,
 							{
 								key: 'gbt_18_mc_socials_icons_color',
 								title: i18n.__( 'Icons Color' ),
@@ -109,28 +114,20 @@
 						className: 	'gbt_18_mc_editor_social_media_wrapper'
 					},
 					el(
-						'h4',
-						{
-							key: 		'gbt_18_mc_editor_social_media_title',
-							className: 	'gbt_18_mc_editor_social_media_title',
-						},
-						el(
-							'span',
-							{
-								key: 		'gbt_18_mc_editor_social_media_icon',
-								className: 	'gbt_18_mc_editor_social_media_icon dashicon dashicons-share',
-							},
-						),
-						i18n.__('Social Media Icons', 'merchandiser-extender' ),
-					),
-					el(
 						'p',
 						{
 							key: 		'gbt_18_mc_editor_social_media_setup',
 							className: 	'gbt_18_mc_editor_social_media_setup',
 						},
-						i18n.__('Setup profile links under Appearance > Customize > Social Media', 'merchandiser-extender' ),
+						i18n.__('Setup social profile links under Appearance > Customize > Social Media', 'merchandiser-extender' ),
 					),
+				),
+				el(
+					ServerSideRender,
+					{
+						block: 'getbowtied/mc-social-media-profiles',
+						attributes: props.attributes
+					}
 				),
 			];
 		},
