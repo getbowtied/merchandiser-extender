@@ -11,8 +11,6 @@ vc_map(array(
    "description"	=> "Place Title",
    "base"			=> "title",
    "class"			=> "",
-   "icon"			=> get_template_directory_uri() . "/images/vc/title.png",
-
    
    "params" 	=> array(
       

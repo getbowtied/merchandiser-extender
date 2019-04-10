@@ -36,8 +36,6 @@ vc_map(array(
    "description"	=> "Display the latest posts in the blog",
    "base"			=> "blog_posts",
    "class"			=> "",
-   "icon"			=> get_template_directory_uri() . "/images/vc/blog.png",
-
    
    "params" 	=> array(
       

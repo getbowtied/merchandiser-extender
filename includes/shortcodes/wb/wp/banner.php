@@ -11,7 +11,6 @@ vc_map(array(
    "class"			=> "",
    "category"		=> 'Content',
    "description"	=> "Place Banner", 
-   "icon"			=> get_template_directory_uri() . "/images/vc/banner.png",
    
    "params" 	=> array(
 

@@ -10,7 +10,6 @@ vc_map( array(
 	"description"	=> "Slider",
 	"base"			=> "slider",
 	"class"			=> "",
-	"icon"			=> get_template_directory_uri() . "/images/vc/slider-main.png",
 	"as_parent" => array('only' => 'image_slide'),
 	"content_element" => true,
 	"params" => array(
@@ -60,7 +59,6 @@ vc_map( array(
     "name" => 'Image Slide',
     "base" => "image_slide",
     "as_child" => array('only' => 'slider'), // Use only|except attributes to limit parent (separate multiple values with comma)
-    "icon"	=> get_template_directory_uri() . "/images/vc/slider.png",
     "params" => array(
         // add params same as with any other content element
 
