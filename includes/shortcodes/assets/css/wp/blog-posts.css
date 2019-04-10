@@ -139,7 +139,6 @@
 
 @media only screen and (min-width: 64em) {
   .shortcode_getbowtied_blog_posts .swiper-button-prev {
-    background: url(../images/original-left.svg) center center no-repeat;
     height: 75px;
     width: 75px;
     opacity: 0.5;
@@ -149,7 +148,6 @@
     -o-transition: all .3s;
     transition: all .3s; }
   .shortcode_getbowtied_blog_posts .swiper-button-next {
-    background: url(../images/original-right.svg) center center no-repeat;
     height: 75px;
     width: 75px;
     opacity: 0.5;
