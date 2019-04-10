@@ -67,6 +67,11 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 
 				// Social Media
 				include_once( 'includes/social-media/class-social-media.php' );
+
+				// Addons
+				if ( $theme->template == 'merchandiser' && is_plugin_active( 'woocommerce/woocommerce.php') ) { 
+					include_once( 'includes/addons/class-wc-category-header-image.php' );
+				}
 			}
 
 			// Gutenberg Blocks
