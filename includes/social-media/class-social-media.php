@@ -5,14 +5,14 @@ if ( ! class_exists( 'MCSocialMedia' ) ) :
 	/**
 	 * MCSocialMedia class.
 	 *
-	 * @since 1.4
+	 * @since 1.3
 	*/
 	class MCSocialMedia {
 
 		/**
 		 * List of social media profiles.
 		 *
-		 * @since 1.4
+		 * @since 1.3
 		 * @var array
 		 */
 		protected $social_media_profiles = array();
@@ -20,7 +20,7 @@ if ( ! class_exists( 'MCSocialMedia' ) ) :
 		/**
 		 * The single instance of the class.
 		 *
-		 * @since 1.4
+		 * @since 1.3
 		 * @var MCSocialMedia
 		*/
 		protected static $_instance = null;
@@ -28,7 +28,7 @@ if ( ! class_exists( 'MCSocialMedia' ) ) :
 		/**
 		 * MCSocialMedia constructor.
 		 *
-		 * @since 1.4
+		 * @since 1.3
 		*/
 		public function __construct() {
 
@@ -51,7 +51,7 @@ if ( ! class_exists( 'MCSocialMedia' ) ) :
 		/**
 		 * Ensures only one instance of MCSocialMedia is loaded or can be loaded.
 		 *
-		 * @since 1.4
+		 * @since 1.3
 		 *
 		 * @return MCSocialMedia
 		*/
@@ -65,7 +65,7 @@ if ( ! class_exists( 'MCSocialMedia' ) ) :
 		/**
 		 * Enqueue styles.
 		 *
-		 * @since 1.4
+		 * @since 1.3
 		 * @return void
 		*/
 		protected function enqueue_styles() {
@@ -77,7 +77,7 @@ if ( ! class_exists( 'MCSocialMedia' ) ) :
 		/**
 		 * Imports social media links stored as theme mods into the options WP table.
 		 *
-		 * @since 1.4
+		 * @since 1.3
 		 * @return void
 		 */
 		private function import_options() {
@@ -92,7 +92,7 @@ if ( ! class_exists( 'MCSocialMedia' ) ) :
 		/**
 		 * Sets the social media profile array.
 		 *
-		 * @since 1.4
+		 * @since 1.3
 		 * @return void
 		 */
 		protected function set_profiles() {
@@ -290,7 +290,7 @@ if ( ! class_exists( 'MCSocialMedia' ) ) :
 		/**
 		 * Registers customizer options.
 		 *
-		 * @since 1.4
+		 * @since 1.3
 		 * @return void
 		 */
 		protected function customizer_options() {
@@ -300,7 +300,7 @@ if ( ! class_exists( 'MCSocialMedia' ) ) :
 		/**
 		 * Creates customizer options.
 		 *
-		 * @since 1.4
+		 * @since 1.3
 		 * @return void
 		 */
 		public function mc_social_media_customizer( $wp_customize ) {
@@ -342,7 +342,7 @@ if ( ! class_exists( 'MCSocialMedia' ) ) :
 		/**
 		 * Adds social media shortcode.
 		 *
-		 * @since 1.4
+		 * @since 1.3
 		 * @return void
 		 */
 		protected function create_shortcode() {
@@ -352,7 +352,7 @@ if ( ! class_exists( 'MCSocialMedia' ) ) :
 		/**
 		 * Creates social media shortcode.
 		 *
-		 * @since 1.4
+		 * @since 1.3
 		 * @return string
 		 */
 		public function mc_social_media_shortcode( $atts, $content = null ) {
@@ -409,7 +409,7 @@ if ( ! class_exists( 'MCSocialMedia' ) ) :
 		/**
 		 * Adds social media as a WPBakery element.
 		 *
-		 * @since 1.4
+		 * @since 1.3
 		 * @return void
 		 */
 		protected function create_wb_element() {

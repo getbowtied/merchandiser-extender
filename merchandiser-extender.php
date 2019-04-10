@@ -71,6 +71,17 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 
 			// Gutenberg Blocks
 			add_action( 'init', array( $this, 'gbt_mc_gutenberg_blocks' ) );
+
+			if( $theme->template == 'merchandiser' && ( $theme->version >= '1.8.8' || ( !empty($parent_theme) && $parent_theme->version >= '1.8.8' ) ) ) {
+
+				// Custom Code Section
+				//include_once( 'includes/custom-code/class-custom-code.php' );
+
+				// Social Sharing Buttons
+				if ( is_plugin_active( 'woocommerce/woocommerce.php') ) { 
+					include_once( 'includes/social-sharing/class-social-sharing.php' );
+				}
+			}
 		}
 
 		/**
