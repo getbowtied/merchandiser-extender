@@ -1,0 +1,61 @@
+.shortcode_socials
+{
+	vertical-align: middle;
+	clear: both;
+	margin: 5px -15px 15px -15px;
+	display: block;
+
+	ul.mc_social_icons_list
+	{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	    line-height: 1em;
+		font-size: 24px;
+
+		&.left
+		{
+			text-align: left;
+		}
+
+		&.center
+		{
+			text-align: center;
+		}
+
+		&.right
+		{
+			text-align: right;
+		}
+
+		&:before
+		{
+			content: " ";
+			display: table;
+			clear: both;
+		}
+
+		li.mc_social_icon
+		{
+			padding: 5px 15px;
+			display: inline-block;
+
+			a.mc_social_icon_link
+			{
+				transition: opacity .2s;
+
+				&:hover
+				{
+					opacity: .5;
+				}
+			}
+		}
+	}
+
+	&:before
+	{
+		content: " ";
+		display: table;
+		clear: both;
+	}
+}

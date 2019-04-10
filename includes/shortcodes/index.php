@@ -3,7 +3,6 @@
 // WP
 include_once( 'wp/banner.php' );
 include_once( 'wp/slider.php' );
-include_once( 'wp/socials.php' );
 include_once( 'wp/title.php' );
 include_once( 'wp/blog-posts.php' );
 
@@ -44,7 +43,6 @@ if ( defined( 'WPB_VC_VERSION' ) ) {
 		include_once( 'wb/wp/banner.php' );
 		include_once( 'wb/wp/blog-posts.php' );
 		include_once( 'wb/wp/slider.php' );
-		include_once( 'wb/wp/socials.php' );
 		include_once( 'wb/wp/title.php' );
 		
 		// Add new WC shortcodes to VC
@@ -80,11 +78,6 @@ function getbowtied_mc_shortcodes_styles() {
 
 	wp_register_style('merchandiser-slider-shortcode-styles',
 		plugins_url( 'assets/css/wp/slider.css', __FILE__ ),
-		NULL
-	);
-
-	wp_register_style('merchandiser-socials-shortcode-styles',
-		plugins_url( 'assets/css/wp/socials.css', __FILE__ ),
 		NULL
 	);
 

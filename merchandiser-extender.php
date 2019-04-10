@@ -59,8 +59,14 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 
 			if( ( $theme->template == 'merchandiser' && ( $theme->version >= '1.8.8' || ( !empty($parent_theme) && $parent_theme->version >= '1.8.8' ) ) ) || $theme->template != 'merchandiser' ) {
 
+				// Customizer
+				include_once( 'includes/customizer/class/class-control-toggle.php' );
+
 				// Shortcodes
 				include_once( 'includes/shortcodes/index.php' );
+
+				// Social Media
+				include_once( 'includes/social-media/class-social-media.php' );
 			}
 
 			// Gutenberg Blocks
