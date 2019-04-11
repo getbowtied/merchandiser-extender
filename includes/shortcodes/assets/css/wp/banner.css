@@ -1,16 +1,13 @@
 .shortcode_getbowtied_banner {
   cursor: pointer;
-  margin-bottom: 0;
+  margin-bottom: 2.5rem;
   clear: both;
   -webkit-transition: all 0.5s;
   -o-transition: all 0.5s;
   transition: all 0.5s;
   position: relative; }
-  @media only screen and (min-width: 64em) {
-    .shortcode_getbowtied_banner {
-      margin-bottom: 30px; } }
   .shortcode_getbowtied_banner .button {
-    margin-top: rem-calc(40); }
+    margin-top: 2.22222rem; }
     .shortcode_getbowtied_banner .button:hover {
       opacity: 0.9; }
 

@@ -26,7 +26,7 @@ function getbowtied_products_settings_field($settings, $value) {
     $data .= '</ul></div>';
     return $data;
 }
-vc_add_shortcode_param('products' , 'getbowtied_products_settings_field', get_template_directory_uri() . '/js/shortcodes/products_by_ids_skus.js');
+vc_add_shortcode_param('products' , 'getbowtied_products_settings_field', plugins_url( 'assets/js/products_by_ids_skus.js', dirname(dirname(__FILE__)) ) );
 
 vc_map(array(
    "name" 			=> "Products - Custom List",

@@ -1,15 +1,9 @@
 .shortcode_getbowtied_banner {
 	
 	cursor:pointer;
-	margin-bottom:0;
+	margin-bottom: 2.5rem;
 	clear:both;
 	transition: all 0.5s;
-
-	@media only screen and (min-width: 64em)  
-	{
-		margin-bottom:30px;
-	}
-	
 	position: relative;
 
 	.button 
