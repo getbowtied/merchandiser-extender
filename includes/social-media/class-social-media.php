@@ -310,7 +310,7 @@ if ( ! class_exists( 'MCSocialMedia' ) ) :
 			// Section
 			$wp_customize->add_section( 'social_media', array(
 		 		'title'       => esc_attr__( 'Social Media', 'merchandiser-extender' ),
-		 		'priority'    => 10,
+		 		'priority'    => 11,
 		 	) );
 
 			// Fields
