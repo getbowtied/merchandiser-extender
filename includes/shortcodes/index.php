@@ -36,7 +36,7 @@ include_once( 'mixed/blog-posts-mixed.php' );
 // Add Shortcodes to WP Bakery
 if ( defined( 'WPB_VC_VERSION' ) ) {
 	
-	add_action( 'init', 'getbowtied_mc_visual_composer_shortcodes' );
+	add_action( 'init', 'getbowtied_mc_visual_composer_shortcodes', 99 );
 	function getbowtied_mc_visual_composer_shortcodes() {
 		
 		// Add new WP shortcodes to VC

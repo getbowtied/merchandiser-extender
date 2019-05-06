@@ -1,6 +1,6 @@
 <?php
 
-function getbowtied_product_mod($atts, $content = null) {	
+function getbowtied_mc_product_mod($atts, $content = null) {	
 
 	wp_enqueue_style(  'merchandiser-single-product-shortcode-styles' );
 
@@ -16,4 +16,4 @@ function getbowtied_product_mod($atts, $content = null) {
 	return $content;
 }
 
-add_shortcode("product_mod", "getbowtied_product_mod");
+add_shortcode("product_mod", "getbowtied_mc_product_mod");

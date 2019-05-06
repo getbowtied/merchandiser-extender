@@ -1,6 +1,6 @@
 <?php
 	
-function getbowtied_shortcode_product_categories( $atts ) {
+function getbowtied_mc_shortcode_product_categories( $atts ) {
 
 	wp_enqueue_style(  'merchandiser-product-categories-shortcode-styles' );
 
@@ -111,4 +111,4 @@ function getbowtied_shortcode_product_categories( $atts ) {
 	return $content;
 }
 
-add_shortcode("product_categories_grid", "getbowtied_shortcode_product_categories");
+add_shortcode("product_categories_grid", "getbowtied_mc_shortcode_product_categories");

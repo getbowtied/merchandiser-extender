@@ -2,7 +2,7 @@
 
 // [banner]
 
-function getbowtied_banner($params = array(), $content = null) {
+function getbowtied_mc_banner($params = array(), $content = null) {
 	
 	wp_enqueue_style(  'merchandiser-banner-shortcode-styles' );
 
@@ -97,4 +97,4 @@ function getbowtied_banner($params = array(), $content = null) {
 	return $getbowtied_banner;
 }
 
-add_shortcode('banner', 'getbowtied_banner');
+add_shortcode('banner', 'getbowtied_mc_banner');

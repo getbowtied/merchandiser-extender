@@ -1,7 +1,7 @@
 <?php
 
 // [featured_products_mixed]
-function getbowtied_shortcode_featured_products_mixed($atts, $content = null) {
+function getbowtied_mc_shortcode_featured_products_mixed($atts, $content = null) {
 	extract(shortcode_atts(array(
 		'widget_title' => '',
 		'per_page'  => '4',
@@ -47,4 +47,4 @@ function getbowtied_shortcode_featured_products_mixed($atts, $content = null) {
 	return $content;
 }
 
-add_shortcode("featured_products_mixed", "getbowtied_shortcode_featured_products_mixed");
+add_shortcode("featured_products_mixed", "getbowtied_mc_shortcode_featured_products_mixed");

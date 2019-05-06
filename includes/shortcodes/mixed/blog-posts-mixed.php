@@ -1,7 +1,7 @@
 <?php
 
 // [blog_posts_mixed]
-function getbowtied_shortcode_blog_posts_mixed($atts, $content = null) {
+function getbowtied_mc_shortcode_blog_posts_mixed($atts, $content = null) {
 	extract(shortcode_atts(array(
 		"posts" 		=> '2',
 		"category" 		=> '',
@@ -22,4 +22,4 @@ function getbowtied_shortcode_blog_posts_mixed($atts, $content = null) {
 	return $content;
 }
 
-add_shortcode("blog_posts_mixed", "getbowtied_shortcode_blog_posts_mixed");
+add_shortcode("blog_posts_mixed", "getbowtied_mc_shortcode_blog_posts_mixed");

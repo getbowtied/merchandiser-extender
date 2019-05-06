@@ -1,7 +1,7 @@
 <?php
 
 // [title]
-function getbowtied_shortcode_title($params = array(), $content = null) {
+function getbowtied_mc_shortcode_title($params = array(), $content = null) {
 
 	wp_enqueue_style(  'merchandiser-title-shortcode-styles' );
 
@@ -29,4 +29,4 @@ function getbowtied_shortcode_title($params = array(), $content = null) {
 	return $title_html;
 }
 
-add_shortcode('title', 'getbowtied_shortcode_title');
+add_shortcode('title', 'getbowtied_mc_shortcode_title');

@@ -3,7 +3,7 @@
 // [products_mixed]
 
 /* All products dropdown */
-function getbowtied_products_settings_field($settings, $value) {   
+function getbowtied_mc_products_settings_field($settings, $value) {   
     $attr = array("post_type"=>"product", "orderby"=>"name", "order"=>"asc", 'posts_per_page'   => -1);
     $categories = get_posts($attr); 
     $data = '<input type="text" value="'.$value.'" name="'.$settings['param_name'].'" class="wpb_vc_param_value wpb-input wpb-select vc_custom_select_custom_val '.$settings['param_name'].' '.$settings['type'].'" id="vc_custom_select_custom_prod">';
@@ -26,7 +26,7 @@ function getbowtied_products_settings_field($settings, $value) {
     $data .= '</ul></div>';
     return $data;
 }
-vc_add_shortcode_param('products' , 'getbowtied_products_settings_field', plugins_url( 'assets/js/products_by_ids_skus.js', dirname(dirname(__FILE__)) ) );
+vc_add_shortcode_param('products' , 'getbowtied_mc_products_settings_field', plugins_url( 'assets/js/products_by_ids_skus.js', dirname(dirname(__FILE__)) ) );
 
 vc_map(array(
    "name" 			=> "Products - Custom List",

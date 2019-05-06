@@ -1,7 +1,7 @@
 <?php
 
 // [top_rated_products_list]
-function getbowtied_shortcode_top_rated_products_list($atts, $content = null) {
+function getbowtied_mc_shortcode_top_rated_products_list($atts, $content = null) {
 	$sliderrandomid = rand();
 	extract(shortcode_atts(array(
 		'widget_title' => '',
@@ -91,5 +91,5 @@ function getbowtied_shortcode_top_rated_products_list($atts, $content = null) {
 	return $content;
 }
 
-add_shortcode("top_rated_products_list", "getbowtied_shortcode_top_rated_products_list");
+add_shortcode("top_rated_products_list", "getbowtied_mc_shortcode_top_rated_products_list");
 

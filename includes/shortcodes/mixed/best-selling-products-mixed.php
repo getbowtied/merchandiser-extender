@@ -1,7 +1,7 @@
 <?php
 
 // [best_selling_products_mixed]
-function getbowtied_shortcode_best_selling_products_mixed($atts, $content = null) {
+function getbowtied_mc_shortcode_best_selling_products_mixed($atts, $content = null) {
 	extract(shortcode_atts(array(
 		'widget_title' => '',
 		'per_page'  => '4',
@@ -46,4 +46,4 @@ function getbowtied_shortcode_best_selling_products_mixed($atts, $content = null
 	return $content;
 }
 
-add_shortcode("best_selling_products_mixed", "getbowtied_shortcode_best_selling_products_mixed");
+add_shortcode("best_selling_products_mixed", "getbowtied_mc_shortcode_best_selling_products_mixed");

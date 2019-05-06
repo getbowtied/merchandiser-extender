@@ -1,7 +1,7 @@
 <?php
 
 // [blog_posts]
-function getbowtied_shortcode_blog_posts($atts, $content = null) {
+function getbowtied_mc_shortcode_blog_posts($atts, $content = null) {
 
 	wp_enqueue_style( 'merchandiser_swiper_style' );
 	wp_enqueue_script( 'merchandiser_swiper_script' );
@@ -87,4 +87,4 @@ function getbowtied_shortcode_blog_posts($atts, $content = null) {
 	return $content;
 }
 
-add_shortcode("blog_posts", "getbowtied_shortcode_blog_posts");
+add_shortcode("blog_posts", "getbowtied_mc_shortcode_blog_posts");

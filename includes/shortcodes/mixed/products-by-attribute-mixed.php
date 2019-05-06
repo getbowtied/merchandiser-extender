@@ -1,7 +1,7 @@
 <?php
 
 // [product_attribute_mixed]
-function getbowtied_shortcode_product_attribute_mixed($atts, $content = null) {
+function getbowtied_mc_shortcode_product_attribute_mixed($atts, $content = null) {
 	extract(shortcode_atts(array(
 		'widget_title' => '',
 		'attribute' => '',
@@ -49,4 +49,4 @@ function getbowtied_shortcode_product_attribute_mixed($atts, $content = null) {
 	return $content;
 }
 
-add_shortcode("product_attribute_mixed", "getbowtied_shortcode_product_attribute_mixed");
+add_shortcode("product_attribute_mixed", "getbowtied_mc_shortcode_product_attribute_mixed");

@@ -1,7 +1,7 @@
 <?php
 
 // [recent_products_list]
-function getbowtied_shortcode_recent_products_list($atts, $content = null) {
+function getbowtied_mc_shortcode_recent_products_list($atts, $content = null) {
 	$sliderrandomid = rand();
 	extract(shortcode_atts(array(
 		'title' => '',
@@ -78,4 +78,4 @@ function getbowtied_shortcode_recent_products_list($atts, $content = null) {
 	return $content;
 }
 
-add_shortcode("recent_products_list", "getbowtied_shortcode_recent_products_list");
+add_shortcode("recent_products_list", "getbowtied_mc_shortcode_recent_products_list");

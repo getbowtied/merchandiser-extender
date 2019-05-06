@@ -2,7 +2,7 @@
 
 // [slider]
 
-function getbowtied_slider($params = array(), $content = null) {
+function getbowtied_mc_slider($params = array(), $content = null) {
 
 	wp_enqueue_style( 'merchandiser_swiper_style' );
 	wp_enqueue_script( 'merchandiser_swiper_script' );
@@ -51,9 +51,9 @@ function getbowtied_slider($params = array(), $content = null) {
 	return $getbowtied_slider;
 }
 
-add_shortcode('slider', 'getbowtied_slider');
+add_shortcode('slider', 'getbowtied_mc_slider');
 
-function getbowtied_image_slide($params = array(), $content = null) {
+function getbowtied_mc_image_slide($params = array(), $content = null) {
 	extract(shortcode_atts(array(
 		'title' 					=> '',
 		'title_font_size'			=> '64px',
@@ -148,4 +148,4 @@ function getbowtied_image_slide($params = array(), $content = null) {
 	return $getbowtied_image_slide;
 }
 
-add_shortcode('image_slide', 'getbowtied_image_slide');
+add_shortcode('image_slide', 'getbowtied_mc_image_slide');

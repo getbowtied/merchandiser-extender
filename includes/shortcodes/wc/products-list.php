@@ -1,7 +1,7 @@
 <?php
 
 // [products_list]
-function getbowtied_shortcode_products_list($atts, $content = null) {
+function getbowtied_mc_shortcode_products_list($atts, $content = null) {
 
 	wp_enqueue_style(  'merchandiser-products-list-shortcode-styles' );
 
@@ -96,5 +96,5 @@ function getbowtied_shortcode_products_list($atts, $content = null) {
 	return $content;
 }
 
-add_shortcode("products_list", "getbowtied_shortcode_products_list");
+add_shortcode("products_list", "getbowtied_mc_shortcode_products_list");
 

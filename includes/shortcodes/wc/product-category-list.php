@@ -1,7 +1,7 @@
 <?php
 
 // [product_category_list]
-function getbowtied_shortcode_product_category_list($atts, $content = null) {
+function getbowtied_mc_shortcode_product_category_list($atts, $content = null) {
 	global $woocommerce;
 	extract(shortcode_atts(array(
 		'title' => '',
@@ -92,5 +92,5 @@ function getbowtied_shortcode_product_category_list($atts, $content = null) {
 	return $content;
 }
 
-add_shortcode("product_category_list", "getbowtied_shortcode_product_category_list");
+add_shortcode("product_category_list", "getbowtied_mc_shortcode_product_category_list");
 

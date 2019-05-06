@@ -2,7 +2,7 @@
 
 // [product]
 
-function getbowtied_product_field($settings, $value) {   
+function getbowtied_mc_product_field($settings, $value) {   
     $attr = array("post_type"=>"product", "orderby"=>"name", "order"=>"asc", 'posts_per_page'   => -1);
     $products = get_posts($attr); 
     $data = '<select name="'.$settings['param_name'].'" class="wpb_vc_param_value wpb-input wpb-select '.$settings['param_name'].' '.$settings['type'].'">';
@@ -16,7 +16,7 @@ function getbowtied_product_field($settings, $value) {
     $data .= '</select>';
     return $data;
 }
-vc_add_shortcode_param('product_mod' , 'getbowtied_product_field');
+vc_add_shortcode_param('product_mod' , 'getbowtied_mc_product_field');
 
 vc_map(array(
    "name" 			=> "Single Product",
