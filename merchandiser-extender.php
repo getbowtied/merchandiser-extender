@@ -57,6 +57,9 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 			// Helpers
 			include_once( 'includes/helpers/helpers.php' );
 
+			// Vendor
+			include_once( 'includes/vendor/enqueue.php' );
+
 			if( ( $theme->template == 'merchandiser' && ( $theme->version >= '1.8.8' || ( !empty($parent_theme) && $parent_theme->version >= '1.8.8' ) ) ) || $theme->template != 'merchandiser' ) {
 
 				// Customizer

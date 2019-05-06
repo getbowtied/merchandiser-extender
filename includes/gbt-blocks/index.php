@@ -57,25 +57,6 @@ if( !function_exists('gbt_18_mc_get_rest_post_featured_image') ) {
 $theme = wp_get_theme();
 
 //==============================================================================
-//  Load Swiper
-//==============================================================================
-
-if ( $theme->template != 'merchandiser') {
-    $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-    wp_enqueue_style(
-        'getbowtied_swiper_styles',
-        plugins_url( 'vendor/swiper/css/swiper'.$suffix.'.css', __FILE__ ),
-        array(),
-        filemtime(plugin_dir_path( __FILE__ ) . 'vendor/swiper/css/swiper'.$suffix.'.css')
-    );
-    wp_enqueue_script(
-        'getbowtied_swiper_scripts',
-        plugins_url( 'vendor/swiper/js/swiper'.$suffix.'.js', __FILE__ ),
-        array()
-    );
-}
-
-//==============================================================================
 //  Load Blocks
 //==============================================================================
 
