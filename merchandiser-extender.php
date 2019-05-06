@@ -3,12 +3,12 @@
 /**
  * Plugin Name:       		Merchandiser Extender
  * Plugin URI:        		https://merchandiser.wp-theme.design/
- * Description:       		Extends the functionality of Merchandiser with Gutenberg elements.
- * Version:           		1.2.2
+ * Description:       		Extends the functionality of the Merchandiser theme by adding theme specific features.
+ * Version:           		1.3
  * Author:            		GetBowtied
  * Author URI:        		https://getbowtied.com
  * Requires at least: 		5.0
- * Tested up to: 			5.1
+ * Tested up to: 			5.1.1
  *
  * @package  Merchandiser Extender
  * @author   GetBowtied
@@ -60,10 +60,7 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 			// Vendor
 			include_once( 'includes/vendor/enqueue.php' );
 
-			if( ( $theme->template == 'merchandiser' && ( $theme->version >= '1.8.8' || ( !empty($parent_theme) && $parent_theme->version >= '1.8.8' ) ) ) || $theme->template != 'merchandiser' ) {
-
-				// Customizer
-				include_once( 'includes/customizer/class/class-control-toggle.php' );
+			if( ( $theme->template == 'merchandiser' && ( $theme->version >= '1.9' || ( !empty($parent_theme) && $parent_theme->version >= '1.9' ) ) ) || $theme->template != 'merchandiser' ) {
 
 				// Shortcodes
 				include_once( 'includes/shortcodes/index.php' );
@@ -80,7 +77,7 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 			// Gutenberg Blocks
 			add_action( 'init', array( $this, 'gbt_mc_gutenberg_blocks' ) );
 
-			if( $theme->template == 'merchandiser' && ( $theme->version >= '1.8.8' || ( !empty($parent_theme) && $parent_theme->version >= '1.8.8' ) ) ) {
+			if( $theme->template == 'merchandiser' && ( $theme->version >= '1.9' || ( !empty($parent_theme) && $parent_theme->version >= '1.9' ) ) ) {
 
 				// Custom Code Section
 				include_once( 'includes/custom-code/class-custom-code.php' );

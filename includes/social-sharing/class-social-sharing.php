@@ -115,4 +115,4 @@ if ( ! class_exists( 'MCSocialSharing' ) ) :
 
 endif;
 
-$sk_social_sharing = new MCSocialSharing;
+$mc_social_sharing = new MCSocialSharing;
