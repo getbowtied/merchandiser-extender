@@ -1,0 +1,60 @@
+.shortcode_socials {
+  vertical-align: middle;
+  clear: both;
+  margin: 0 -15px 1rem -15px;
+  display: block; }
+  .shortcode_socials ul.mc_social_icons_list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    line-height: 1em;
+    font-size: 16px; }
+    .shortcode_socials ul.mc_social_icons_list.left {
+      text-align: left; }
+    .shortcode_socials ul.mc_social_icons_list.center {
+      text-align: center; }
+    .shortcode_socials ul.mc_social_icons_list.right {
+      text-align: right; }
+    .shortcode_socials ul.mc_social_icons_list:before {
+      content: " ";
+      display: table;
+      clear: both; }
+    .shortcode_socials ul.mc_social_icons_list li.mc_social_icon {
+      padding: 5px 15px;
+      display: inline-block; }
+      .shortcode_socials ul.mc_social_icons_list li.mc_social_icon a.mc_social_icon_link {
+        -webkit-transition: opacity .2s;
+        -o-transition: opacity .2s;
+        transition: opacity .2s; }
+        .shortcode_socials ul.mc_social_icons_list li.mc_social_icon a.mc_social_icon_link:hover {
+          opacity: .5; }
+  .shortcode_socials:before {
+    content: " ";
+    display: table;
+    clear: both; }
+
+.footer-socials {
+  display: block;
+  vertical-align: middle; }
+  @media only screen and (min-width: 64em) {
+    .footer-socials {
+      float: left; } }
+  .footer-socials .shortcode_socials {
+    margin: 0; }
+    @media only screen and (min-width: 64em) {
+      .footer-socials .shortcode_socials {
+        margin: 0 -7px; } }
+    .footer-socials .shortcode_socials ul.mc_social_icons_list {
+      width: 100%;
+      line-height: inherit;
+      text-align: center;
+      margin-bottom: 1.66667rem; }
+      @media only screen and (min-width: 64em) {
+        .footer-socials .shortcode_socials ul.mc_social_icons_list {
+          margin-bottom: 0;
+          text-align: left; } }
+      .footer-socials .shortcode_socials ul.mc_social_icons_list li.mc_social_icon {
+        padding: 0; }
+        .footer-socials .shortcode_socials ul.mc_social_icons_list li.mc_social_icon a.mc_social_icon_link {
+          padding: 5px 7px;
+          display: inline-block; }

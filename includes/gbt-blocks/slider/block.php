@@ -35,6 +35,13 @@ if ( ! function_exists( 'gbt_18_mc_slider_editor_assets' ) ) {
 add_action( 'enqueue_block_assets', 'gbt_18_mc_slider_assets' );
 if ( ! function_exists( 'gbt_18_mc_slider_assets' ) ) {
 	function gbt_18_mc_slider_assets() {
+
+		if( function_exists( 'mc_extender_vendor_scripts' ) ) {
+			mc_extender_vendor_scripts();
+		}
+
+		wp_enqueue_style( 'merchandiser_swiper_style' );
+		wp_enqueue_script( 'merchandiser_swiper_script' );
 		
 		wp_enqueue_style(
 			'gbt_18_mc_slider_styles',
