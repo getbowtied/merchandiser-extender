@@ -2,7 +2,7 @@
 
 	<div class="woocommerce">
 			
-		<ul class="shortcode_products visible products masonry_columns_<?php echo $columns; ?>" <?php echo $paddings1; ?> data-columns>
+		<ul id="masonry_grid" class="shortcode_products visible products masonry_columns_<?php echo $columns; ?>" <?php echo $paddings1; ?> data-columns>
 
 			<?php
 
