@@ -65,6 +65,10 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 				// Shortcodes
 				include_once( 'includes/shortcodes/index.php' );
 
+				add_action( 'footer_socials', function() {
+					echo '<div class="footer-socials">' . do_shortcode('[socials]') . '</div>';
+				} );
+
 				// Social Media
 				include_once( 'includes/social-media/class-social-media.php' );
 

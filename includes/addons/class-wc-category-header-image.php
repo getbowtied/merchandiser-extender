@@ -33,6 +33,14 @@ if ( ! class_exists( 'MCCategoryHeaderImage' ) ) :
 			add_filter( 'manage_product_cat_custom_column', array( $this, 'woocommerce_product_cat_header_column' ), 10, 3 );
 			add_action( 'woocommerce_archive_description', array( $this, 'getbowtied_show_category_header' ) );
 			add_action( 'admin_head', array( $this, 'product_cat_header_column' ) );
+
+			add_action( 'plugins_loaded', function() {
+				add_filter( 'body_class', array( $this, 'getbowtied_category_body_classes' ) );
+			});
+
+			add_filter( 'getbowtied_get_category_header_image', function() {
+				return $this->woocommerce_get_header_image_url();
+			} );
 		}
 
 		/**
@@ -47,6 +55,48 @@ if ( ! class_exists( 'MCCategoryHeaderImage' ) ) :
 				self::$_instance = new self();
 			}
 			return self::$_instance;
+		}
+
+		/**
+		 * Adds body classes
+		 *
+		 * @since 1.3.1
+		 * @return void
+		*/
+		public function getbowtied_category_body_classes($classes) {
+
+		    $listing_header_src = $this->woocommerce_get_header_image_url();
+
+		    if ( is_plugin_active('woocommerce/woocommerce.php') && function_exists('is_product_category') && is_product_category() && !empty($listing_header_src) ) {
+
+		    	$header_transparent_class           = '';
+                $header_transparent_scheme_class    = '';
+
+                if( get_theme_mod('category_transparency', 'transparency_light') == 'inherit' ) {
+                	if( get_theme_mod('header_transparent', 0) ) {
+                		$header_transparent_class = 'header-transparent';
+	                	if( get_theme_mod('header_transparent_scheme', 'dark') == 'light' ) {
+	                		$header_transparent_scheme_class = 'header-transparent-light';
+	                	} else if( get_theme_mod('header_transparent_scheme', 'dark') == 'dark' ) {
+	                		$header_transparent_scheme_class = 'header-transparent-dark';
+	                	}
+	                }
+                }
+
+                if( get_theme_mod('category_transparency', 'transparency_light') == 'transparency_light' ) {
+                	$header_transparent_class           = 'header-transparent';
+	                $header_transparent_scheme_class    = 'header-transparent-light';
+                }
+
+                if( get_theme_mod('category_transparency', 'transparency_light') == 'transparency_dark' ) {
+                	$header_transparent_class           = 'header-transparent';
+	                $header_transparent_scheme_class    = 'header-transparent-dark';
+                }
+
+                $classes[] = $header_transparent_class . " " . $header_transparent_scheme_class;
+		    }
+
+		    return $classes;
 		}
 
 		/**

@@ -27,6 +27,18 @@ if ( ! class_exists( 'MCCustomCode' ) ) :
 			add_action('init', array( $this, 'import_options' ));
 
 			$this->customizer_options();
+
+			if( get_option( 'mc_custom_code_header_js', '' ) != '' ) {
+				add_action( 'wp_head', function() {
+					echo get_option( 'mc_custom_code_header_js', '' );
+				});
+			}
+
+			if( get_option( 'mc_custom_code_footer_js', '' ) != '' ) {
+				add_action( 'wp_footer', function() {
+					echo get_option( 'mc_custom_code_footer_js', '' );
+				});
+			}
 		}
 
 		/**
