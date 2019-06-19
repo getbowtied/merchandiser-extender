@@ -36,19 +36,26 @@ function getbowtied_mc_shortcode_blog_posts($atts, $content = null) {
                     
             <?php while ( $recentPosts->have_posts() ) : $recentPosts->the_post(); ?>
 
-            		<?php if ( has_post_thumbnail()) :
+            		<?php 
+
+            		$image_style = '';
+
+            		if ( has_post_thumbnail()) {
 						$image_id = get_post_thumbnail_id();
 						$image_url = wp_get_attachment_image_src($image_id,'full', true);
-						endif;
+
+						$image_style = '
+							background: url("' . esc_url($image_url[0]) . '") center center no-repeat;
+                			-webkit-background-size: cover;
+							-moz-background-size: cover;
+							-o-background-size: cover;
+							background-size: cover;';
+					}
+
 					?>
                 
 	                <div class="shortcode_blog_posts_item swiper-slide">
-						<div class="slide-wrapper" style="background: url(<?php echo esc_url($image_url[0]); ?>) center center no-repeat;
-	                			-webkit-background-size: cover;
-								-moz-background-size: cover;
-								-o-background-size: cover;
-								background-size: cover;
-								">
+						<div class="slide-wrapper" style="<?php echo $image_style; ?>">
 						</div>
 						<div class="text-wrapper">
 	                    	<a class="shortcode_blog_posts_link" href="<?php the_permalink() ?>">
