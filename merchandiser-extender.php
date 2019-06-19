@@ -71,11 +71,6 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 				add_action( 'footer_socials', function() {
 					echo '<div class="footer-socials">' . do_shortcode('[socials]') . '</div>';
 				} );
-
-				// Addons
-				if ( $theme->template == 'merchandiser' && is_plugin_active( 'woocommerce/woocommerce.php') ) { 
-					include_once( dirname( __FILE__ ) . '/includes/addons/class-wc-category-header-image.php' );
-				}
 			}
 
 			// Gutenberg Blocks
@@ -83,6 +78,11 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 
 			if( $theme->template == 'merchandiser' && ( $theme->version >= '1.9' || ( !empty($parent_theme) && $parent_theme->version >= '1.9' ) ) ) {
 
+				// Addons
+				if ( $theme->template == 'merchandiser' && is_plugin_active( 'woocommerce/woocommerce.php') ) { 
+					include_once( dirname( __FILE__ ) . '/includes/addons/class-wc-category-header-image.php' );
+				}
+				
 				// Custom Code Section
 				include_once( dirname( __FILE__ ) . '/includes/custom-code/class-custom-code.php' );
 
