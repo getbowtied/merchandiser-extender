@@ -55,18 +55,18 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 			$parent_theme = $theme->parent();
 
 			// Helpers
-			include_once( 'includes/helpers/helpers.php' );
+			include_once( dirname( __FILE__ ) . '/includes/helpers/helpers.php' );
 
 			// Vendor
-			include_once( 'includes/vendor/enqueue.php' );
+			include_once( dirname( __FILE__ ) . '/includes/vendor/enqueue.php' );
 
 			if( ( $theme->template == 'merchandiser' && ( $theme->version >= '1.9' || ( !empty($parent_theme) && $parent_theme->version >= '1.9' ) ) ) || $theme->template != 'merchandiser' ) {
 
 				// Shortcodes
-				include_once( 'includes/shortcodes/index.php' );
+				include_once( dirname( __FILE__ ) . '/includes/shortcodes/index.php' );
 
 				// Social Media
-				include_once( 'includes/social-media/class-social-media.php' );
+				include_once( dirname( __FILE__ ) . '/includes/social-media/class-social-media.php' );
 
 				add_action( 'footer_socials', function() {
 					echo '<div class="footer-socials">' . do_shortcode('[socials]') . '</div>';
@@ -74,7 +74,7 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 
 				// Addons
 				if ( $theme->template == 'merchandiser' && is_plugin_active( 'woocommerce/woocommerce.php') ) { 
-					include_once( 'includes/addons/class-wc-category-header-image.php' );
+					include_once( dirname( __FILE__ ) . '/includes/addons/class-wc-category-header-image.php' );
 				}
 			}
 
@@ -84,11 +84,11 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 			if( $theme->template == 'merchandiser' && ( $theme->version >= '1.9' || ( !empty($parent_theme) && $parent_theme->version >= '1.9' ) ) ) {
 
 				// Custom Code Section
-				include_once( 'includes/custom-code/class-custom-code.php' );
+				include_once( dirname( __FILE__ ) . '/includes/custom-code/class-custom-code.php' );
 
 				// Social Sharing Buttons
 				if ( is_plugin_active( 'woocommerce/woocommerce.php') ) { 
-					include_once( 'includes/social-sharing/class-social-sharing.php' );
+					include_once( dirname( __FILE__ ) . '/includes/social-sharing/class-social-sharing.php' );
 				}
 			}
 		}
@@ -101,7 +101,7 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 		public function gbt_mc_gutenberg_blocks() {
 
 			if( is_plugin_active( 'gutenberg/gutenberg.php' ) || mc_is_wp_version('>=', '5.0') ) {
-				include_once 'includes/gbt-blocks/index.php';
+				include_once( dirname( __FILE__ ) . '/includes/gbt-blocks/index.php' );
 			} else {
 				add_action( 'admin_notices', 'mc_theme_warning' );
 			}
