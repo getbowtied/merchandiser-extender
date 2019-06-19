@@ -2,7 +2,7 @@
 Contributors: getbowtied, vanesareinerth, adrianlbs
 Tags: gutenberg, blocks
 Requires at least: 5.0
-Tested up to: 5.2.1
+Tested up to: 5.2.2
 Stable tag: 1.3.2
 Requires PHP: 5.5.0
 License: GPLv2 or later
