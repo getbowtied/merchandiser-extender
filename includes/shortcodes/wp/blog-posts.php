@@ -45,7 +45,7 @@ function getbowtied_mc_shortcode_blog_posts($atts, $content = null) {
 						$image_url = wp_get_attachment_image_src($image_id,'full', true);
 
 						$image_style = '
-							background: url("' . esc_url($image_url[0]) . '") center center no-repeat;
+							background: url(' . esc_url($image_url[0]) . ') center center no-repeat;
                 			-webkit-background-size: cover;
 							-moz-background-size: cover;
 							-o-background-size: cover;
