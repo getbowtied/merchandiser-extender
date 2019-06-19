@@ -65,12 +65,12 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 				// Shortcodes
 				include_once( 'includes/shortcodes/index.php' );
 
+				// Social Media
+				include_once( 'includes/social-media/class-social-media.php' );
+
 				add_action( 'footer_socials', function() {
 					echo '<div class="footer-socials">' . do_shortcode('[socials]') . '</div>';
 				} );
-
-				// Social Media
-				include_once( 'includes/social-media/class-social-media.php' );
 
 				// Addons
 				if ( $theme->template == 'merchandiser' && is_plugin_active( 'woocommerce/woocommerce.php') ) { 

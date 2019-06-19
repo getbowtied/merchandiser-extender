@@ -67,7 +67,7 @@ if ( ! class_exists( 'MCCategoryHeaderImage' ) ) :
 
 		    $listing_header_src = $this->woocommerce_get_header_image_url();
 
-		    if ( is_plugin_active('woocommerce/woocommerce.php') && function_exists('is_product_category') && is_product_category() && !empty($listing_header_src) ) {
+		    if ( class_exists('WooCommerce') && function_exists('is_product_category') && is_product_category() && !empty($listing_header_src) ) {
 
 		    	$header_transparent_class           = '';
                 $header_transparent_scheme_class    = '';
