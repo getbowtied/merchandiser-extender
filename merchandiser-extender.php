@@ -4,7 +4,7 @@
  * Plugin Name:       		Merchandiser Extender
  * Plugin URI:        		https://merchandiser.wp-theme.design/
  * Description:       		Extends the functionality of the Merchandiser theme by adding theme specific features.
- * Version:           		1.3.2
+ * Version:           		1.3.3
  * Author:            		GetBowtied
  * Author URI:        		https://getbowtied.com
  * Requires at least: 		5.0
@@ -79,15 +79,15 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 			if( $theme->template == 'merchandiser' && ( $theme->version >= '1.9' || ( !empty($parent_theme) && $parent_theme->version >= '1.9' ) ) ) {
 
 				// Addons
-				if ( $theme->template == 'merchandiser' && is_plugin_active( 'woocommerce/woocommerce.php') ) { 
+				if ( $theme->template == 'merchandiser' && is_plugin_active( 'woocommerce/woocommerce.php') ) {
 					include_once( dirname( __FILE__ ) . '/includes/addons/class-wc-category-header-image.php' );
 				}
-				
+
 				// Custom Code Section
 				include_once( dirname( __FILE__ ) . '/includes/custom-code/class-custom-code.php' );
 
 				// Social Sharing Buttons
-				if ( is_plugin_active( 'woocommerce/woocommerce.php') ) { 
+				if ( is_plugin_active( 'woocommerce/woocommerce.php') ) {
 					include_once( dirname( __FILE__ ) . '/includes/social-sharing/class-social-sharing.php' );
 				}
 			}
