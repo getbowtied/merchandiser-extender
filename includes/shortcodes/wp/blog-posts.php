@@ -3,8 +3,8 @@
 // [blog_posts]
 function getbowtied_mc_shortcode_blog_posts($atts, $content = null) {
 
-	wp_enqueue_style( 'merchandiser_swiper_style' );
-	wp_enqueue_script( 'merchandiser_swiper_script' );
+	wp_enqueue_style( 'swiper' );
+	wp_enqueue_script( 'swiper' );
 
 	wp_enqueue_style(  'merchandiser-blog-posts-shortcode-styles' );
 	wp_enqueue_script( 'merchandiser-blog-posts-shortcode-script' );
@@ -29,14 +29,14 @@ function getbowtied_mc_shortcode_blog_posts($atts, $content = null) {
             'category_name' => $category,
             'posts_per_page' => $posts
         );
-        
+
         $recentPosts = new WP_Query( $args );
-        
+
         if ( $recentPosts->have_posts() ) : ?>
-                    
+
             <?php while ( $recentPosts->have_posts() ) : $recentPosts->the_post(); ?>
 
-            		<?php 
+            		<?php
 
             		$image_style = '';
 
@@ -53,7 +53,7 @@ function getbowtied_mc_shortcode_blog_posts($atts, $content = null) {
 					}
 
 					?>
-                
+
 	                <div class="shortcode_blog_posts_item swiper-slide">
 						<div class="slide-wrapper" style="<?php echo $image_style; ?>">
 						</div>
@@ -65,28 +65,28 @@ function getbowtied_mc_shortcode_blog_posts($atts, $content = null) {
 								</span>
 							</a>
 						</div>
-	                    
+
 	                </div>
 
                 </li>
-    
+
             <?php endwhile; // end of the loop. ?>
-            
+
         <?php
 
         endif;
-        
+
         ?>
-		</div>    
+		</div>
 		<?php if (!$hide_arrows): ?>
 			<div class="swiper-button-prev"></div>
-			<div class="swiper-button-next"></div>	
+			<div class="swiper-button-next"></div>
 		<?php endif; ?>
 		<?php if (!$hide_bullets): ?>
 			<div class="quickview-pagination"></div>
-		<?php endif; ?>	    
+		<?php endif; ?>
 	</div>
-	
+
 	<?php
 	wp_reset_postdata();
 	$content = ob_get_contents();

@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 add_action( 'enqueue_block_editor_assets', 'gbt_18_mc_posts_slider_editor_assets' );
 if ( ! function_exists( 'gbt_18_mc_posts_slider_editor_assets' ) ) {
 	function gbt_18_mc_posts_slider_editor_assets() {
-		
+
 		wp_register_script(
 			'gbt_18_mc_posts_slider_script',
 			plugins_url( 'block.js', dirname(__FILE__) ),
@@ -39,9 +39,9 @@ if ( ! function_exists( 'gbt_18_mc_posts_slider_assets' ) ) {
 			mc_extender_vendor_scripts();
 		}
 
-		wp_enqueue_style( 'merchandiser_swiper_style' );
-		wp_enqueue_script( 'merchandiser_swiper_script' );
-		
+		wp_enqueue_style( 'swiper' );
+		wp_enqueue_script( 'swiper' );
+
 		wp_enqueue_style(
 			'gbt_18_mc_posts_slider_styles',
 			plugins_url( 'assets/css/style.css', dirname(__FILE__) ),
