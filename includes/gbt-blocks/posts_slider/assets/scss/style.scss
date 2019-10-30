@@ -1,7 +1,7 @@
 .gbt_18_mc_posts_slider
 {
 	position: relative;
-	
+
 	.gbt_18_mc_posts_slider_item
 	{
 		height: 50vh;
@@ -59,7 +59,7 @@
 	        perspective: 1000;
 	        transform: translate3d(0, 0, 0);
 
-			&:before 
+			&:before
 			{
 				content:"";
 				display:block;
@@ -85,7 +85,7 @@
 			display: table;
 			height: 100%;
 
-			.gbt_18_mc_posts_slider_item_link 
+			.gbt_18_mc_posts_slider_item_link
 			{
 				display: table-cell;
 				vertical-align: middle;
@@ -109,14 +109,11 @@
 						padding: 70px 30px;
 					}
 
-					h4 
+					h4
 					{
-						font-size: rem-calc(20);
-						line-height: rem-calc(26);
 						width: 100%;
 
 						@media all and (min-width: 1024px) {
-							font-size: rem-calc(40);
 							line-height: 1.2;
 						}
 					}
@@ -124,45 +121,35 @@
 					.gbt_18_mc_posts_slider_item_date
 					{
 						width: 100%;
-						font-size: rem-calc(12);
 						line-height: 1.2;
-
-						@media all and (min-width: 1024px) {
-							font-size: rem-calc(14);
-						}
 					}
 				}
 			}
 
-			.button	
+			.button
 			{
-				margin-top: rem-calc(20);
-				padding: rem-calc(25) rem-calc(65);
-			    font-size: rem-calc(11);
-			    line-height: rem-calc(11);
-			    letter-spacing: rem-calc(2);
 			    transition: all .5s ease;
 
-				&:hover 
+				&:hover
 				{
 					opacity: 0.75;
 				}
 			}
 		}
 
-		&:hover 
+		&:hover
 		{
 			.slide-wrapper
 			{
 				transform: scale(1.08);
 
-				&:before 
+				&:before
 				{
 					background:rgba(0,0,0,0.5);
 				}
 			}
 
-			.gbt_18_mc_posts_slider_item_link 
+			.gbt_18_mc_posts_slider_item_link
 			{
 				transform: scale(1.05);
 			}
@@ -197,8 +184,8 @@
             outline: 0;
 		}
 
-	    
-		&:hover 
+
+		&:hover
 		{
 			.swiper-button-prev, .swiper-button-next
 			{

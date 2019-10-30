@@ -19,12 +19,21 @@
     	}
 
         .gbt_18_mc_editor_slide_title {
-            margin-bottom: 35px;
+            margin-bottom: 20px;
+
+			h2 {
+				margin: 0;
+			}
         }
 
         .gbt_18_mc_editor_slide_button {
-            margin-top: 40px;
             text-transform: uppercase;
+
+			.gbt_18_mc_editor_slide_button_input {
+				font-size: 0.8rem;
+				margin-top: 35px;
+				padding: 1.31111rem 2.22222rem 1.26667rem 2.22222rem;
+			}
         }
 
     	.gbt_18_mc_editor_slide_container
@@ -33,21 +42,21 @@
 
     		&.align-center
     		{
-    			margin: auto; 
+    			margin: auto;
 
     			.gbt_18_mc_editor_slide_button .gbt_18_mc_editor_slide_button_input
     			{
-    				margin: 20px auto 0;
+    				margin: 40px auto 0;
     			}
     		}
 
     		&.align-right
     		{
-    			margin: 0 0 0 auto; 
+    			margin: 0 0 0 auto;
 
     			.gbt_18_mc_editor_slide_button .gbt_18_mc_editor_slide_button_input
     			{
-    				margin: 20px 0 0 auto;
+    				margin: 35px 0 0 auto;
     			}
     		}
 
@@ -65,7 +74,6 @@
 	{
 		padding: 1rem;
     	width: fit-content;
-    	margin-top: 20px;
 	}
 
 	.gbt_18_mc_slide_remove_image_button,

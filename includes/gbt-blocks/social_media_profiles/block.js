@@ -3,7 +3,7 @@
 	const el = element.createElement;
 
 	/* Blocks */
-	const registerBlockType   	= blocks.registerBlockType;
+	const registerBlockType = blocks.registerBlockType;
 
 	const {
 		TextControl,
@@ -18,7 +18,7 @@
 		InspectorControls,
 		BlockControls,
 		AlignmentToolbar,
-	} = wp.editor;
+	} = wp.blockEditor;
 
 	/* Register Block */
 	registerBlockType( 'getbowtied/mc-social-media-profiles', {
@@ -48,9 +48,9 @@
 			let attributes = props.attributes;
 
 			return [
-				el( 
-					InspectorControls, 
-					{ 
+				el(
+					InspectorControls,
+					{
 						key: 'gbt_18_mc_socials_settings'
 					},
 					el(
@@ -79,7 +79,7 @@
 								key: 'gbt_18_mc_socials_icons_color',
 								title: i18n.__( 'Icons Color' ),
 								colorSettings: [
-									{ 
+									{
 										label: i18n.__( 'Icons Color', 'merchandiser-extender' ),
 										value: attributes.fontColor,
 										onChange: function( newColor) {
@@ -93,23 +93,23 @@
 				),
 				el(
 					BlockControls,
-					{ 
+					{
 						key: 'gbt_18_mc_socials_alignment_controls'
 					},
 					el(
-						AlignmentToolbar, 
+						AlignmentToolbar,
 						{
 							key: 'gbt_18_mc_socials_alignment',
 							value: attributes.align,
 							onChange: function( newAlignment ) {
 								props.setAttributes( { align: newAlignment } );
 							}
-						} 
+						}
 					),
 				),
-				el( 
+				el(
 					'div',
-					{ 
+					{
 						key: 		'gbt_18_mc_editor_social_media_wrapper',
 						className: 	'gbt_18_mc_editor_social_media_wrapper'
 					},

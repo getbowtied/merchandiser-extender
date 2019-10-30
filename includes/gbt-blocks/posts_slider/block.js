@@ -3,26 +3,29 @@
 	const el = element.createElement;
 
 	/* Blocks */
-	const registerBlockType   	= wp.blocks.registerBlockType;
+	const registerBlockType = wp.blocks.registerBlockType;
+	const apiFetch = wp.apiFetch;
 
-	const InspectorControls 	= wp.editor.InspectorControls;
-	const ColorSettings			= wp.editor.PanelColorSettings;
+	const {
+		TextControl,
+		RadioControl,
+		SelectControl,
+		ToggleControl,
+		RangeControl,
+		SVG,
+		Path,
+	} = wp.components;
 
-	const TextControl 			= wp.components.TextControl;
-	const RadioControl       	= wp.components.RadioControl;
-	const SelectControl			= wp.components.SelectControl;
-	const ToggleControl			= wp.components.ToggleControl;
-	const RangeControl			= wp.components.RangeControl;
-	const SVG 					= wp.components.SVG;
-	const Path 					= wp.components.Path;
-
-	const apiFetch 				= wp.apiFetch;
+	const {
+		InspectorControls,
+		PanelColorSettings,
+	} = wp.blockEditor;
 
 	/* Register Block */
 	registerBlockType( 'getbowtied/mc-posts-slider', {
 		title: i18n.__( 'Posts Slider', 'merchandiser-extender' ),
 		icon: el( SVG, { xmlns:'http://www.w3.org/2000/svg', viewBox:'0 0 24 24' },
-				el( Path, { d:'M15 7v9h-5V7h5m6-2h-3v13h3V5zm-4 0H8v13h9V5zM7 5H4v13h3V5z' } ) 
+				el( Path, { d:'M15 7v9h-5V7h5m6-2h-3v13h3V5zm-4 0H8v13h9V5zM7 5H4v13h3V5z' } )
 			),
 		category: 'merchandiser',
 		supports: {
@@ -174,7 +177,7 @@
 					case 'title_desc':
 						query += '&orderby=title&order=desc';
 						break;
-					default: 
+					default:
 						break;
 				}
 
@@ -290,45 +293,45 @@
 						if ( posts[i]['fimg_url'] ) { img = posts[i]['fimg_url']; img_class = 'gbt_18_mc_editor_posts_slider_with_img'; } else { img_class = 'gbt_18_mc_editor_posts_slider_noimg'; img = ''; };
 
 						sliderElements.push(
-							el( "div", 
+							el( "div",
 								{
-									key: 		'gbt_18_mc_editor_posts_slider_item_' + posts[i].id, 
+									key: 		'gbt_18_mc_editor_posts_slider_item_' + posts[i].id,
 									className: 	'gbt_18_mc_editor_posts_slider_item'
 								},
-								el( "div", 
+								el( "div",
 									{
-										key: 		'gbt_18_mc_editor_posts_slider_item_img',
+										key: 		'gbt_18_mc_editor_posts_slider_item_img_' + i,
 										className: 	'gbt_18_mc_editor_posts_slider_item_img ' + img_class,
 										style: 		{ backgroundImage: 'url(' + img + ')' }
 									}
 								),
-								el( "div", 
+								el( "div",
 									{
-										key: 		'gbt_18_mc_editor_posts_slider_item_text',
+										key: 		'gbt_18_mc_editor_posts_slider_item_text_' + i,
 										className: 	'gbt_18_mc_editor_posts_slider_item_text'
 									},
-									el( "a", 
+									el( "a",
 										{
-											key: 		'gbt_18_mc_editor_posts_slider_item_link',
+											key: 		'gbt_18_mc_editor_posts_slider_item_link_' + i,
 											className: 	'gbt_18_mc_editor_posts_slider_item_link'
 										},
-										el( "span", 
-											{ 
-												key: 		'gbt_18_mc_editor_posts_slider_item_link_wrapper',
+										el( "span",
+											{
+												key: 		'gbt_18_mc_editor_posts_slider_item_link_wrapper_' + i,
 												className: 	'gbt_18_mc_editor_posts_slider_item_link_wrapper',
 												style: { backgroundColor: attributes.backgroundColor }
 											},
-											el( "h4", 
+											el( "h4",
 												{
-													key: 		'gbt_18_mc_editor_posts_slider_item_title',
+													key: 		'gbt_18_mc_editor_posts_slider_item_title_' + i,
 													className:  'gbt_18_mc_editor_posts_slider_item_title',
 													dangerouslySetInnerHTML: { __html: posts[i]['title']['rendered'] },
 													style: { color: attributes.fontColor }
 												}
 											),
-											el( "span", 
+											el( "span",
 												{
-													key: 		'gbt_18_mc_editor_posts_slider_item_date',
+													key: 		'gbt_18_mc_editor_posts_slider_item_date_' + i,
 													className:  'gbt_18_mc_editor_posts_slider_item_date',
 													dangerouslySetInnerHTML: { __html: date },
 													style: { color: attributes.fontColor }
@@ -344,9 +347,9 @@
 
 						if( count % 2 == 0 && count != posts.length) {
 							wrapper.push(
-								el( "div", 
+								el( "div",
 									{
-										key: 		'gbt_18_mc_editor_posts_slider_slide', 
+										key: 		'gbt_18_mc_editor_posts_slider_slide_' + i,
 										className: 	'gbt_18_mc_editor_posts_slider_slide ' + isSelectedSlide(slide_no)
 									},
 									sliderElements
@@ -361,9 +364,9 @@
 
 					if( sliderElements != [] ) {
 						wrapper.push(
-							el( "div", 
+							el( "div",
 								{
-									key: 		'gbt_18_mc_editor_posts_slider_slide_', 
+									key: 		'gbt_18_mc_editor_posts_slider_slide',
 									className: 	'gbt_18_mc_editor_posts_slider_slide ' + isSelectedSlide(slide_no)
 								},
 								sliderElements
@@ -374,7 +377,7 @@
 						sliderElements = [];
 						slide_no++;
 					}
-				} 
+				}
 
 				if( postElements.length > 1 ) {
 					postElements.push(
@@ -408,7 +411,7 @@
 						),
 					);
 				}
-				
+
 				return postElements;
 			}
 
@@ -445,7 +448,7 @@
 				let options = [];
 				let optionsIDs = [];
 				let sorted = [];
-			
+
 				apiFetch({ path: '/wp/v2/categories?per_page=-1&lang=' + posts_grid_vars.language }).then(function (categories) {
 
 				 	for( let i = 0; i < categories.length; i++) {
@@ -471,15 +474,17 @@
 							el(
 								'li',
 								{
+									key: 'posts-slider-category-' + i,
 									className: 'level-' + catArr[i].level,
 								},
 								el(
 								'label',
 									{
+										key: 'posts-slider-category-label-' + i,
 										className: _categoryClassName( catArr[i].parent, catArr[i].value ) + ' ' + catArr[i].level,
 									},
 									el(
-									'input', 
+									'input',
 										{
 											type:  'checkbox',
 											key:   'category-checkbox-' + catArr[i].value,
@@ -502,7 +507,7 @@
 												props.setAttributes({ categoriesIDs: newCategoriesSelected });
 												props.setAttributes({ queryPosts: _buildQuery(newCategoriesSelected, attributes.number, attributes.orderby) });
 											},
-										}, 
+										},
 									),
 									catArr[i].label,
 									el(
@@ -514,11 +519,11 @@
 								renderCategories( catArr[i].value, level+1)
 							),
 						);
-					} 
-				}	
+					}
+				}
 				if (categoryElements.length > 0 ) {
 					let wrapper = el('ul', {className: 'level-' + level}, categoryElements);
-					return wrapper;		
+					return wrapper;
 				} else {
 					return;
 				}
@@ -619,20 +624,20 @@
 							}
 						),
 						el(
-							ColorSettings,
+							PanelColorSettings,
 							{
 								key: 'gbt_18_mc_editor_posts_slider_colors',
 								initialOpen: false,
 								title: i18n.__( 'Colors', 'merchandiser-extender' ),
 								colorSettings: [
-									{ 
+									{
 										label: i18n.__( 'Text Color', 'merchandiser-extender' ),
 										value: attributes.fontColor,
 										onChange: function( newColor) {
 											props.setAttributes( { fontColor: newColor } );
 										},
 									},
-									{ 
+									{
 										label: i18n.__( 'Background Color', 'merchandiser-extender' ),
 										value: attributes.backgroundColor,
 										onChange: function( newColor) {
@@ -647,7 +652,7 @@
 				el( 'div',
 					{
 						key: 		'gbt_18_mc_editor_posts_slider',
-						className: 	'gbt_18_mc_editor_posts_slider'	
+						className: 	'gbt_18_mc_editor_posts_slider'
 					},
 					el(
 						'div',

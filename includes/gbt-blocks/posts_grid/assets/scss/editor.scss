@@ -63,15 +63,15 @@
 		}
 
 		.gbt_18_mc_editor_posts_grid_item {
-			padding: 0 10px;	
-		    margin-bottom: 1rem;
+			padding: 0 10px;
+			margin-bottom: 2rem;
 		}
 
 		.gbt_18_mc_editor_posts_grid_title {
 			display: block;
 			text-align: left;
-			font-size: 18px;
-			line-height: 1.45em;
+			font-size: 22px;
+			line-height: 1.4em;
 			color: #000;
 			margin: 0 0 15px;
 
@@ -106,10 +106,10 @@
 			position: relative;
 			height: 100%;
 			width: 100%;
-			margin-bottom: 15px;
-			
+			margin-bottom: 25px;
+
 			-webkit-mamc-image: -webkit-radial-gradient(white, black);
-		}	
+		}
 
 		.gbt_18_mc_editor_posts_grid_img
 		{
@@ -118,7 +118,7 @@
 			width: 100%;
 			height: 100%;
 			background-position: center center;
-			background-size:cover;		
+			background-size:cover;
 			width: -webkit-calc(100% + 50px);
 			width: calc(100% + 50px);
 			max-width: none;
