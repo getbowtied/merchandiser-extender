@@ -13,12 +13,15 @@
 	} = wp.components;
 
 	const {
-		ServerSideRender,
 		PanelColorSettings,
 		InspectorControls,
 		BlockControls,
 		AlignmentToolbar,
 	} = wp.blockEditor;
+
+	const {
+		ServerSideRender,
+	} = wp.editor;
 
 	/* Register Block */
 	registerBlockType( 'getbowtied/mc-social-media-profiles', {
