@@ -81,29 +81,15 @@
 		position: absolute;
 	    top: 15px;
 	    left: 15px;
-		opacity: 0;
-		visibility: hidden;
+		opacity: 1;
+		visibility: visible;
 		transition: all .2s ease-in-out;
 	}
 }
 
-.editor-block-list__block[data-type="getbowtied/mc-slide"] {
-
-	&.is-selected,
-	&.is-hovered,
-	&.is-typing {
-		.gbt_18_mc_slide_remove_image_button,
-		.gbt_18_mc_slide_add_image_button {
-			opacity: 1;
-			visibility: visible;
-			transition: all .2s ease-in-out;
-		}
-	}
-}
-
-.editor-block-list__block[data-type="getbowtied/mc-slider"][data-align="wide"],
-.editor-block-list__block[data-type="getbowtied/mc-slider"][data-align="full"] {
-	.editor-block-list__block {
+.wp-block[data-type="getbowtied/mc-slider"][data-align="wide"],
+.wp-block[data-type="getbowtied/mc-slider"][data-align="full"] {
+	.wp-block {
 		max-width: 100%;
 	}
 }

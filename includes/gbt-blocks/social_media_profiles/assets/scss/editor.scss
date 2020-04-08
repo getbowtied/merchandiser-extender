@@ -15,7 +15,7 @@ ul.mc_social_icons_list
 	clear: both;
 	display: block;
 	margin: 15px 0;
-	padding: 0;
+	padding: 0 !important;
 	vertical-align: middle;
 
 	&.left
@@ -34,7 +34,7 @@ ul.mc_social_icons_list
 	}
 
 	li.mc_social_icon
-	{	
+	{
 		display: inline-block;
 		font-size: 24px;
 		list-style: none;
