@@ -1,0 +1,410 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Merchandiser Extender\n"
+"POT-Creation-Date: 2020-06-04 16:18+0300\n"
+"PO-Revision-Date: 2020-06-04 16:17+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: merchandiser-extender.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: core\n"
+
+#: includes/addons/class-wc-category-header-image.php:114
+#: includes/addons/class-wc-category-header-image.php:204
+#: includes/addons/class-wc-category-header-image.php:308
+msgid "Header"
+msgstr ""
+
+#: includes/addons/class-wc-category-header-image.php:118
+#: includes/addons/class-wc-category-header-image.php:209
+msgid "Upload/Add image"
+msgstr ""
+
+#: includes/addons/class-wc-category-header-image.php:119
+#: includes/addons/class-wc-category-header-image.php:210
+msgid "Remove image"
+msgstr ""
+
+#: includes/addons/class-wc-category-header-image.php:143
+#: includes/addons/class-wc-category-header-image.php:236
+msgid "Choose an image"
+msgstr ""
+
+#: includes/addons/class-wc-category-header-image.php:145
+#: includes/addons/class-wc-category-header-image.php:238
+msgid "Use image"
+msgstr ""
+
+#: includes/addons/class-wc-category-header-image.php:307
+msgid "Image"
+msgstr ""
+
+#: includes/custom-code/class-custom-code.php:100
+msgid "Additional JS"
+msgstr ""
+
+#: includes/custom-code/class-custom-code.php:117
+msgid "Header JavaScript Code"
+msgstr ""
+
+#: includes/custom-code/class-custom-code.php:137
+msgid "Footer JavaScript Code"
+msgstr ""
+
+#: includes/customizer/repeater/class-mc-ext-repeater-control.php:99
+msgid "Add a Profile"
+msgstr ""
+
+#: includes/customizer/repeater/class-mc-ext-repeater-control.php:134
+#: includes/customizer/repeater/class-mc-ext-repeater-control.php:173
+msgid "Title:"
+msgstr ""
+
+#: includes/customizer/repeater/class-mc-ext-repeater-control.php:141
+#: includes/customizer/repeater/class-mc-ext-repeater-control.php:180
+msgid "Link:"
+msgstr ""
+
+#: includes/customizer/repeater/class-mc-ext-repeater-control.php:151
+#: includes/customizer/repeater/class-mc-ext-repeater-control.php:189
+msgid "Remove"
+msgstr ""
+
+#: includes/customizer/repeater/class-mc-ext-repeater-control.php:155
+#: includes/customizer/repeater/class-mc-ext-repeater-control.php:193
+msgid "Done"
+msgstr ""
+
+#: includes/customizer/repeater/class-mc-ext-repeater-control.php:164
+msgid "Social Media Profile"
+msgstr ""
+
+#: includes/customizer/repeater/class-mc-ext-repeater-control.php:229
+msgid "Icon:"
+msgstr ""
+
+#: includes/customizer/repeater/class-mc-ext-repeater-control.php:243
+msgid "Custom Icon"
+msgstr ""
+
+#: includes/customizer/repeater/class-mc-ext-repeater-control.php:262
+msgid "Image:"
+msgstr ""
+
+#: includes/gbt-blocks/banner/block.js:28
+msgid "Banner"
+msgstr ""
+
+#: includes/gbt-blocks/banner/block.js:107
+msgid "Title Color"
+msgstr ""
+
+#: includes/gbt-blocks/banner/block.js:114
+msgid "Subtitle Color"
+msgstr ""
+
+#: includes/gbt-blocks/banner/block.js:121
+#: includes/gbt-blocks/posts_slider/block.js:641
+msgid "Background Color"
+msgstr ""
+
+#: includes/gbt-blocks/banner/block.js:132
+msgid "Inner Stroke Color"
+msgstr ""
+
+#: includes/gbt-blocks/banner/block.js:154
+msgid "General Settings"
+msgstr ""
+
+#: includes/gbt-blocks/banner/block.js:162
+msgid "URL"
+msgstr ""
+
+#: includes/gbt-blocks/banner/block.js:173
+msgid "Open link in new tab?"
+msgstr ""
+
+#: includes/gbt-blocks/banner/block.js:189
+msgid "Height"
+msgstr ""
+
+#: includes/gbt-blocks/banner/block.js:200
+msgid "Font Settings"
+msgstr ""
+
+#: includes/gbt-blocks/banner/block.js:212
+#: includes/gbt-blocks/slider/blocks/slide.js:204
+msgid "Title Font Size"
+msgstr ""
+
+#: includes/gbt-blocks/banner/block.js:227
+msgid "Subtitle Font Size"
+msgstr ""
+
+#: includes/gbt-blocks/banner/block.js:238
+msgid "Inner Stroke"
+msgstr ""
+
+#: includes/gbt-blocks/banner/block.js:250
+msgid "Inner Stroke Thickness"
+msgstr ""
+
+#: includes/gbt-blocks/banner/block.js:261
+#: includes/gbt-blocks/posts_slider/block.js:631
+#: includes/gbt-blocks/slider/blocks/slide.js:231
+#: includes/gbt-blocks/slider/blocks/slider.js:251
+msgid "Colors"
+msgstr ""
+
+#: includes/gbt-blocks/banner/block.js:324
+#: includes/gbt-blocks/slider/blocks/slide.js:265
+msgid "Add Image"
+msgstr ""
+
+#: includes/gbt-blocks/banner/block.js:340
+#: includes/gbt-blocks/slider/blocks/slide.js:281
+msgid "Remove Image"
+msgstr ""
+
+#: includes/gbt-blocks/banner/block.js:376
+#: includes/gbt-blocks/slider/blocks/slide.js:350
+msgid "Add Title"
+msgstr ""
+
+#: includes/gbt-blocks/banner/block.js:396
+#: includes/gbt-blocks/slider/blocks/slide.js:377
+msgid "Add Subtitle"
+msgstr ""
+
+#: includes/gbt-blocks/posts_grid/block.js:25
+msgid "Posts Grid"
+msgstr ""
+
+#: includes/gbt-blocks/posts_grid/block.js:190
+#: includes/gbt-blocks/posts_slider/block.js:207
+msgid "Update"
+msgstr ""
+
+#: includes/gbt-blocks/posts_grid/block.js:192
+#: includes/gbt-blocks/posts_slider/block.js:209
+msgid "Updating"
+msgstr ""
+
+#: includes/gbt-blocks/posts_grid/block.js:396
+#: includes/gbt-blocks/posts_slider/block.js:543
+msgid "Categories:"
+msgstr ""
+
+#: includes/gbt-blocks/posts_grid/block.js:411
+#: includes/gbt-blocks/posts_slider/block.js:558
+msgid "Alphabetical Ascending"
+msgstr ""
+
+#: includes/gbt-blocks/posts_grid/block.js:412
+#: includes/gbt-blocks/posts_slider/block.js:559
+msgid "Alphabetical Descending"
+msgstr ""
+
+#: includes/gbt-blocks/posts_grid/block.js:413
+#: includes/gbt-blocks/posts_slider/block.js:560
+msgid "Date Ascending"
+msgstr ""
+
+#: includes/gbt-blocks/posts_grid/block.js:414
+#: includes/gbt-blocks/posts_slider/block.js:561
+msgid "Date Descending"
+msgstr ""
+
+#: includes/gbt-blocks/posts_grid/block.js:416
+#: includes/gbt-blocks/posts_slider/block.js:563
+msgid "Order By"
+msgstr ""
+
+#: includes/gbt-blocks/posts_grid/block.js:435
+#: includes/gbt-blocks/posts_slider/block.js:582
+msgid "Number of Posts"
+msgstr ""
+
+#: includes/gbt-blocks/posts_grid/block.js:466
+msgid "Columns"
+msgstr ""
+
+#: includes/gbt-blocks/posts_slider/block.js:26
+msgid "Posts Slider"
+msgstr ""
+
+#: includes/gbt-blocks/posts_slider/block.js:274
+msgid "January"
+msgstr ""
+
+#: includes/gbt-blocks/posts_slider/block.js:275
+msgid "February"
+msgstr ""
+
+#: includes/gbt-blocks/posts_slider/block.js:276
+msgid "March"
+msgstr ""
+
+#: includes/gbt-blocks/posts_slider/block.js:277
+msgid "April"
+msgstr ""
+
+#: includes/gbt-blocks/posts_slider/block.js:278
+msgid "May"
+msgstr ""
+
+#: includes/gbt-blocks/posts_slider/block.js:279
+msgid "June"
+msgstr ""
+
+#: includes/gbt-blocks/posts_slider/block.js:280
+msgid "July"
+msgstr ""
+
+#: includes/gbt-blocks/posts_slider/block.js:281
+msgid "August"
+msgstr ""
+
+#: includes/gbt-blocks/posts_slider/block.js:282
+msgid "September"
+msgstr ""
+
+#: includes/gbt-blocks/posts_slider/block.js:283
+msgid "October"
+msgstr ""
+
+#: includes/gbt-blocks/posts_slider/block.js:284
+msgid "November"
+msgstr ""
+
+#: includes/gbt-blocks/posts_slider/block.js:285
+msgid "December"
+msgstr ""
+
+#: includes/gbt-blocks/posts_slider/block.js:609
+#: includes/gbt-blocks/slider/blocks/slider.js:159
+#: includes/gbt-blocks/slider/blocks/slider.js:240
+msgid "Navigation Arrows"
+msgstr ""
+
+#: includes/gbt-blocks/posts_slider/block.js:620
+msgid "Navigation Bullets"
+msgstr ""
+
+#: includes/gbt-blocks/posts_slider/block.js:634
+msgid "Text Color"
+msgstr ""
+
+#: includes/gbt-blocks/slider/blocks/slide.js:32
+msgid "Slide"
+msgstr ""
+
+#: includes/gbt-blocks/slider/blocks/slide.js:116
+msgid "Title & Description"
+msgstr ""
+
+#: includes/gbt-blocks/slider/blocks/slide.js:123
+msgid "Slide Background"
+msgstr ""
+
+#: includes/gbt-blocks/slider/blocks/slide.js:134
+#: includes/gbt-blocks/slider/blocks/slide.js:404
+msgid "Button Text"
+msgstr ""
+
+#: includes/gbt-blocks/slider/blocks/slide.js:141
+msgid "Button Background"
+msgstr ""
+
+#: includes/gbt-blocks/slider/blocks/slide.js:168
+msgid "Slide Link"
+msgstr ""
+
+#: includes/gbt-blocks/slider/blocks/slide.js:181
+msgid "Slide Button"
+msgstr ""
+
+#: includes/gbt-blocks/slider/blocks/slide.js:219
+msgid "Description Font Size"
+msgstr ""
+
+#: includes/gbt-blocks/slider/blocks/slider.js:30
+msgid "Slider"
+msgstr ""
+
+#: includes/gbt-blocks/slider/blocks/slider.js:147
+#: includes/gbt-blocks/slider/blocks/slider.js:229
+msgid "Pagination Bullets"
+msgstr ""
+
+#: includes/gbt-blocks/slider/blocks/slider.js:186
+msgid "Full Height"
+msgstr ""
+
+#: includes/gbt-blocks/slider/blocks/slider.js:203
+msgid "Custom Desktop Height"
+msgstr ""
+
+#: includes/gbt-blocks/slider/blocks/slider.js:218
+msgid "Number of Slides"
+msgstr ""
+
+#: includes/gbt-blocks/social_media_profiles/block.js:28
+msgid "Social Media Profiles"
+msgstr ""
+
+#: includes/gbt-blocks/social_media_profiles/block.js:73
+msgid "Icons Font Size"
+msgstr ""
+
+#: includes/gbt-blocks/social_media_profiles/block.js:83
+#: includes/gbt-blocks/social_media_profiles/block.js:86
+msgid "Icons Color"
+msgstr ""
+
+#: includes/gbt-blocks/social_media_profiles/block.js:125
+msgid "Setup social profile links under Appearance > Customize > Social Media"
+msgstr ""
+
+#: includes/social-media/class-social-media.php:312
+msgid "Social Media"
+msgstr ""
+
+#: includes/social-sharing/class-social-sharing.php:71
+msgid "Share this product"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Merchandiser Extender"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://merchandiser.wp-theme.design/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Extends the functionality of the Merchandiser theme by adding theme specific "
+"features."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "GetBowtied"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://getbowtied.com"
+msgstr ""
