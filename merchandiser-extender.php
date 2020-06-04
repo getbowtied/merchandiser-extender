@@ -30,6 +30,8 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	'merchandiser-extender'
 );
 
+$version = ( isset(get_plugin_data( __FILE__ )['Version']) && !empty(get_plugin_data( __FILE__ )['Version']) ) ? get_plugin_data( __FILE__ )['Version'] : '1.0';
+define ( 'MC_EXT_VERSION', $version );
 
 if ( ! class_exists( 'MerchandiserExtender' ) ) :
 
@@ -64,6 +66,9 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 
 				// Shortcodes
 				include_once( dirname( __FILE__ ) . '/includes/shortcodes/index.php' );
+
+                // Customizer
+				include_once( dirname( __FILE__ ) . '/includes/customizer/repeater/class-mc-ext-repeater-control.php' );
 
 				// Social Media
 				include_once( dirname( __FILE__ ) . '/includes/social-media/class-social-media.php' );
