@@ -41,6 +41,10 @@
 			display: inline-block;
 		    vertical-align: text-top;
 
+			img {
+				vertical-align: text-top;
+			}
+
 			a.mc_social_icon_link
 			{
 				transition: opacity .2s;
