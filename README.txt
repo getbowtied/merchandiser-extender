@@ -2,12 +2,12 @@
 Contributors: getbowtied, vanesareinerth, adrianlbs
 Tags: gutenberg, blocks
 Requires at least: 5.0
-Tested up to: 5.4.1
-Stable tag: 1.3.8
+Tested up to: 5.5
+Stable tag: 1.3.9
 Requires PHP: 5.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-~Current Version:1.3.8~
+~Current Version:1.3.9~
 
 Extends the functionality of the Merchandiser theme by adding theme specific features.
 
@@ -36,6 +36,9 @@ Companion plugin for the **Merchandiser** theme. Extends the functionality by ad
 - Social Media Profiles
 
 == Changelog ==
+
+= 1.3.9 =
+- Upcoming WordPress 5.5 compatibility updates
 
 = 1.3.8 =
 - New: Social Media Customizer Control that allows for custom Icons and Social Profile links
