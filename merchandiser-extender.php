@@ -62,28 +62,22 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 			// Vendor
 			include_once( dirname( __FILE__ ) . '/includes/vendor/enqueue.php' );
 
-			if( ( $theme->template == 'merchandiser' && ( $theme->version >= '1.9' || ( !empty($parent_theme) && $parent_theme->version >= '1.9' ) ) ) || $theme->template != 'merchandiser' ) {
+            // Shortcodes
+            include_once( dirname( __FILE__ ) . '/includes/shortcodes/index.php' );
 
-				// Shortcodes
-				include_once( dirname( __FILE__ ) . '/includes/shortcodes/index.php' );
+            // Customizer
+            include_once( dirname( __FILE__ ) . '/includes/customizer/repeater/class-mc-ext-repeater-control.php' );
 
-                // Customizer
-				include_once( dirname( __FILE__ ) . '/includes/customizer/repeater/class-mc-ext-repeater-control.php' );
+            // Social Media
+            include_once( dirname( __FILE__ ) . '/includes/social-media/class-social-media.php' );
 
-				// Social Media
-				include_once( dirname( __FILE__ ) . '/includes/social-media/class-social-media.php' );
+            // Gutenberg Blocks
+            include_once( dirname( __FILE__ ) . '/includes/gbt-blocks/index.php' );
 
-				add_action( 'footer_socials', function() {
-					echo '<div class="footer-socials">' . do_shortcode('[socials]') . '</div>';
-				} );
-			}
+            // Merchandiser Dependent Components
+			if( function_exists('getbowtied_theme_version') ) {
 
-			// Gutenberg Blocks
-			add_action( 'init', array( $this, 'gbt_mc_gutenberg_blocks' ) );
-
-			if( $theme->template == 'merchandiser' && ( $theme->version >= '1.9' || ( !empty($parent_theme) && $parent_theme->version >= '1.9' ) ) ) {
-
-				// Addons
+                // Addons
 				if ( $theme->template == 'merchandiser' && is_plugin_active( 'woocommerce/woocommerce.php') ) {
 					include_once( dirname( __FILE__ ) . '/includes/addons/class-wc-category-header-image.php' );
 				}
@@ -95,21 +89,11 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 				if ( is_plugin_active( 'woocommerce/woocommerce.php') ) {
 					include_once( dirname( __FILE__ ) . '/includes/social-sharing/class-social-sharing.php' );
 				}
-			}
-		}
+            }
 
-		/**
-		 * Loads Gutenberg blocks
-		 *
-		 * @return void
-		*/
-		public function gbt_mc_gutenberg_blocks() {
-
-			if( is_plugin_active( 'gutenberg/gutenberg.php' ) || mc_is_wp_version('>=', '5.0') ) {
-				include_once( dirname( __FILE__ ) . '/includes/gbt-blocks/index.php' );
-			} else {
-				add_action( 'admin_notices', 'mc_theme_warning' );
-			}
+            add_action( 'footer_socials', function() {
+                echo '<div class="footer-socials">' . do_shortcode('[socials]') . '</div>';
+            } );
 		}
 
 		/**
@@ -126,4 +110,6 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 	}
 endif;
 
-$merchandiser_extender = new MerchandiserExtender;
+add_action( 'after_setup_theme', function() {
+    $merchandiser_extender = new MerchandiserExtender;
+} );
