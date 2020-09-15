@@ -82,6 +82,10 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 					include_once( dirname( __FILE__ ) . '/includes/addons/class-wc-category-header-image.php' );
 				}
 
+                // Custom Menu Section
+				include_once( dirname( __FILE__ ) . '/includes/custom-menu/class-merchandiser-nav-menu.php' );
+                include_once( dirname( __FILE__ ) . '/includes/custom-menu/class-merchandiser-nav-menu-output.php' );
+
 				// Custom Code Section
 				include_once( dirname( __FILE__ ) . '/includes/custom-code/class-custom-code.php' );
 
