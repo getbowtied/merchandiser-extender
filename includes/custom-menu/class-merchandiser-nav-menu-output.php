@@ -55,7 +55,7 @@ class Merchandiser_Nav_Menu_Output extends Walker_Nav_Menu {
         $args->title = ! empty( $item->attr_title ) ? $item->attr_title : '';
         $args->description = ! empty( $item->description ) ? $item->description : '';
         $args->background_color = ! empty( $item->background_color ) ? $item->background_color : '';
-        $args->background_text = ! empty( $item->background_text ) ? $item->background_text : '';
+        $args->text_color = ! empty( $item->text_color ) ? $item->text_color : '';
 
         /**
          * Filters the CSS classes applied to a menu item's list item element.
@@ -206,8 +206,8 @@ class Merchandiser_Nav_Menu_Output extends Walker_Nav_Menu {
             $style .= 'background-color:'.$args->background_color.';';
         }
 
-        if( $depth === 0 && ( 'slices' === get_theme_mod( 'header_navigation_style', 'slices' ) ) && isset($args->background_text) && !empty($args->background_text) ) {
-            $style .= 'color:'.$args->background_text.';';
+        if( $depth === 0 && ( 'slices' === get_theme_mod( 'header_navigation_style', 'slices' ) ) && isset($args->text_color) && !empty($args->text_color) ) {
+            $style .= 'color:'.$args->text_color.';';
         }
 
         $style       = $style ? 'style="'.$style.'"' : '';

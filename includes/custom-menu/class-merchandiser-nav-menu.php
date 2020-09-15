@@ -17,7 +17,7 @@ add_filter( 'wp_edit_nav_menu_walker', 'merchandiser_edit_walker', 10, 2 );
 */
 function merchandiser_add_custom_nav_fields( $menu_item ) {
     $menu_item->background_color = get_post_meta( $menu_item->ID, '_menu_item_background_color', true );
-    $menu_item->background_text = get_post_meta( $menu_item->ID, '_menu_item_background_text', true );
+    $menu_item->text_color = get_post_meta( $menu_item->ID, '_menu_item_text_color', true );
 
     return $menu_item;
 }
@@ -30,7 +30,7 @@ function merchandiser_update_custom_nav_fields( $menu_id, $menu_item_db_id, $arg
         return;
     }
 
-    if( !isset($_REQUEST['menu-item-background_text']) || empty($_REQUEST['menu-item-background_text']) ) {
+    if( !isset($_REQUEST['menu-item-text_color']) || empty($_REQUEST['menu-item-text_color']) ) {
         return;
     }
 
@@ -41,11 +41,11 @@ function merchandiser_update_custom_nav_fields( $menu_id, $menu_item_db_id, $arg
         update_post_meta( $menu_item_db_id, '_menu_item_background_color', '#ffffff' );
     }
 
-    if ( isset($_REQUEST['menu-item-background_text']) && !empty($_REQUEST['menu-item-background_text']) ) {
-        $background_text_value = $_REQUEST['menu-item-background_text'][$menu_item_db_id];
-        update_post_meta( $menu_item_db_id, '_menu_item_background_text', $background_text_value );
+    if ( isset($_REQUEST['menu-item-text_color']) && !empty($_REQUEST['menu-item-text_color']) ) {
+        $text_color_value = $_REQUEST['menu-item-text_color'][$menu_item_db_id];
+        update_post_meta( $menu_item_db_id, '_menu_item_text_color', $text_color_value );
     } else {
-        update_post_meta( $menu_item_db_id, '_menu_item_background_text', '#000000' );
+        update_post_meta( $menu_item_db_id, '_menu_item_text_color', '#000000' );
     }
 }
 
@@ -254,10 +254,10 @@ class Merchandiser_Nav_Menu extends Walker_Nav_Menu {
                         </label>
                     </p>
 
-                    <p class="field-background_text description description-wide">
+                    <p class="field-text_color description description-wide">
                         <label><?php esc_html_e( 'Dropdown Text Color', 'merchandiser-extender' ); ?></label><br/>
-                        <label for="edit-menu-item-background_text-<?php echo esc_attr( $item_id ); ?>">
-                            <input type="text" id="edit-menu-item-background_text-<?php echo esc_attr( $item_id ); ?>" value="<?php echo esc_attr( $item->background_text ); ?>" name="menu-item-background_text[<?php echo esc_attr( $item_id ); ?>]" class="cpa-color-picker" />
+                        <label for="edit-menu-item-text_color-<?php echo esc_attr( $item_id ); ?>">
+                            <input type="text" id="edit-menu-item-text_color-<?php echo esc_attr( $item_id ); ?>" value="<?php echo esc_attr( $item->text_color ); ?>" name="menu-item-text_color[<?php echo esc_attr( $item_id ); ?>]" class="cpa-color-picker" />
                         </label>
                     </p>
 
