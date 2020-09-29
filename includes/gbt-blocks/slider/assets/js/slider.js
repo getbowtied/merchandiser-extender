@@ -1,5 +1,5 @@
 jQuery(function($) {
-	
+
 	"use strict";
 
 	$('.gbt_18_mc_slider_container').each(function(i) {
@@ -13,9 +13,12 @@ jQuery(function($) {
 			loop: true,
 		    speed: 600,
 			effect: 'slide',
-		    pagination: { 
+		    pagination: {
 		    	el: $('.gbt_18_mc_slider_pagination')[i],
-		    	clickable: true 
+		    	clickable: true,
+				renderBullet: function (index, className) {
+			        return '<span class="' + className + '">' + (index + 1) + '</span>';
+			    }
 		    },
 		    navigation: {
 			    nextEl: $('.gbt_18_mc_slider_button_next')[i],
