@@ -60,12 +60,6 @@ $theme = wp_get_theme();
 //  Load Blocks
 //==============================================================================
 
-// Merchandiser Dependent Blocks
-if ( $theme->template == 'merchandiser') {
-    include_once( dirname( __FILE__ ) . '/social_media_profiles/block.php' );
-}
-
-include_once( dirname( __FILE__ ) . '/posts_grid/block.php' );
 include_once( dirname( __FILE__ ) . '/posts_slider/block.php' );
 include_once( dirname( __FILE__ ) . '/banner/block.php' );
 include_once( dirname( __FILE__ ) . '/slider/block.php' );
