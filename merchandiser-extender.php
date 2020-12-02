@@ -56,9 +56,6 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 			$theme = wp_get_theme();
 			$parent_theme = $theme->parent();
 
-			// Helpers
-			include_once( dirname( __FILE__ ) . '/includes/helpers/helpers.php' );
-
 			// Vendor
 			include_once( dirname( __FILE__ ) . '/includes/vendor/enqueue.php' );
 

@@ -272,6 +272,29 @@ class MC_Ext_Customizer_Repeater_Control extends WP_Customize_Control {
 	}
 
 	/**
+	 * Sanitize repeater control.
+	 *
+	 * @param string $input Repeater control value.
+	 *
+	 * @return string $input Sanitized control.
+	 */
+	public static function sanitize_repeater( $input ) {
+		$input_decoded = json_decode($input,true);
+
+		if(!empty($input_decoded)) {
+			foreach ($input_decoded as $boxk => $box ){
+				foreach ($box as $key => $value){
+					$input_decoded[$boxk][$key] = wp_kses_post( force_balance_tags( $value ) );
+				}
+			}
+
+			return json_encode($input_decoded);
+		}
+
+		return $input;
+	}
+
+	/**
 	 * Enqueue control related scripts/styles.
 	 */
 	 public function enqueue() {
