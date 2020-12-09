@@ -93,10 +93,18 @@
 
 	.gbt_18_mc_slider_button_prev {
         left: 50px;
+
+		&:hover {
+			left: 40px;
+		}
 	}
 
 	.gbt_18_mc_slider_button_next {
         right: 50px;
+
+		&:hover {
+			right: 40px;
+		}
 	}
 
     .swiper-slide {
@@ -128,9 +136,11 @@
 		.swiper-pagination-bullet {
 			display: inline-block;
 			border: 2px solid transparent;
-			margin: 0;
+			margin: 0 3px;
 			background: none;
+			font-family: var(--global--font-primary);
 			font-size: 14px;
+			font-weight: bold;
 			outline: 0;
 			opacity: 1;
 			line-height: 30px;
@@ -140,6 +150,7 @@
 			height: 35px;
 			transition: all .3s ease;
 
+			&:hover,
 			&.swiper-pagination-bullet-active {
 				border: 2px solid currentColor;
 			}

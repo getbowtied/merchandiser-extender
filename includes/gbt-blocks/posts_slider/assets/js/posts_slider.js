@@ -1,5 +1,5 @@
 jQuery(function($) {
-	
+
 	"use strict";
 
 	$('.gbt_18_mc_posts_slider_container').each(function(i) {
@@ -12,14 +12,17 @@ jQuery(function($) {
 			loop: true,
 			slidesPerView: 2,
 			breakpoints: {
-				640: {
-			      slidesPerView: 1,
-			    }
+				0: {
+			    	slidesPerView: 1,
+			  	},
+			  	768: {
+					slidesPerView: 2,
+				}
 			},
-		    pagination: { 
+		    pagination: {
 		    	el: '.quickview-pagination',
 		    	dynamicBullets: true,
-		    	clickable: true 
+		    	clickable: true
 		    },
 		    navigation: {
 			    nextEl: $('.swiper-button-next')[i],
