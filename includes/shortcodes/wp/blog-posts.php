@@ -2,7 +2,6 @@
 
 // [blog_posts]
 function getbowtied_mc_shortcode_blog_posts($atts, $content = null) {
-
 	wp_enqueue_style( 'swiper' );
 	wp_enqueue_script( 'swiper' );
 

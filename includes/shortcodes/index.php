@@ -8,57 +8,44 @@ include_once( dirname( __FILE__ ) . '/wp/blog-posts.php' );
 
 // WC
 if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
-	include_once( dirname( __FILE__ ) . '/wc/recent-products-list.php' );
-	include_once( dirname( __FILE__ ) . '/wc/featured-products-list.php' );
-	include_once( dirname( __FILE__ ) . '/wc/sale-products-list.php' );
-	include_once( dirname( __FILE__ ) . '/wc/best-selling-products-list.php' );
-	include_once( dirname( __FILE__ ) . '/wc/top-rated-products-list.php' );
-	include_once( dirname( __FILE__ ) . '/wc/product-category-list.php' );
-	include_once( dirname( __FILE__ ) . '/wc/products-list.php' );
-	include_once( dirname( __FILE__ ) . '/wc/products-by-attribute-list.php' );
+	include_once( dirname( __FILE__ ) . '/wc/products/recent-products.php' );
+	include_once( dirname( __FILE__ ) . '/wc/products/featured-products.php' );
+	include_once( dirname( __FILE__ ) . '/wc/products/sale-products.php' );
+	include_once( dirname( __FILE__ ) . '/wc/products/best-selling-products.php' );
+	include_once( dirname( __FILE__ ) . '/wc/products/top-rated-products.php' );
+	include_once( dirname( __FILE__ ) . '/wc/products/product-by-category.php' );
+	include_once( dirname( __FILE__ ) . '/wc/products/products-by-id.php' );
+	include_once( dirname( __FILE__ ) . '/wc/products/products-by-attribute.php' );
 	include_once( dirname( __FILE__ ) . '/wc/single-product.php' );
 	include_once( dirname( __FILE__ ) . '/wc/product-categories.php' );
 }
 
-// Mixed
-if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
-	include_once( dirname( __FILE__ ) . '/mixed/recent-products-mixed.php' );
-	include_once( dirname( __FILE__ ) . '/mixed/featured-products-mixed.php' );
-	include_once( dirname( __FILE__ ) . '/mixed/sale-products-mixed.php' );
-	include_once( dirname( __FILE__ ) . '/mixed/best-selling-products-mixed.php' );
-	include_once( dirname( __FILE__ ) . '/mixed/top-rated-products-mixed.php' );
-	include_once( dirname( __FILE__ ) . '/mixed/product-category-mixed.php' );
-	include_once( dirname( __FILE__ ) . '/mixed/products-mixed.php' );
-	include_once( dirname( __FILE__ ) . '/mixed/products-by-attribute-mixed.php' );
-}
-include_once( dirname( __FILE__ ) . '/mixed/blog-posts-mixed.php' );
-
 // Add Shortcodes to WP Bakery
 if ( defined( 'WPB_VC_VERSION' ) ) {
-	
+
 	add_action( 'init', 'getbowtied_mc_visual_composer_shortcodes', 99 );
 	function getbowtied_mc_visual_composer_shortcodes() {
-		
+
 		// Add new WP shortcodes to VC
-		include_once( dirname( __FILE__ ) . '/wb/wp/banner.php' );
-		include_once( dirname( __FILE__ ) . '/wb/wp/blog-posts.php' );
-		include_once( dirname( __FILE__ ) . '/wb/wp/slider.php' );
-		include_once( dirname( __FILE__ ) . '/wb/wp/title.php' );
-		
+		include_once( dirname( __FILE__ ) . '/editor/wp/banner.php' );
+		include_once( dirname( __FILE__ ) . '/editor/wp/blog-posts.php' );
+		include_once( dirname( __FILE__ ) . '/editor/wp/slider.php' );
+		include_once( dirname( __FILE__ ) . '/editor/wp/title.php' );
+
 		// Add new WC shortcodes to VC
 		if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
-			
-			include_once( dirname( __FILE__ ) . '/wb/wc/best-selling-products.php' );
-			include_once( dirname( __FILE__ ) . '/wb/wc/featured-products.php' );
-			include_once( dirname( __FILE__ ) . '/wb/wc/product-by-id-sku.php' );
-			include_once( dirname( __FILE__ ) . '/wb/wc/product-categories.php' );
-			include_once( dirname( __FILE__ ) . '/wb/wc/product-categories-grid.php' );
-			include_once( dirname( __FILE__ ) . '/wb/wc/products-by-attribute.php' );
-			include_once( dirname( __FILE__ ) . '/wb/wc/products-by-category.php' );
-			include_once( dirname( __FILE__ ) . '/wb/wc/products-by-ids-skus.php' );
-			include_once( dirname( __FILE__ ) . '/wb/wc/recent-products.php' );
-			include_once( dirname( __FILE__ ) . '/wb/wc/sale-products.php' );
-			include_once( dirname( __FILE__ ) . '/wb/wc/top-rated-products.php' );
+
+			include_once( dirname( __FILE__ ) . '/editor/wc/best-selling-products.php' );
+			include_once( dirname( __FILE__ ) . '/editor/wc/featured-products.php' );
+			include_once( dirname( __FILE__ ) . '/editor/wc/product-by-id-sku.php' );
+			include_once( dirname( __FILE__ ) . '/editor/wc/product-categories.php' );
+			include_once( dirname( __FILE__ ) . '/editor/wc/product-categories-grid.php' );
+			include_once( dirname( __FILE__ ) . '/editor/wc/products-by-attribute.php' );
+			include_once( dirname( __FILE__ ) . '/editor/wc/products-by-category.php' );
+			include_once( dirname( __FILE__ ) . '/editor/wc/products-by-ids-skus.php' );
+			include_once( dirname( __FILE__ ) . '/editor/wc/recent-products.php' );
+			include_once( dirname( __FILE__ ) . '/editor/wc/sale-products.php' );
+			include_once( dirname( __FILE__ ) . '/editor/wc/top-rated-products.php' );
 
 		}
 	}
@@ -108,20 +95,13 @@ function getbowtied_mc_shortcodes_styles() {
 add_action( 'wp_enqueue_scripts', 'getbowtied_mc_shortcodes_scripts', 99 );
 function getbowtied_mc_shortcodes_scripts() {
 
-	wp_register_script('merchandiser-blog-posts-shortcode-script', 
+	wp_register_script('merchandiser-blog-posts-shortcode-script',
 		plugins_url( 'assets/js/blog-posts.js', __FILE__ ),
 		array('jquery')
 	);
 
-	wp_register_script('merchandiser-slider-shortcode-script', 
+	wp_register_script('merchandiser-slider-shortcode-script',
 		plugins_url( 'assets/js/slider.js', __FILE__ ),
 		array('jquery')
 	);
-
-	if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
-		wp_enqueue_script('merchandiser-product-gutter-script', 
-			plugins_url( 'assets/js/product-list-gutter.js', __FILE__ ),
-			array('jquery')
-		);
-	}
 }

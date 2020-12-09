@@ -2,10 +2,9 @@
 
 // [product_category_mixed]
 
-
 // getbowtied_mc_product_category_field
-function getbowtied_mc_product_category_field($settings, $value) {   
-    $categories = get_terms('product_cat'); 
+function getbowtied_mc_product_category_field($settings, $value) {
+    $categories = get_terms('product_cat');
     $data = '<select name="'.$settings['param_name'].'" class="wpb_vc_param_value wpb-input wpb-select '.$settings['param_name'].' '.$settings['type'].'">';
     foreach($categories as $category) {
         $selected = '';
@@ -19,16 +18,14 @@ function getbowtied_mc_product_category_field($settings, $value) {
 }
 vc_add_shortcode_param('product_category' , 'getbowtied_mc_product_category_field');
 
-
-
-vc_map(array(
+vc_map( array(
    "name" 			=> "Products by Category",
    "category" 		=> 'WooCommerce',
    "description"	=> "",
    "base" 			=> "product_category_mixed",
    "class" 			=> "",
    "icon" 			=> "icon-wpb-woocommerce",
-   
+
    "params" 	=> array(
 
    		array(
@@ -40,7 +37,7 @@ vc_map(array(
 			"param_name"	=> "widget_title",
 			"value"			=> "",
 		),
-		
+
 		array(
 			"type" 			=> "product_category",
 			"holder" 		=> "div",
@@ -49,7 +46,7 @@ vc_map(array(
 			"heading" 		=> "Category",
 			"param_name" 	=> "category"
 		),
-		
+
 		array(
 			"type"			=> "textfield",
 			"holder"		=> "div",
@@ -60,20 +57,7 @@ vc_map(array(
 			"param_name"	=> "per_page",
 			"value"			=> "4",
 		),
-		
-		array(
-			"type"			=> "dropdown",
-			"holder"		=> "div",
-			"class" 		=> "hide_in_vc_editor",
-			"admin_label" 	=> true,
-			"heading"		=> "Layout Style",
-			"param_name"	=> "layout",
-			"value"			=> array(
-				"List"			=> "list",
-				"Masonry Style"	=> "masonry"
-			),
-		),
-		
+
 		array(
 			"type"			=> "textfield",
 			"holder"		=> "div",
@@ -83,17 +67,6 @@ vc_map(array(
 			"description"	=> "",
 			"param_name"	=> "columns",
 			"value"			=> "4",
-		),
-
-		array(
-			"type"			=> "textfield",
-			"holder"		=> "div",
-			"class" 		=> "hide_in_vc_editor",
-			"admin_label" 	=> true,
-			"heading"		=> "Gutter",
-			"description"	=> "",
-			"param_name"	=> "gutter",
-			"value"			=> "0",
 		),
 
 		array(
@@ -112,7 +85,7 @@ vc_map(array(
 			),
 			"std"			=> "date",
 		),
-		
+
 		array(
 			"type"			=> "dropdown",
 			"holder"		=> "div",
@@ -127,13 +100,5 @@ vc_map(array(
 			),
 			"std"			=> "desc",
 		),
-
-		array(
-			'type' => 'checkbox',
-			'param_name' => 'show_product_details',
-			'heading' => 'Show Product Details',
-			'value' => 'true'
-		),
    )
-   
 ));

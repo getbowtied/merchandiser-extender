@@ -1,50 +1,60 @@
 <?php
 
-// [featured_products_mixed]
+// [product_attribute_mixed]
 
-vc_map(array(
-   "name" 			=> "Featured Products",
+vc_map( array(
+   "name" 			=> "Products by Attribute",
    "category" 		=> 'WooCommerce',
    "description"	=> "",
-   "base" 			=> "featured_products_mixed",
+   "base" 			=> "product_attribute_mixed",
    "class" 			=> "",
    "icon" 			=> "icon-wpb-woocommerce",
-   
+
    "params" 	=> array(
 
    		array(
-   			"type" 			=> "textfield",
-			"holder" 		=> "div",
-			"heading" 		=> "Widget Title",
+			"type"			=> "textfield",
+			"holder"		=> "div",
 			"class" 		=> "hide_in_vc_editor",
 			"admin_label" 	=> true,
-			"param_name" 	=> "widget_title"
-   		),
-      
+			"heading"		=> "Widget Title",
+			"param_name"	=> "widget_title",
+			"value"			=> "",
+		),
+
 		array(
 			"type"			=> "textfield",
 			"holder"		=> "div",
 			"class" 		=> "hide_in_vc_editor",
 			"admin_label" 	=> true,
-			"heading"		=> "Number of Products",
+			"heading"		=> "Attribute",
+			"description"	=> "",
+			"param_name"	=> "attribute",
+			"value"			=> "",
+		),
+
+		array(
+			"type"			=> "textfield",
+			"holder"		=> "div",
+			"class" 		=> "hide_in_vc_editor",
+			"admin_label" 	=> true,
+			"heading"		=> "Filter",
+			"description"	=> "",
+			"param_name"	=> "filter",
+			"value"			=> "",
+		),
+
+		array(
+			"type"			=> "textfield",
+			"holder"		=> "div",
+			"class" 		=> "hide_in_vc_editor",
+			"admin_label" 	=> true,
+			"heading"		=> "No. of Products to display",
 			"description"	=> "",
 			"param_name"	=> "per_page",
 			"value"			=> "4",
 		),
-		
-		array(
-			"type"			=> "dropdown",
-			"holder"		=> "div",
-			"class" 		=> "hide_in_vc_editor",
-			"admin_label" 	=> true,
-			"heading"		=> "Layout Style",
-			"param_name"	=> "layout",
-			"value"			=> array(
-				"List"			=> "list",
-				"Masonry Style"	=> "masonry"
-			),
-		),
-		
+
 		array(
 			"type"			=> "textfield",
 			"holder"		=> "div",
@@ -57,17 +67,6 @@ vc_map(array(
 		),
 
 		array(
-			"type"			=> "textfield",
-			"holder"		=> "div",
-			"class" 		=> "hide_in_vc_editor",
-			"admin_label" 	=> true,
-			"heading"		=> "Gutter",
-			"description"	=> "",
-			"param_name"	=> "gutter",
-			"value"			=> "0",
-		),
-
-		array(
 			"type"			=> "dropdown",
 			"holder"		=> "div",
 			"class" 		=> "hide_in_vc_editor",
@@ -76,35 +75,28 @@ vc_map(array(
 			"description"	=> "",
 			"param_name"	=> "orderby",
 			"value"			=> array(
-				"Date"		=> "date",
-				"Title"		=> "title",
-				"Modified"	=> "modified",
-				"Random"	=> "rand"
+				"None"	=> "none",
+				"ID"	=> "ID",
+				"Title"	=> "title",
+				"Date"	=> "date",
+				"Rand"	=> "rand"
 			),
 			"std"			=> "date",
 		),
-		
+
 		array(
 			"type"			=> "dropdown",
 			"holder"		=> "div",
 			"class" 		=> "hide_in_vc_editor",
 			"admin_label" 	=> true,
-			"heading"		=> "Order Way",
+			"heading"		=> "Order",
 			"description"	=> "",
 			"param_name"	=> "order",
 			"value"			=> array(
-				"Descending"	=> "desc",
-				"Ascending"	=> "asc"
+				"Desc"	=> "desc",
+				"Asc"	=> "asc"
 			),
 			"std"			=> "desc",
 		),
-
-		array(
-			'type' => 'checkbox',
-			'param_name' => 'show_product_details',
-			'heading' => 'Show Product Details',
-			'value' => 'true',
-		),
    )
-   
 ));

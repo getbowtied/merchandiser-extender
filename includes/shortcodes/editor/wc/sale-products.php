@@ -1,18 +1,18 @@
 <?php
 
-// [recent_products_mixed]
+// [sale_products_mixed]
 
-vc_map(array(
-   "name" 			=> "Recent Products",
+vc_map( array(
+   "name" 			=> "Sale Products",
    "category" 		=> 'WooCommerce',
    "description"	=> "",
-   "base" 			=> "recent_products_mixed",
+   "base" 			=> "sale_products_mixed",
    "class" 			=> "",
    "icon" 			=> "icon-wpb-woocommerce",
-   
+
    "params" 	=> array(
 
-   		array(
+	   	array(
    			"type" 			=> "textfield",
 			"holder" 		=> "div",
 			"heading" 		=> "Widget Title",
@@ -20,31 +20,17 @@ vc_map(array(
 			"admin_label" 	=> true,
 			"param_name" 	=> "widget_title"
    		),
-      
+
 		array(
 			"type"			=> "textfield",
 			"holder"		=> "div",
 			"class" 		=> "hide_in_vc_editor",
 			"admin_label" 	=> true,
 			"heading"		=> "Number of Products",
-			"description"	=> "",
 			"param_name"	=> "per_page",
 			"value"			=> "4",
 		),
-		
-		array(
-			"type"			=> "dropdown",
-			"holder"		=> "div",
-			"class" 		=> "hide_in_vc_editor",
-			"admin_label" 	=> true,
-			"heading"		=> "Layout Style",
-			"param_name"	=> "layout",
-			"value"			=> array(
-				"List"			=> "list",
-				"Masonry Style"	=> "masonry"
-			),
-		),
-		
+
 		array(
 			"type"			=> "textfield",
 			"holder"		=> "div",
@@ -54,17 +40,6 @@ vc_map(array(
 			"description"	=> "",
 			"param_name"	=> "columns",
 			"value"			=> "4",
-		),
-
-		array(
-			"type"			=> "textfield",
-			"holder"		=> "div",
-			"class" 		=> "hide_in_vc_editor",
-			"admin_label" 	=> true,
-			"heading"		=> "Gutter",
-			"description"	=> "",
-			"param_name"	=> "gutter",
-			"value"			=> "0",
 		),
 
 		array(
@@ -83,7 +58,7 @@ vc_map(array(
 			),
 			"std"			=> "date",
 		),
-		
+
 		array(
 			"type"			=> "dropdown",
 			"holder"		=> "div",
@@ -98,13 +73,5 @@ vc_map(array(
 			),
 			"std"			=> "desc",
 		),
-
-		array(
-			'type' => 'checkbox',
-			'param_name' => 'show_product_details',
-			'heading' => 'Show Product Details',
-			'value' => 'true'
-		),
    )
-   
 ));
