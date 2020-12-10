@@ -80,16 +80,6 @@
 				type: 'string',
 				default: 'date_desc'
 			},
-			/* Font Color */
-			fontColor: {
-	        	type: 'string',
-	        	default: '#000'
-	        },
-	        /* Background Color */
-	        backgroundColor: {
-	        	type: 'string',
-	        	default: '#fff'
-	        },
 		},
 
 		edit: function( props ) {
@@ -319,14 +309,12 @@
 											{
 												key: 		'gbt_18_mc_editor_posts_slider_item_link_wrapper_' + i,
 												className: 	'gbt_18_mc_editor_posts_slider_item_link_wrapper',
-												style: { backgroundColor: attributes.backgroundColor }
 											},
 											el( "h4",
 												{
 													key: 		'gbt_18_mc_editor_posts_slider_item_title_' + i,
 													className:  'gbt_18_mc_editor_posts_slider_item_title',
 													dangerouslySetInnerHTML: { __html: posts[i]['title']['rendered'] },
-													style: { color: attributes.fontColor }
 												}
 											),
 											el( "span",
@@ -334,7 +322,6 @@
 													key: 		'gbt_18_mc_editor_posts_slider_item_date_' + i,
 													className:  'gbt_18_mc_editor_posts_slider_item_date',
 													dangerouslySetInnerHTML: { __html: date },
-													style: { color: attributes.fontColor }
 												}
 											)
 										),
@@ -623,30 +610,6 @@
 								},
 							}
 						),
-						el(
-							PanelColorSettings,
-							{
-								key: 'gbt_18_mc_editor_posts_slider_colors',
-								initialOpen: false,
-								title: i18n.__( 'Colors', 'merchandiser-extender' ),
-								colorSettings: [
-									{
-										label: i18n.__( 'Text Color', 'merchandiser-extender' ),
-										value: attributes.fontColor,
-										onChange: function( newColor) {
-											props.setAttributes( { fontColor: newColor } );
-										},
-									},
-									{
-										label: i18n.__( 'Background Color', 'merchandiser-extender' ),
-										value: attributes.backgroundColor,
-										onChange: function( newColor) {
-											props.setAttributes( { backgroundColor: newColor } );
-										}
-									}
-								]
-							},
-						),
 					),
 				),
 				el( 'div',
@@ -665,7 +628,7 @@
 						attributes.bullets && el( 'div',
 							{
 								key: 		'swiper-pagination-bullets',
-								className: 	'quickview-pagination swiper-pagination-clickable swiper-pagination-bullets'
+								className: 	'swiper-pagination-clickable swiper-pagination-bullets'
 							},
 							getBullets()
 						),

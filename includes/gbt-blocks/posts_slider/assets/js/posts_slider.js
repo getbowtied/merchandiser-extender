@@ -20,9 +20,11 @@ jQuery(function($) {
 				}
 			},
 		    pagination: {
-		    	el: '.quickview-pagination',
-		    	dynamicBullets: true,
-		    	clickable: true
+		    	el: $('.gbt_18_mc_posts_pagination')[i],
+		    	clickable: true,
+				renderBullet: function (index, className) {
+			        return '<span class="' + className + '">' + (index + 1) + '</span>';
+			    }
 		    },
 		    navigation: {
 			    nextEl: $('.swiper-button-next')[i],
