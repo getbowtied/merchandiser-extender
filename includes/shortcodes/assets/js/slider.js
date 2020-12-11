@@ -1,5 +1,5 @@
 jQuery(function($) {
-	
+
 	"use strict";
 
 	$('.shortcode_getbowtied_slider').each(function(){
@@ -18,9 +18,12 @@ jQuery(function($) {
 			speed: 600,
 			effect: 'slide',
 		    // If we need pagination
-		    pagination: { 
-		    	el: $(this).find('.quickview-pagination'),
-		    	clickable: true 
+		    pagination: {
+		    	el: $(this).find('.swiper-pagination'),
+				clickable: true,
+				renderBullet: function (index, className) {
+			        return '<span class="' + className + '">' + (index + 1) + '</span>';
+			    }
 		    },
 		    // Navigation
 		    navigation: {
