@@ -34,14 +34,14 @@ function merchandiser_update_custom_nav_fields( $menu_id, $menu_item_db_id, $arg
         return;
     }
 
-    if ( isset($_REQUEST['menu-item-background_color']) && !empty($_REQUEST['menu-item-background_color']) ) {
+    if ( isset($_REQUEST['menu-item-background_color']) && !empty($_REQUEST['menu-item-background_color']) && isset($_REQUEST['menu-item-background_color'][$menu_item_db_id]) && !empty($_REQUEST['menu-item-background_color'][$menu_item_db_id]) ) {
         $background_color_value = $_REQUEST['menu-item-background_color'][$menu_item_db_id];
         update_post_meta( $menu_item_db_id, '_menu_item_background_color', $background_color_value );
     } else {
         update_post_meta( $menu_item_db_id, '_menu_item_background_color', '#ffffff' );
     }
 
-    if ( isset($_REQUEST['menu-item-text_color']) && !empty($_REQUEST['menu-item-text_color']) ) {
+    if ( isset($_REQUEST['menu-item-text_color']) && !empty($_REQUEST['menu-item-text_color']) && isset($_REQUEST['menu-item-text_color'][$menu_item_db_id]) && !empty($_REQUEST['menu-item-text_color'][$menu_item_db_id]) ) {
         $text_color_value = $_REQUEST['menu-item-text_color'][$menu_item_db_id];
         update_post_meta( $menu_item_db_id, '_menu_item_text_color', $text_color_value );
     } else {
