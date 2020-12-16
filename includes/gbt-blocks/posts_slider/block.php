@@ -86,8 +86,8 @@ if( !function_exists('gbt_18_mc_render_frontend_posts_slider') ) {
 							<?php endif;  ?>
 
 							<div class="text-wrapper">
-			                	<span class="gbt_18_mc_posts_slider_item_link" href="<?php echo get_post_permalink($post->ID); ?>">
-									<a class="gbt_18_mc_posts_slider_item_link_wrapper">
+			                	<span class="gbt_18_mc_posts_slider_item_link">
+									<a href="<?php echo get_post_permalink($post->ID); ?>" class="gbt_18_mc_posts_slider_item_link_wrapper">
 										<h3 class="gbt_18_mc_posts_slider_item_title"><?php echo $post->post_title; ?></h3>
 										<span class="gbt_18_mc_posts_slider_item_date"><?php echo date('F d, Y', strtotime($post->post_date)); ?></span>
 									</a>

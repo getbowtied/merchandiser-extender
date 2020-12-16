@@ -22,18 +22,24 @@ jQuery(function($) {
 				speed: 600,
 				effect: 'slide',
 				slidesPerView: 2,
+				slidesPerGroup: 2,
 				breakpoints: {
 					0: {
 				      slidesPerView: 1,
+					  slidesPerGroup: 1,
 				  },
 					640: {
 				      slidesPerView: 2,
+					  slidesPerGroup: 2,
 				    }
 				},
 			    // If we need pagination
 			    pagination: {
-			    	el: '.swiper-' + data_id + ' .quickview-pagination',
-			    	clickable: true
+			    	el: '.swiper-' + data_id + ' .swiper-pagination',
+					clickable: true,
+					renderBullet: function (index, className) {
+				        return '<span class="' + className + '">' + (index + 1) + '</span>';
+				    }
 			    },
 			    // Navigation
 			    navigation: {

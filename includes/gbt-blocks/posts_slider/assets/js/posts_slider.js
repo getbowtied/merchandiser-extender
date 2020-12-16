@@ -13,12 +13,15 @@ jQuery(function($) {
 		  	},
 			loop: true,
 			slidesPerView: 2,
+			slidesPerGroup: 2,
 			breakpoints: {
 				0: {
 			    	slidesPerView: 1,
+					slidesPerGroup: 1,
 			  	},
 			  	768: {
 					slidesPerView: 2,
+					slidesPerGroup: 2,
 				}
 			},
 		    pagination: {
