@@ -17,12 +17,14 @@ function merchandiser_extender_slider_shortcode($params = array(), $content = nu
 		'hide_bullets'	=> ''
 	), $params));
 
+	$unique = uniqid();
+	
 	ob_start();
 
 	$height = ( !empty($custom_height) && ( 'no' === $full_height ) ) ? 'style="height:'.$custom_height.';"' : '';
 	?>
 
-	<div class="shortcode_getbowtied_slider swiper-container <?php echo ( !empty($custom_height) && ( 'no' === $full_height ) ) ? '' : 'full_height'; ?>" <?php echo wp_kses_post($height); ?>>
+	<div class="shortcode_getbowtied_slider swiper-container swiper-<?php echo esc_attr($unique); ?> <?php echo ( !empty($custom_height) && ( 'no' === $full_height ) ) ? '' : 'full_height'; ?>" <?php echo wp_kses_post($height); ?> data-id="<?php echo esc_attr($unique); ?>">
 		<div class="swiper-wrapper">
 			<?php echo do_shortcode($content); ?>
 		</div>

@@ -15,10 +15,13 @@ function getbowtied_mc_shortcode_blog_posts($atts, $content = null) {
 		"hide_arrows" 	=>  0,
 		"hide_bullets" 	=>  0
 	), $atts));
+
+	$unique = uniqid();
+
 	ob_start();
 	?>
 
-	<div class="shortcode_getbowtied_blog_posts swiper-container">
+	<div class="shortcode_getbowtied_blog_posts swiper-container swiper-<?php echo esc_attr($unique); ?>" data-id="<?php echo esc_attr($unique); ?>">
 		<div class="swiper-wrapper">
 		<?php
 

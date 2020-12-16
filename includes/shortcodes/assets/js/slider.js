@@ -4,7 +4,9 @@ jQuery(function($) {
 
 	$('.shortcode_getbowtied_slider').each(function(){
 
-		var mySwiper = new Swiper ($(this), {
+		var data_id = $(this).attr('data-id');
+
+		var mySwiper = new Swiper( '.swiper-' + data_id, {
 			// Optional parameters
 		    direction: 'horizontal',
 		    loop: true,
@@ -19,7 +21,7 @@ jQuery(function($) {
 			effect: 'slide',
 		    // If we need pagination
 		    pagination: {
-		    	el: $(this).find('.swiper-pagination'),
+		    	el: '.swiper-' + data_id + ' .swiper-pagination',
 				clickable: true,
 				renderBullet: function (index, className) {
 			        return '<span class="' + className + '">' + (index + 1) + '</span>';
@@ -27,8 +29,8 @@ jQuery(function($) {
 		    },
 		    // Navigation
 		    navigation: {
-			    nextEl: $(this).find('.swiper-button-next'),
-			    prevEl: $(this).find('.swiper-button-prev'),
+			    nextEl: '.swiper-' + data_id + ' .swiper-button-next',
+			    prevEl: '.swiper-' + data_id + ' .swiper-button-prev',
 		  	},
 		})
 

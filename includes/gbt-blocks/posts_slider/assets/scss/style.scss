@@ -111,6 +111,7 @@
 		display: block;
 		position: absolute;
 		right: 165px;
+		left: 165px;
 		bottom: 35px;
 		z-index: 9999;
 		width: auto;
@@ -162,6 +163,10 @@
 
 		svg {
 			fill: var(--global--bg-color);
+		}
+
+		&:after {
+			content: none;
 		}
 	}
 

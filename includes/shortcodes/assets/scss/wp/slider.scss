@@ -69,6 +69,10 @@
 		bottom: 50px;
 		top: auto;
         transition: all .3s;
+
+		&:after {
+			content: none;
+		}
 	}
 
 	.swiper-button-prev {
