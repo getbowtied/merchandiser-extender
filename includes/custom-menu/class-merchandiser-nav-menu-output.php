@@ -209,7 +209,7 @@ class Merchandiser_Nav_Menu_Output extends Walker_Nav_Menu {
         if( $depth === 0 && ( 'slices' === get_theme_mod( 'header_navigation_style', 'slices' ) ) && isset($args->text_color) && !empty($args->text_color) ) {
             $style .= 'color:'.$args->text_color.';';
             if( function_exists('getbowtied_hex2rgb') ) {
-                $style .= 'border-top-color:rgba('.getbowtied_hex2rgb($args->text_color).', 0.05);';
+                $style .= 'border-top-color:rgba('.getbowtied_hex2rgb($args->text_color).', 0.1);';
             }
         }
 
