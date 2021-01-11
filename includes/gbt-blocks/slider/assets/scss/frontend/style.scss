@@ -36,6 +36,10 @@
 
 		.gbt_18_mc_slide_description {
 		    margin: 25px 10% 0 10%;
+
+			@media all and (max-width: 767px) {
+				font-size: 16px !important;
+			}
 		}
 
 		.gbt_18_mc_slide_title {
