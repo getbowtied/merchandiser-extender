@@ -72,7 +72,7 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
             include_once( dirname( __FILE__ ) . '/includes/gbt-blocks/index.php' );
 
             // Merchandiser Dependent Components
-			if( function_exists('getbowtied_theme_version') ) {
+			if( class_exists('Merchandiser') ) {
 
                 // Addons
 				if ( $theme->template == 'merchandiser' && is_plugin_active( 'woocommerce/woocommerce.php') ) {
