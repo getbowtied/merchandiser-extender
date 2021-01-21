@@ -6,11 +6,11 @@ jQuery(function($) {
 		return Math.round(new Date().getTime() + (Math.random() * 100));
 	}
 
-	$('.gbt_18_mc_slider_wrapper .gbt_18_mc_slider_container').each(function(i) {
+	$('.gbt_18_mc_slider_wrapper').each(function(i) {
 		var data_id = mc_generate_slider_unique_ID();
 		$(this).addClass( 'swiper-' + data_id );
 
-		var mySwiper = new Swiper( '.swiper-' + data_id, {
+		var mySwiper = new Swiper( '.swiper-' + data_id + ' .gbt_18_mc_slider_container', {
 		    direction: 'horizontal',
 		    grabCursor: true,
 		    autoplay: {
