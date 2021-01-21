@@ -49,8 +49,7 @@
 			{
 				transition: opacity .2s;
 
-				&:hover
-				{
+				&:hover {
 					opacity: .5;
 				}
 			}
@@ -88,7 +87,7 @@
 			width: 100%;
 			line-height: inherit;
 			text-align: center;
-			margin-bottom: 1.66667rem;
+			margin-bottom: 10px;
 
 			@media only screen and (min-width: 64em) {
 				margin-bottom: 0;
