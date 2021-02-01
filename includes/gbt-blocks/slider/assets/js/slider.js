@@ -1,10 +1,16 @@
 jQuery(function($) {
-	
+
 	"use strict";
 
-	$('.gbt_18_mc_slider_container').each(function(i) {
+	function mc_generate_slider_unique_ID() {
+		return Math.round(new Date().getTime() + (Math.random() * 100));
+	}
 
-		var mySwiper = new Swiper ($(this), {
+	$('.gbt_18_mc_slider_wrapper').each(function(i) {
+		var data_id = mc_generate_slider_unique_ID();
+		$(this).addClass( 'swiper-' + data_id );
+
+		var mySwiper = new Swiper( '.swiper-' + data_id + ' .gbt_18_mc_slider_container', {
 		    direction: 'horizontal',
 		    grabCursor: true,
 		    autoplay: {
@@ -13,13 +19,16 @@ jQuery(function($) {
 			loop: true,
 		    speed: 600,
 			effect: 'slide',
-		    pagination: { 
-		    	el: $('.gbt_18_mc_slider_pagination')[i],
-		    	clickable: true 
+		    pagination: {
+		    	el: '.swiper-' + data_id + ' .gbt_18_mc_slider_pagination',
+		    	clickable: true,
+				renderBullet: function (index, className) {
+			        return '<span class="' + className + '">' + (index + 1) + '</span>';
+			    }
 		    },
 		    navigation: {
-			    nextEl: $('.gbt_18_mc_slider_button_next')[i],
-			    prevEl: $('.gbt_18_mc_slider_button_prev')[i],
+			    nextEl: '.swiper-' + data_id + ' .gbt_18_mc_slider_button_next',
+			    prevEl: '.swiper-' + data_id + ' .gbt_18_mc_slider_button_prev',
 		  	},
 		});
 	});

@@ -345,7 +345,7 @@ if ( ! class_exists( 'MCSocialMedia' ) ) :
 			// Fields
 			$wp_customize->add_setting( 'mc_social_media_repeater', array(
 				'type'		 		=> 'option',
-				'sanitize_callback' => 'mc_sanitize_repeater',
+				'sanitize_callback' => 'MC_Ext_Customizer_Repeater_Control::sanitize_repeater',
 				'capability' 		=> 'manage_options',
 				'transport'  		=> 'refresh',
 				'default' 			=> json_encode( array() ),

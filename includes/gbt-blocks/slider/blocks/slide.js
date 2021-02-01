@@ -173,7 +173,6 @@
 								},
 							},
 						),
-						el( 'hr', {} ),
 						el(
 							ToggleControl,
 							{

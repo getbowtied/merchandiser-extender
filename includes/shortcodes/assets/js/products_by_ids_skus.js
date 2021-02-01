@@ -1,7 +1,7 @@
-jQuery(document).ready(function($) {
+jQuery( function($) {
 
 	"use strict";
-	
+
 	$('.vc_custom_select_custom li').on('click', function() {
 		if( $(this).hasClass('selected') ) {
 			return true;
@@ -30,7 +30,7 @@ jQuery(document).ready(function($) {
 		for (var i = 0; i < vals.length; i++) {
 			if( vals[i] != el.attr('data-val') ) {
 				if(newVals != '') {
-					newVals += ','; 
+					newVals += ',';
 				}
 				newVals += vals[i];
 			}
@@ -68,5 +68,5 @@ jQuery(document).ready(function($) {
 		$('.vc_custom_select_custom_vals').addClass('active');
 		e.stopPropagation();
 	});
-	
+
 })

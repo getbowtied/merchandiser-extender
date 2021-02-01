@@ -4,11 +4,12 @@
  * Plugin Name:       		Merchandiser Extender
  * Plugin URI:        		https://merchandiser.wp-theme.design/
  * Description:       		Extends the functionality of the Merchandiser theme by adding theme specific features.
- * Version:           		1.4.1
+ * Version:           		2.0
  * Author:            		GetBowtied
  * Author URI:        		https://getbowtied.com
  * Requires at least: 		5.0
- * Tested up to: 			5.5.1
+ * Tested up to: 			5.6
+ * Requires PHP:            5.6
  *
  * @package  Merchandiser Extender
  * @author   GetBowtied
@@ -56,9 +57,6 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 			$theme = wp_get_theme();
 			$parent_theme = $theme->parent();
 
-			// Helpers
-			include_once( dirname( __FILE__ ) . '/includes/helpers/helpers.php' );
-
 			// Vendor
 			include_once( dirname( __FILE__ ) . '/includes/vendor/enqueue.php' );
 
@@ -75,12 +73,16 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
             include_once( dirname( __FILE__ ) . '/includes/gbt-blocks/index.php' );
 
             // Merchandiser Dependent Components
-			if( function_exists('getbowtied_theme_version') ) {
+			if( class_exists('Merchandiser') ) {
 
                 // Addons
 				if ( $theme->template == 'merchandiser' && is_plugin_active( 'woocommerce/woocommerce.php') ) {
 					include_once( dirname( __FILE__ ) . '/includes/addons/class-wc-category-header-image.php' );
 				}
+
+                // Custom Menu Section
+				include_once( dirname( __FILE__ ) . '/includes/custom-menu/class-merchandiser-nav-menu.php' );
+                include_once( dirname( __FILE__ ) . '/includes/custom-menu/class-merchandiser-nav-menu-output.php' );
 
 				// Custom Code Section
 				include_once( dirname( __FILE__ ) . '/includes/custom-code/class-custom-code.php' );
