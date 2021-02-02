@@ -3,7 +3,7 @@ Contributors: getbowtied, vanesareinerth, adrianlbs
 Tags: gutenberg, blocks
 Requires at least: 5.0
 Tested up to: 5.6
-Stable tag: 2.0
+Stable tag: 2.0.1
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -42,6 +42,9 @@ Companion plugin for the **Merchandiser** theme. Extends the functionality by ad
 - Drop Social Media and Posts Grid custom blocks in favor of the native ones
 - Updated Swiper library to its latest version
 - Various maintenance tasks, small styling fixes and improvements were made for consistency
+
+= 2.0.1 =
+- Improved banner shortcode styles
 
 = 1.4.1 =
 - WPBakery Page Builder 6.4.0 compatibility updates
