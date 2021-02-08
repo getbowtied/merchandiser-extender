@@ -10,12 +10,20 @@ function merchandiser_extender_sale_products($atts, $content = null) {
         'order' => 'desc',
 	), $atts ) );
 
+	ob_start();
+
 	if ( isset($widget_title) && !empty($widget_title) ) {
 		?>
 		<h3 class="wb-products-title"><?php echo wp_kses_post( $widget_title ); ?></h3>
 		<?php
 	}
 
-	return do_shortcode('[sale_products per_page="'.$per_page.'" columns="'.$columns.'" orderby="'.$orderby.'" order="'.$order.'"]');
+	echo do_shortcode('[sale_products per_page="'.$per_page.'" columns="'.$columns.'" orderby="'.$orderby.'" order="'.$order.'"]');
+
+	wp_reset_postdata();
+	$content = ob_get_contents();
+	ob_end_clean();
+
+	return $content;
 }
 add_shortcode( 'sale_products_mixed', 'merchandiser_extender_sale_products' );

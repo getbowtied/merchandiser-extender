@@ -10,12 +10,20 @@ function merchandiser_extender_products_by_ids($atts, $content = null) {
 		'ids' 			=> '',
 	), $atts ) );
 
+	ob_start();
+
 	if ( isset($widget_title) && !empty($widget_title) ) {
 		?>
 		<h3 class="wb-products-title"><?php echo wp_kses_post( $widget_title ); ?></h3>
 		<?php
 	}
 
-	return do_shortcode('[products columns="'.$columns.'" orderby="'.$orderby.'" order="'.$order.'" ids="'.$ids.'"]');
+	echo do_shortcode('[products columns="'.$columns.'" orderby="'.$orderby.'" order="'.$order.'" ids="'.$ids.'"]');
+
+	wp_reset_postdata();
+	$content = ob_get_contents();
+	ob_end_clean();
+
+	return $content;
 }
 add_shortcode( 'products_mixed', 'merchandiser_extender_products_by_ids' );
