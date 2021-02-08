@@ -17,8 +17,6 @@ function merchandiser_extender_products_by_category($atts, $content = null) {
 		<?php
 	}
 
-	echo do_shortcode('[product_category category="'.$category.'" per_page="'.$per_page.'" columns="'.$columns.'" orderby="'.$orderby.'" order="'.$order.'"]');
-
-	return;
+	return do_shortcode('[product_category category="'.$category.'" per_page="'.$per_page.'" columns="'.$columns.'" orderby="'.$orderby.'" order="'.$order.'"]');
 }
 add_shortcode( 'product_category_mixed', 'merchandiser_extender_products_by_category' );

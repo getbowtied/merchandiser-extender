@@ -16,8 +16,6 @@ function merchandiser_extender_recent_products($atts, $content = null) {
 		<?php
 	}
 
-	echo do_shortcode('[recent_products per_page="'.$per_page.'" columns="'.$columns.'" orderby="'.$orderby.'" order="'.$order.'"]');
-
-	return;
+	return do_shortcode('[recent_products per_page="'.$per_page.'" columns="'.$columns.'" orderby="'.$orderby.'" order="'.$order.'"]');
 }
 add_shortcode( 'recent_products_mixed', 'merchandiser_extender_recent_products' );

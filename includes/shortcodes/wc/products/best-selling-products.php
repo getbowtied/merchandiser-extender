@@ -14,8 +14,6 @@ function merchandiser_extender_best_selling_products($atts, $content = null) {
 		<?php
 	}
 
-	echo do_shortcode( '[best_selling_products per_page="'.$per_page.'" columns="'.$columns.'"]' );
-
-	return;
+	return do_shortcode( '[best_selling_products per_page="'.$per_page.'" columns="'.$columns.'"]' );
 }
 add_shortcode( 'best_selling_products_mixed', 'merchandiser_extender_best_selling_products' );

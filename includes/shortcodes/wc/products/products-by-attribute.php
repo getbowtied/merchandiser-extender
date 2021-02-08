@@ -18,8 +18,6 @@ function merchandiser_extender_products_by_attribute($atts, $content = null) {
 		<?php
 	}
 
-	echo do_shortcode('[product_attribute attribute="'.$attribute.'" filter="'.$filter.'" per_page="'.$per_page.'" columns="'.$columns.'" orderby="'.$orderby.'" order="'.$order.'"]');
-
-	return;
+	return do_shortcode('[product_attribute attribute="'.$attribute.'" filter="'.$filter.'" per_page="'.$per_page.'" columns="'.$columns.'" orderby="'.$orderby.'" order="'.$order.'"]');
 }
 add_shortcode( 'product_attribute_mixed', 'merchandiser_extender_products_by_attribute' );
