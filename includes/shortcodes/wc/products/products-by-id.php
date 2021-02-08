@@ -16,8 +16,6 @@ function merchandiser_extender_products_by_ids($atts, $content = null) {
 		<?php
 	}
 
-	echo do_shortcode('[products columns="'.$columns.'" orderby="'.$orderby.'" order="'.$order.'" ids="'.$ids.'"]');
-
-	return;
+	return do_shortcode('[products columns="'.$columns.'" orderby="'.$orderby.'" order="'.$order.'" ids="'.$ids.'"]');
 }
 add_shortcode( 'products_mixed', 'merchandiser_extender_products_by_ids' );

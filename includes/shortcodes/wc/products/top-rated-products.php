@@ -16,8 +16,6 @@ function merchandiser_extender_top_rated_products($atts, $content = null) {
 		<?php
 	}
 
-	echo do_shortcode('[top_rated_products per_page="'.$per_page.'" columns="'.$columns.'" orderby="'.$orderby.'" order="'.$order.'"]');
-
-	return;
+	return do_shortcode('[top_rated_products per_page="'.$per_page.'" columns="'.$columns.'" orderby="'.$orderby.'" order="'.$order.'"]');
 }
 add_shortcode( 'top_rated_products_mixed', 'merchandiser_extender_top_rated_products' );
