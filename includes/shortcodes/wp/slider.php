@@ -18,7 +18,7 @@ function merchandiser_extender_slider_shortcode($params = array(), $content = nu
 	), $params));
 
 	$unique = uniqid();
-	
+
 	ob_start();
 
 	$height = ( !empty($custom_height) && ( 'no' === $full_height ) ) ? 'style="height:'.$custom_height.';"' : '';
@@ -89,7 +89,7 @@ function merchandiser_extender_slide_shortcode($params = array(), $content = nul
 	}
 	?>
 
-	<div class="swiper-slide <?php echo esc_attr($text_align); ?>-align" style="background: <?php echo $bg_color; ?>; url( <?php echo $bg_image; ?> ); color:<?php echo esc_attr($text_color); ?>">
+	<div class="swiper-slide <?php echo esc_attr($text_align); ?>-align" style="background-color: <?php echo $bg_color; ?>; background-image: url(' <?php echo $bg_image; ?> '); color:<?php echo esc_attr($text_color); ?>">
 
 		<?php if( !empty($button_url) && $link_whole_slide ) { ?>
 			<a class="fullslidelink" href="<?php echo esc_url($button_url); ?>"></a>
