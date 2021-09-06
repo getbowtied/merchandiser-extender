@@ -38,6 +38,7 @@ Companion plugin for the **Merchandiser** theme. Extends the functionality by ad
 
 = 2.0.4 =
 - WordPress 5.8 compatibility updates
+- Swiper updated to version 7.0.3
 
 = 2.0.3 =
 - Small maintenance updates
