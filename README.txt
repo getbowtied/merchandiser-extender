@@ -2,8 +2,8 @@
 Contributors: getbowtied, vanesareinerth, adrianlbs
 Tags: gutenberg, blocks
 Requires at least: 5.0
-Tested up to: 5.6
-Stable tag: 2.0.3
+Tested up to: 5.8
+Stable tag: 2.0.4
 Requires PHP: 5.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -35,6 +35,10 @@ Companion plugin for the **Merchandiser** theme. Extends the functionality by ad
 - Social Media Profiles
 
 == Changelog ==
+
+= 2.0.4 =
+- WordPress 5.8 compatibility updates
+- Swiper updated to version 7.0.3
 
 = 2.0.3 =
 - Small maintenance updates

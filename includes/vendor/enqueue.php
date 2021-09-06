@@ -10,12 +10,12 @@ if ( $theme->template != 'merchandiser') {
 			'swiper',
 			plugins_url( 'swiper/css/swiper.min.css', __FILE__ ),
 			array(),
-			'6.4.1'
+			'7.0.3'
 		);
 		wp_register_script(
 			'swiper',
 			plugins_url( 'swiper/js/swiper-bundle.min.js', __FILE__ ),
-			'6.4.1',
+			'7.0.3',
 			true
 		);
 	}
