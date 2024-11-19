@@ -99,12 +99,6 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
             add_action( 'footer_socials', function() {
                 echo '<div class="footer-socials">' . do_shortcode('[socials]') . '</div>';
             } );
-
-			// Admin
-
-			if ( is_admin() ) {
-				//include_once( dirname( __FILE__ ) . '/dashboard/setup.php' );
-			}
 		}
 
 		/**
