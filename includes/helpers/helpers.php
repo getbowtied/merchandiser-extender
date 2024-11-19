@@ -19,20 +19,22 @@ function merchandiser_extender_admin_notices() {
          
          <div class="merchandiser_ext_notice__content">
 
-            <h3 class="title">Merchandiser (Your active theme) needs your attention.</h3>
+            <h3 class="title">⚠️ ACTION REQUIRED: Your Theme License Cannot Be Detected!</h3>
 
-            <h4>h4</h4>
+            <h4>Your active theme (Merchandiser) requires a valid license to function properly.</h4>
 
             <p>
-               text <em class="u_dotted">italic</em>.
-               <br />
-               text
+                We've detected that your Merchandiser theme <em class="u_dotted">does not have a valid license</em>.
+                <br />
+                A valid license is required to receive theme updates, access support, and unlock all features.
             </p>
 
+            <br />
+
             <p>
-               <a href="https://getbowtied.net/spk-ext-wp-notice-check-license-status" target="_blank" class="button button-primary button-large">Button 1</a>
-               &nbsp;
-               <a href="https://getbowtied.net/spk-ext-wp-notice-get-another-license" target="_blank" class="button button-large">Button 2</a>
+                <a href="https://getbowtied.net/spk-ext-wp-notice-check-license-status" target="_blank" class="button button-primary button-large">Activate License</a>
+                &nbsp;
+                <a href="https://getbowtied.net/spk-ext-wp-notice-get-another-license" target="_blank" class="button button-large">Purchase License</a>
             </p>
 
          </div>
