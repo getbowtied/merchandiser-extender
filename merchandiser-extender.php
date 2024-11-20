@@ -57,26 +57,26 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 			$theme = wp_get_theme();
 			$parent_theme = $theme->parent();
 
-			// Helpers
-			include_once( dirname( __FILE__ ) . '/includes/helpers/helpers.php' );
-
-			// Vendor
-			include_once( dirname( __FILE__ ) . '/includes/vendor/enqueue.php' );
-
-            // Shortcodes
-            include_once( dirname( __FILE__ ) . '/includes/shortcodes/index.php' );
-
-            // Customizer
-            include_once( dirname( __FILE__ ) . '/includes/customizer/repeater/class-mc-ext-repeater-control.php' );
-
-            // Social Media
-            include_once( dirname( __FILE__ ) . '/includes/social-media/class-social-media.php' );
-
-            // Gutenberg Blocks
-            include_once( dirname( __FILE__ ) . '/includes/gbt-blocks/index.php' );
-
             // Merchandiser Dependent Components
 			if( class_exists('Merchandiser') ) {
+
+				// Helpers
+				//include_once( dirname( __FILE__ ) . '/includes/helpers/helpers.php' );
+
+				// Vendor
+				include_once( dirname( __FILE__ ) . '/includes/vendor/enqueue.php' );
+
+				// Shortcodes
+				include_once( dirname( __FILE__ ) . '/includes/shortcodes/index.php' );
+
+				// Customizer
+				include_once( dirname( __FILE__ ) . '/includes/customizer/repeater/class-mc-ext-repeater-control.php' );
+
+				// Social Media
+				include_once( dirname( __FILE__ ) . '/includes/social-media/class-social-media.php' );
+
+				// Gutenberg Blocks
+				include_once( dirname( __FILE__ ) . '/includes/gbt-blocks/index.php' );
 
                 // Addons
 				if ( $theme->template == 'merchandiser' && is_plugin_active( 'woocommerce/woocommerce.php') ) {
@@ -93,6 +93,10 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 				// Social Sharing Buttons
 				if ( is_plugin_active( 'woocommerce/woocommerce.php') ) {
 					include_once( dirname( __FILE__ ) . '/includes/social-sharing/class-social-sharing.php' );
+				}
+
+				if ( is_admin() ) {
+					include_once( dirname( __FILE__ ) . '/dashboard/index.php' );
 				}
             }
 
