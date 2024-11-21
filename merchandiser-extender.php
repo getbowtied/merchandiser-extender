@@ -46,7 +46,7 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 		 *
 		 * @var MerchandiserExtender
 		*/
-		protected static $_instance = null;
+		private static $instance = null;
 
 		/**
 		 * MerchandiserExtender constructor.
@@ -57,7 +57,10 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 			$theme = wp_get_theme();
 			$parent_theme = $theme->parent();
 
-            // Merchandiser Dependent Components
+			// Define theme slug at the class level
+			$this->theme_slug = 'merchandiser';
+
+			// Merchandiser Dependent Components
 			if( class_exists('Merchandiser') ) {
 
 				// Helpers
@@ -95,14 +98,20 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 					include_once( dirname( __FILE__ ) . '/includes/social-sharing/class-social-sharing.php' );
 				}
 
-				if ( is_admin() ) {
-					include_once( dirname( __FILE__ ) . '/dashboard/index.php' );
-				}
+				add_action( 'footer_socials', function() {
+					echo '<div class="footer-socials">' . do_shortcode('[socials]') . '</div>';
+				} );
+
             }
 
-            add_action( 'footer_socials', function() {
-                echo '<div class="footer-socials">' . do_shortcode('[socials]') . '</div>';
-            } );
+			if ( is_admin() ) {
+				global $gbt_dashboard_params;
+				$gbt_dashboard_params = array(
+					'gbt_theme_slug' => $this->theme_slug,
+				);
+				include_once( dirname( __FILE__ ) . '/dashboard/index.php' );
+			}
+            
 		}
 
 		/**
@@ -110,12 +119,12 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 		 *
 		 * @return MerchandiserExtender
 		*/
-		public static function instance() {
-			if ( is_null( self::$_instance ) ) {
-				self::$_instance = new self();
-			}
-			return self::$_instance;
-		}
+		public static function get_instance() {
+            if (self::$instance === null) {
+                self::$instance = new self();
+            }
+            return self::$instance;
+        }
 	}
 endif;
 
