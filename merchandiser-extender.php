@@ -47,17 +47,24 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 		 * @var MerchandiserExtender
 		*/
 		private static $instance = null;
+		private static $initialized = false;
 
 		/**
 		 * MerchandiserExtender constructor.
 		 *
 		*/
-		public function __construct() {
+		private function __construct() {
+			// Empty constructor - initialization happens in init_instance
+		}
+
+		private function init_instance() {
+			if (self::$initialized) {
+				return;
+			}
 
 			$theme = wp_get_theme();
 			$parent_theme = $theme->parent();
 
-			// Define theme slug at the class level
 			$this->theme_slug = 'merchandiser';
 
 			// Merchandiser Dependent Components
@@ -111,7 +118,8 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 				);
 				include_once( dirname( __FILE__ ) . '/dashboard/index.php' );
 			}
-            
+
+			self::$initialized = true;
 		}
 
 		/**
@@ -120,14 +128,26 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 		 * @return MerchandiserExtender
 		*/
 		public static function get_instance() {
-            if (self::$instance === null) {
-                self::$instance = new self();
-            }
-            return self::$instance;
-        }
+			return self::init();
+		}
+
+		public static function init() {
+			if (self::$instance === null) {
+				self::$instance = new self();
+				self::$instance->init_instance();
+			}
+			return self::$instance;
+		}
+
+		private function __clone() {}
+		
+		public function __wakeup() {
+			throw new Exception("Cannot unserialize singleton");
+		}
 	}
+	
 endif;
 
 add_action( 'after_setup_theme', function() {
-    $merchandiser_extender = new MerchandiserExtender;
+    MerchandiserExtender::init();
 } );
