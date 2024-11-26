@@ -3,7 +3,7 @@ Contributors: getbowtied
 Tags: gutenberg, blocks
 Requires at least: 5.0
 Tested up to: 6.6
-Stable tag: 2.2
+Stable tag: 2.3
 Requires PHP: 7.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -35,6 +35,10 @@ Companion plugin for the **Merchandiser** theme. Extends the functionality by ad
 - Social Media Profiles
 
 == Changelog ==
+
+= 2.3 =
+- WordPress 6.7.1 compatibility updates
+- WooCommerce 9.4.2 compatibility updates
 
 = 2.2 =
 - WordPress 6.6 compatibility updates

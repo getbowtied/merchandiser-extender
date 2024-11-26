@@ -4,11 +4,11 @@
  * Plugin Name:       		Merchandiser Extender
  * Plugin URI:        		https://merchandiser.wp-theme.design/
  * Description:       		Extends the functionality of the Merchandiser theme by adding theme specific features.
- * Version:           		2.2
+ * Version:           		2.3
  * Author:            		Get Bowtied
  * Author URI:        		https://getbowtied.com
- * Requires at least: 		5.0
- * Tested up to: 			6.6
+ * Requires at least: 		6.0
+ * Tested up to: 			6.7
  * Requires PHP:            7.4.1
  *
  * @package  Merchandiser Extender
@@ -19,10 +19,6 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 } // Exit if accessed directly
 
-if ( ! function_exists( 'is_plugin_active' ) ) {
-    require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-}
-
 // Plugin Updater
 require 'core/updater/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
@@ -30,9 +26,6 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	__FILE__,
 	'merchandiser-extender'
 );
-
-$version = ( isset(get_plugin_data( __FILE__ )['Version']) && !empty(get_plugin_data( __FILE__ )['Version']) ) ? get_plugin_data( __FILE__ )['Version'] : '1.0';
-define ( 'MC_EXT_VERSION', $version );
 
 if ( ! class_exists( 'MerchandiserExtender' ) ) :
 
@@ -48,6 +41,7 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 		*/
 		private static $instance = null;
 		private static $initialized = false;
+		private $theme_slug;
 
 		/**
 		 * MerchandiserExtender constructor.
@@ -61,6 +55,13 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 			if (self::$initialized) {
 				return;
 			}
+
+			if ( ! function_exists( 'is_plugin_active' ) ) {
+				require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+			}
+			
+			$version = ( isset(get_plugin_data( __FILE__ )['Version']) && !empty(get_plugin_data( __FILE__ )['Version']) ) ? get_plugin_data( __FILE__ )['Version'] : '1.0';
+			define ( 'MC_EXT_VERSION', $version );
 
 			$theme = wp_get_theme();
 			$parent_theme = $theme->parent();
@@ -145,7 +146,7 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 			throw new Exception("Cannot unserialize singleton");
 		}
 	}
-	
+
 endif;
 
 add_action( 'after_setup_theme', function() {
