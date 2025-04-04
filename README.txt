@@ -36,7 +36,7 @@ Companion plugin for the **Merchandiser** theme. Extends the functionality by ad
 
 == Changelog ==
 
-= 2.8 =
+= 2.9 =
 - Various maintenance tasks, small styling fixes and improvements were made for consistency
 
 = 2.7 =
