@@ -3,7 +3,7 @@ Contributors: getbowtied
 Tags: gutenberg, blocks
 Requires at least: 5.0
 Tested up to: 6.7
-Stable tag: 2.8
+Stable tag: 3.0
 Requires PHP: 7.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -36,7 +36,7 @@ Companion plugin for the **Merchandiser** theme. Extends the functionality by ad
 
 == Changelog ==
 
-= 2.9 =
+= 3.0 =
 - Various maintenance tasks, small styling fixes and improvements were made for consistency
 
 = 2.7 =
