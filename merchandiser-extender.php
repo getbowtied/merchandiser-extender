@@ -4,11 +4,11 @@
  * Plugin Name:       		Merchandiser Extender
  * Plugin URI:        		https://merchandiser.getbowtied.com
  * Description:       		Extends the functionality of the Merchandiser theme by adding theme specific features.
- * Version:           		4.0.1
+ * Version:           		4.1
  * Author:            		Get Bowtied
  * Author URI:        		https://getbowtied.com
  * Requires at least: 		6.0
- * Tested up to: 			6.8
+ * Tested up to: 			6.9
  * Requires PHP:            7.4.1
  *
  * @package  Merchandiser Extender
