@@ -8,7 +8,7 @@
  * Author:            		Get Bowtied
  * Author URI:        		https://getbowtied.com
  * Requires at least: 		6.0
- * Tested up to: 			6.9
+ * Tested up to: 			7.1
  * Requires PHP:            7.4.1
  *
  * @package  Merchandiser Extender
