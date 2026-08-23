@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-require 'dashboard/inc/puc/plugin-update-checker.php';
+require 'includes/puc/plugin-update-checker.php';
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 $plugin_update_checker = PucFactory::buildUpdateChecker(
 	'https://raw.githubusercontent.com/getbowtied/merchandiser-extender/master/core/updater/assets/plugin.json',
@@ -41,7 +41,6 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 		*/
 		private static $instance = null;
 		private static $initialized = false;
-		private $theme_slug;
 
 		/**
 		 * MerchandiserExtender constructor.
@@ -64,9 +63,6 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 			define ( 'MC_EXT_VERSION', $version );
 
 			$theme = wp_get_theme();
-			$parent_theme = $theme->parent();
-
-			$this->theme_slug = 'merchandiser';
 
 			// Merchandiser Dependent Components
 			if( class_exists('Merchandiser') ) {
@@ -111,14 +107,6 @@ if ( ! class_exists( 'MerchandiserExtender' ) ) :
 				} );
 
             }
-
-			if ( is_admin() || ( defined('WP_CLI') && WP_CLI ) ) {
-				global $gbt_dashboard_params;
-				$gbt_dashboard_params = array(
-					'gbt_theme_slug' => $this->theme_slug,
-				);
-				include_once( dirname( __FILE__ ) . '/dashboard/index.php' );
-			}
 
 			self::$initialized = true;
 		}
