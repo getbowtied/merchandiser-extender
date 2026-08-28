@@ -70,6 +70,7 @@ if ( ! class_exists( 'GBT_Extender_Theme_Updater' ) ) {
 			add_filter( 'site_transient_update_themes', array( __CLASS__, 'inject_update' ), 9999 );
 
 			if ( is_admin() ) {
+				add_action( 'admin_notices', array( __CLASS__, 'suppress_legacy_update_notices' ), 0 );
 				add_action( 'admin_notices', array( __CLASS__, 'render_admin_notice' ) );
 				add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue_notice_assets' ) );
 				add_action( 'wp_ajax_' . self::NOTIFICATION_AJAX_ACTION, array( __CLASS__, 'ajax_dismiss_notice' ) );
@@ -116,9 +117,17 @@ if ( ! class_exists( 'GBT_Extender_Theme_Updater' ) ) {
 				return $transient;
 			}
 
-			// Theme / Freemius / another handler already owns this update.
+			// Leave real packages alone (Freemius / another handler).
+			// Replace legacy dashboard blocked:// entries so the free zip can install.
 			if ( isset( $transient->response[ $slug ] ) ) {
-				return $transient;
+				$existing = $transient->response[ $slug ];
+				$package  = ( is_array( $existing ) && isset( $existing['package'] ) )
+					? (string) $existing['package']
+					: '';
+
+				if ( ! self::is_blocked_package( $package ) ) {
+					return $transient;
+				}
 			}
 
 			$update = self::build_update( $slug );
@@ -134,6 +143,46 @@ if ( ! class_exists( 'GBT_Extender_Theme_Updater' ) ) {
 			$transient->response[ $slug ] = $update;
 
 			return $transient;
+		}
+
+		/**
+		 * Older dashboards (GBT_Theme_Updates) show a license/support-restricted notice.
+		 * When this fallback owns updates, remove that notice so only the plugin notice remains.
+		 */
+		public static function suppress_legacy_update_notices(): void {
+			if ( self::theme_has_builtin_updater() ) {
+				return;
+			}
+
+			if ( ! class_exists( 'GBT_Theme_Updates', false ) ) {
+				return;
+			}
+
+			global $wp_filter;
+
+			if ( empty( $wp_filter['admin_notices'] ) || ! ( $wp_filter['admin_notices'] instanceof WP_Hook ) ) {
+				return;
+			}
+
+			foreach ( $wp_filter['admin_notices']->callbacks as $priority => $callbacks ) {
+				foreach ( $callbacks as $callback ) {
+					$fn = $callback['function'];
+
+					if (
+						is_array( $fn )
+						&& isset( $fn[0], $fn[1] )
+						&& is_object( $fn[0] )
+						&& $fn[0] instanceof GBT_Theme_Updates
+						&& 'show_update_notice' === $fn[1]
+					) {
+						remove_action( 'admin_notices', $fn, (int) $priority );
+					}
+				}
+			}
+		}
+
+		private static function is_blocked_package( string $package ): bool {
+			return strpos( $package, 'blocked://' ) === 0;
 		}
 
 		public static function render_admin_notice(): void {
